@@ -44,7 +44,6 @@ describe('SDK Unit Tests With Callbacks:', function (done) {
     var fs = require('fs');
     var privateKeyFile = fs.readFileSync(path.resolve(__dirname, privateKeyFilename));
     apiClient.requestJWTUserToken(integratorKey, userId, scopes, privateKeyFile, expiresIn, function (err, res) {
-      var baseUri;
       if (err) {
         return done(err);
       }
@@ -55,7 +54,6 @@ describe('SDK Unit Tests With Callbacks:', function (done) {
           return done(err);
         }
         accountId = userInfo.accounts[0].accountId;
-        baseUri = userInfo.accounts[0].baseUri;
         // apiClient.setBasePath(accountDomain[0] + '/restapi');
         console.log('LoginInformation: ' + JSON.stringify(userInfo));
         return done();

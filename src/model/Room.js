@@ -12,18 +12,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/NullableFieldData'], factory);
+    define(['ApiClient', 'model/FieldData'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./NullableFieldData'));
+    module.exports = factory(require('../ApiClient'), require('./FieldData'));
   } else {
     // Browser globals (root is window)
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.Room = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.NullableFieldData);
+    root.DocusignRooms.Room = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.FieldData);
   }
-}(this, function(ApiClient, NullableFieldData) {
+}(this, function(ApiClient, FieldData) {
   'use strict';
 
 
@@ -88,7 +88,7 @@
         obj['closedStatusId'] = ApiClient.convertToType(data['closedStatusId'], 'String');
       }
       if (data.hasOwnProperty('fieldData')) {
-        obj['fieldData'] = NullableFieldData.constructFromObject(data['fieldData']);
+        obj['fieldData'] = FieldData.constructFromObject(data['fieldData']);
       }
     }
     return obj;
@@ -139,7 +139,7 @@
    */
   exports.prototype['closedStatusId'] = undefined;
   /**
-   * @member {module:model/NullableFieldData} fieldData
+   * @member {module:model/FieldData} fieldData
    */
   exports.prototype['fieldData'] = undefined;
 

@@ -63,8 +63,8 @@
      * Returns all task list templates for the company of the active user.
      * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.startPosition 
-     * @param {Number} optsOrCallback.count 
+     * @param {Number} optsOrCallback.startPosition  (default to 0)
+     * @param {Number} optsOrCallback.count  (default to 100)
      * @param {module:api/TaskListTemplatesApi~getTaskListTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TaskListTemplateList}
      */
@@ -104,7 +104,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = TaskListTemplateList;
 
       return this.apiClient.callApi(

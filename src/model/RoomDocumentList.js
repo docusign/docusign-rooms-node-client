@@ -69,6 +69,9 @@
       if (data.hasOwnProperty('priorUri')) {
         obj['priorUri'] = ApiClient.convertToType(data['priorUri'], 'String');
       }
+      if (data.hasOwnProperty('totalRowCount')) {
+        obj['totalRowCount'] = ApiClient.convertToType(data['totalRowCount'], 'Number');
+      }
       if (data.hasOwnProperty('documents')) {
         obj['documents'] = ApiClient.convertToType(data['documents'], [RoomDocument]);
       }
@@ -96,6 +99,10 @@
    * @member {String} priorUri
    */
   exports.prototype['priorUri'] = undefined;
+  /**
+   * @member {Number} totalRowCount
+   */
+  exports.prototype['totalRowCount'] = undefined;
   /**
    * @member {Array.<module:model/RoomDocument>} documents
    */

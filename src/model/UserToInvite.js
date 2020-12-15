@@ -12,18 +12,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/AccessLevel'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./AccessLevel'));
   } else {
     // Browser globals (root is window)
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.UserToInvite = factory(root.DocusignRooms.ApiClient);
+    root.DocusignRooms.UserToInvite = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.AccessLevel);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, AccessLevel) {
   'use strict';
 
 
@@ -40,7 +40,7 @@
    * @param lastName {String} 
    * @param email {String} 
    * @param roleId {Number} 
-   * @param accessLevel {module:model/UserToInvite.AccessLevelEnum} 
+   * @param accessLevel {module:model/AccessLevel} 
    * @param defaultOfficeId {Number} 
    * @param eSignPermissionProfileId {String} 
    */
@@ -74,7 +74,7 @@
         obj['roleId'] = ApiClient.convertToType(data['roleId'], 'Number');
       }
       if (data.hasOwnProperty('accessLevel')) {
-        obj['accessLevel'] = ApiClient.convertToType(data['accessLevel'], 'String');
+        obj['accessLevel'] = AccessLevel.constructFromObject(data['accessLevel']);
       }
       if (data.hasOwnProperty('defaultOfficeId')) {
         obj['defaultOfficeId'] = ApiClient.convertToType(data['defaultOfficeId'], 'Number');
@@ -112,7 +112,7 @@
    */
   exports.prototype['roleId'] = undefined;
   /**
-   * @member {module:model/UserToInvite.AccessLevelEnum} accessLevel
+   * @member {module:model/AccessLevel} accessLevel
    */
   exports.prototype['accessLevel'] = undefined;
   /**
@@ -136,43 +136,6 @@
    */
   exports.prototype['redirectUrl'] = undefined;
 
-
-  /**
-   * Allowed values for the <code>accessLevel</code> property.
-   * @enum {String}
-   * @readonly
-   */
-  exports.AccessLevelEnum = {
-    /**
-     * value: "Contributor"
-     * @const
-     */
-    contributor: "Contributor",
-
-    /**
-     * value: "Office"
-     * @const
-     */
-    office: "Office",
-
-    /**
-     * value: "Region"
-     * @const
-     */
-    region: "Region",
-
-    /**
-     * value: "Company"
-     * @const
-     */
-    company: "Company",
-
-    /**
-     * value: "Admin"
-     * @const
-     */
-    admin: "Admin"
-  };
 
 
   return exports;

@@ -60,29 +60,32 @@
      */
 
     /**
-     * Add a document to a room.
-     * @param {Number} roomId 
-     * @param {module:model/Document} document 
+     * Add a document to a 
      * @param {String} accountId 
+     * @param {Number} roomId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/Document} optsOrCallback.body 
      * @param {module:api/RoomsApi~addDocumentToRoomCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomDocument}
      */
-    this.addDocumentToRoom = function(document, roomId, accountId, callback) {
-      var postBody = document;
+    this.addDocumentToRoom = function(accountId, roomId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'roomId' is set
-      if (roomId === undefined || roomId === null) {
-        throw new Error("Missing the required parameter 'roomId' when calling addDocumentToRoom");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'document' is set
-      if (document === undefined || document === null) {
-        throw new Error("Missing the required parameter 'document' when calling addDocumentToRoom");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling addDocumentToRoom");
+      }
+
+      // verify the required parameter 'roomId' is set
+      if (roomId === undefined || roomId === null) {
+        throw new Error("Missing the required parameter 'roomId' when calling addDocumentToRoom");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -104,8 +107,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomDocument;
 
       return this.apiClient.callApi(
@@ -127,11 +130,19 @@
      * Add a document to a room via file contents upload.
      * @param {String} accountId 
      * @param {Number} roomId 
-     * @param {Object} file 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {Object} optsOrCallback.file 
      * @param {module:api/RoomsApi~addDocumentToRoomViaFileUploadCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomDocument}
      */
-    this.addDocumentToRoomViaFileUpload = function(accountId, roomId, file, callback) {
+    this.addDocumentToRoomViaFileUpload = function(accountId, roomId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
+
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
+      }
+
       var postBody = null;
 
       // verify the required parameter 'accountId' is set
@@ -142,11 +153,6 @@
       // verify the required parameter 'roomId' is set
       if (roomId === undefined || roomId === null) {
         throw new Error("Missing the required parameter 'roomId' when calling addDocumentToRoomViaFileUpload");
-      }
-
-      // verify the required parameter 'file' is set
-      if (file === undefined || file === null) {
-        throw new Error("Missing the required parameter 'file' when calling addDocumentToRoomViaFileUpload");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -165,12 +171,12 @@
       var headerParams = {
       };
       var formParams = {
-        'file': file
+        'file': optsOrCallback['file']
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/form-data'];
-      var accepts = ['application/json'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomDocument;
 
       return this.apiClient.callApi(
@@ -190,28 +196,31 @@
 
     /**
      * Adds a DocuSign Form to a room
-     * @param {Number} roomId Id of the room to which the DocuSign Form is being added
-     * @param {module:model/FormForAdd} formForAdd Contains information about the form being added
      * @param {String} accountId 
+     * @param {Number} roomId Id of the room to which the DocuSign Form is being added
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/FormForAdd} optsOrCallback.body 
      * @param {module:api/RoomsApi~addFormToRoomCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomDocument}
      */
-    this.addFormToRoom = function(formForAdd, roomId, accountId, callback) {
-      var postBody = formForAdd;
+    this.addFormToRoom = function(accountId, roomId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'roomId' is set
-      if (roomId === undefined || roomId === null) {
-        throw new Error("Missing the required parameter 'roomId' when calling addFormToRoom");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'formForAdd' is set
-      if (formForAdd === undefined || formForAdd === null) {
-        throw new Error("Missing the required parameter 'formForAdd' when calling addFormToRoom");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling addFormToRoom");
+      }
+
+      // verify the required parameter 'roomId' is set
+      if (roomId === undefined || roomId === null) {
+        throw new Error("Missing the required parameter 'roomId' when calling addFormToRoom");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -233,8 +242,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomDocument;
 
       return this.apiClient.callApi(
@@ -254,18 +263,21 @@
 
     /**
      * Creates a new Room
-     * @param {module:model/RoomForCreate} roomForCreate The properties of the new room
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/RoomForCreate} optsOrCallback.body 
      * @param {module:api/RoomsApi~createRoomCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
-    this.createRoom = function(roomForCreate, accountId, callback) {
-      var postBody = roomForCreate;
+    this.createRoom = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'roomForCreate' is set
-      if (roomForCreate === undefined || roomForCreate === null) {
-        throw new Error("Missing the required parameter 'roomForCreate' when calling createRoom");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -290,8 +302,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Room;
 
       return this.apiClient.callApi(
@@ -348,7 +360,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -373,8 +385,8 @@
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {String} optsOrCallback.assigneeEmail Optional parameter indicating to only return roles (internal/external) assignable to this user.
      * @param {String} optsOrCallback.filter 
-     * @param {Number} optsOrCallback.startPosition 
-     * @param {Number} optsOrCallback.count 
+     * @param {Number} optsOrCallback.startPosition  (default to 0)
+     * @param {Number} optsOrCallback.count  (default to 100)
      * @param {module:api/RoomsApi~getAssignableRolesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssignableRoles}
      */
@@ -422,7 +434,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = AssignableRoles;
 
       return this.apiClient.callApi(
@@ -445,8 +457,8 @@
      * @param {String} accountId 
      * @param {Number} roomId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.count Number of documents to return. Defaults to the maximum which is 100.
-     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0.
+     * @param {Number} optsOrCallback.count Number of documents to return. Defaults to the maximum which is 100. (default to 100)
+     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
      * @param {module:api/RoomsApi~getDocumentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomDocumentList}
      */
@@ -492,7 +504,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomDocumentList;
 
       return this.apiClient.callApi(
@@ -511,11 +523,11 @@
      */
 
     /**
-     * Gets information about the given room.
+     * Gets information about the given 
      * @param {String} accountId 
      * @param {Number} roomId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Boolean} optsOrCallback.includeFieldData Indicates if field data (a.k.a., room details) should be included in the response. Defaults to false.
+     * @param {Boolean} optsOrCallback.includeFieldData Indicates if field data (a.k.a., room details) should be included in the response. Defaults to false. (default to false)
      * @param {module:api/RoomsApi~getRoomCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
@@ -560,7 +572,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Room;
 
       return this.apiClient.callApi(
@@ -618,7 +630,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FieldData;
 
       return this.apiClient.callApi(
@@ -637,7 +649,7 @@
      */
 
     /**
-     * Gets the field set associated with the room.
+     * Gets the field set associated with the 
      * @param {String} accountId 
      * @param {Number} roomId 
      * @param {module:api/RoomsApi~getRoomFieldSetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -676,7 +688,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FieldSet;
 
       return this.apiClient.callApi(
@@ -695,12 +707,12 @@
      */
 
     /**
-     * Retrieves the list of users in the given room.
+     * Retrieves the list of users in the given 
      * @param {String} accountId 
      * @param {Number} roomId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.count Number of room users to return. Defaults to the maximum which is 100.
-     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0.
+     * @param {Number} optsOrCallback.count Number of room users to return. Defaults to the maximum which is 100. (default to 100)
+     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
      * @param {String} optsOrCallback.filter Returns room users filtered by Name and Email.
      * @param {module:model/String} optsOrCallback.sort Sorts results. Options are FirstNameAsc, FirstNameDesc, LastNameAsc, LastNameDesc, EmailAsc, EmailDesc. Defaults to LastNameDesc
      * @param {module:api/RoomsApi~getRoomUsersCallback} callback The callback function, accepting three arguments: error, data, response
@@ -750,7 +762,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomUsersResult;
 
       return this.apiClient.callApi(
@@ -772,8 +784,8 @@
      * Gets rooms available to the calling user.
      * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.count Number of rooms to return. Defaults to the maximum which is 100.
-     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0.
+     * @param {Number} optsOrCallback.count Number of rooms to return. Defaults to the maximum which is 100. (default to 100)
+     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
      * @param {module:model/String} optsOrCallback.roomStatus Status of the rooms to return. Defaults to \"Active\".
      * @param {Number} optsOrCallback.officeId Only return rooms in this office.
      * @param {String} optsOrCallback.fieldDataChangedStartDate Fields data changed start datetime in UTC. Valid formats: yyyy-mm-dd hh:mm:ss or yyyy/mm/dd hh:mm:ss -Time is optional and will default to 00:00:00.
@@ -825,7 +837,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomSummaryList;
 
       return this.apiClient.callApi(
@@ -845,28 +857,31 @@
 
     /**
      * Invites a user to the room by email address.
-     * @param {Number} roomId 
-     * @param {module:model/RoomInvite} roomInviteRequest 
      * @param {String} accountId 
+     * @param {Number} roomId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/RoomInvite} optsOrCallback.body 
      * @param {module:api/RoomsApi~inviteUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomInviteResponse}
      */
-    this.inviteUser = function(roomInviteRequest, roomId, accountId, callback) {
-      var postBody = roomInviteRequest;
+    this.inviteUser = function(accountId, roomId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'roomId' is set
-      if (roomId === undefined || roomId === null) {
-        throw new Error("Missing the required parameter 'roomId' when calling inviteUser");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'roomInviteRequest' is set
-      if (roomInviteRequest === undefined || roomInviteRequest === null) {
-        throw new Error("Missing the required parameter 'roomInviteRequest' when calling inviteUser");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling inviteUser");
+      }
+
+      // verify the required parameter 'roomId' is set
+      if (roomId === undefined || roomId === null) {
+        throw new Error("Missing the required parameter 'roomId' when calling inviteUser");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -888,8 +903,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomInviteResponse;
 
       return this.apiClient.callApi(
@@ -909,15 +924,28 @@
 
     /**
      * Updates the specified user's role and transaction side.
+     * @param {String} accountId 
      * @param {Number} roomId 
      * @param {Number} userId 
-     * @param {module:model/RoomUserForUpdate} roomUserForUpdate 
-     * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/RoomUserForUpdate} optsOrCallback.body 
      * @param {module:api/RoomsApi~putRoomUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomUser}
      */
-    this.putRoomUser = function(roomUserForUpdate, roomId, userId, accountId, callback) {
-      var postBody = roomUserForUpdate;
+    this.putRoomUser = function(accountId, roomId, userId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
+
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
+      }
+
+      var postBody = optsOrCallback['body'];
+
+      // verify the required parameter 'accountId' is set
+      if (accountId === undefined || accountId === null) {
+        throw new Error("Missing the required parameter 'accountId' when calling putRoomUser");
+      }
 
       // verify the required parameter 'roomId' is set
       if (roomId === undefined || roomId === null) {
@@ -927,16 +955,6 @@
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling putRoomUser");
-      }
-
-      // verify the required parameter 'roomUserForUpdate' is set
-      if (roomUserForUpdate === undefined || roomUserForUpdate === null) {
-        throw new Error("Missing the required parameter 'roomUserForUpdate' when calling putRoomUser");
-      }
-
-      // verify the required parameter 'accountId' is set
-      if (accountId === undefined || accountId === null) {
-        throw new Error("Missing the required parameter 'accountId' when calling putRoomUser");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -959,8 +977,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomUser;
 
       return this.apiClient.callApi(
@@ -979,7 +997,7 @@
      */
 
     /**
-     * Restores the specified user's access to the room.
+     * Restores the specified user's access to the 
      * @param {String} accountId 
      * @param {Number} roomId The room Id to restore access
      * @param {Number} userId The user Id getting restored to the room
@@ -1024,7 +1042,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -1043,15 +1061,15 @@
      */
 
     /**
-     * Revokes the specified user's access to the room.
+     * Revokes the specified user's access to the 
+     * @param {String} accountId 
      * @param {Number} roomId The room Id to revoke access from
      * @param {Number} userId The user Id getting revoked from the room
-     * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/RoomUserRemovalDetail} optsOrCallback.roomUserRemovalDetail Contains the date on which the users room access should be revoked
+     * @param {module:model/RoomUserRemovalDetail} optsOrCallback.body 
      * @param {module:api/RoomsApi~revokeRoomUserAccessCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.revokeRoomUserAccess = function(roomId, userId, accountId, optsOrCallback, callback) {
+    this.revokeRoomUserAccess = function(accountId, roomId, userId, optsOrCallback, callback) {
       optsOrCallback = optsOrCallback || {};
 
       if (typeof optsOrCallback === 'function') {
@@ -1059,7 +1077,12 @@
         optsOrCallback = {};
       }
 
-      var postBody = optsOrCallback['roomUserRemovalDetail'];
+      var postBody = optsOrCallback['body'];
+
+      // verify the required parameter 'accountId' is set
+      if (accountId === undefined || accountId === null) {
+        throw new Error("Missing the required parameter 'accountId' when calling revokeRoomUserAccess");
+      }
 
       // verify the required parameter 'roomId' is set
       if (roomId === undefined || roomId === null) {
@@ -1069,11 +1092,6 @@
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling revokeRoomUserAccess");
-      }
-
-      // verify the required parameter 'accountId' is set
-      if (accountId === undefined || accountId === null) {
-        throw new Error("Missing the required parameter 'accountId' when calling revokeRoomUserAccess");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -1096,8 +1114,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -1116,14 +1134,23 @@
      */
 
     /**
-     * Update the picture for a room.
+     * Update the picture for a 
      * This endpoint supports the following content types, application/json as JSON PictureForUpdate{"fileName":"string", "Base64Contents":"string"}, multipart/formdata and any other streamed binary content type (as long as either query parameter fileName or request header ContentDisposition filename is included).
      * @param {String} accountId 
      * @param {Number} roomId ID of the room the picture is for.
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {Object} optsOrCallback.file 
      * @param {module:api/RoomsApi~updatePictureCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomPicture}
      */
-    this.updatePicture = function(accountId, roomId, callback) {
+    this.updatePicture = function(accountId, roomId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
+
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
+      }
+
       var postBody = null;
 
       // verify the required parameter 'accountId' is set
@@ -1152,10 +1179,11 @@
       var headerParams = {
       };
       var formParams = {
+        'file': optsOrCallback['file']
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['multipart/form-data'];
       var accepts = ['application/json'];
       var returnType = RoomPicture;
 
@@ -1176,28 +1204,31 @@
 
     /**
      * Updates room field data.
-     * @param {Number} roomId 
-     * @param {module:model/FieldDataForUpdate} fieldDataForUpdate 
      * @param {String} accountId 
+     * @param {Number} roomId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/FieldDataForUpdate} optsOrCallback.body 
      * @param {module:api/RoomsApi~updateRoomFieldDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FieldData}
      */
-    this.updateRoomFieldData = function(fieldDataForUpdate, roomId, accountId, callback) {
-      var postBody = fieldDataForUpdate;
+    this.updateRoomFieldData = function(accountId, roomId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'roomId' is set
-      if (roomId === undefined || roomId === null) {
-        throw new Error("Missing the required parameter 'roomId' when calling updateRoomFieldData");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'fieldDataForUpdate' is set
-      if (fieldDataForUpdate === undefined || fieldDataForUpdate === null) {
-        throw new Error("Missing the required parameter 'fieldDataForUpdate' when calling updateRoomFieldData");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateRoomFieldData");
+      }
+
+      // verify the required parameter 'roomId' is set
+      if (roomId === undefined || roomId === null) {
+        throw new Error("Missing the required parameter 'roomId' when calling updateRoomFieldData");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -1219,8 +1250,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FieldData;
 
       return this.apiClient.callApi(

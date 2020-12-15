@@ -12,18 +12,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/RoomDocumentOwner'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./RoomDocumentOwner'));
   } else {
     // Browser globals (root is window)
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.RoomDocument = factory(root.DocusignRooms.ApiClient);
+    root.DocusignRooms.RoomDocument = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.RoomDocumentOwner);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, RoomDocumentOwner) {
   'use strict';
 
 
@@ -78,6 +78,15 @@
       if (data.hasOwnProperty('docuSignFormId')) {
         obj['docuSignFormId'] = ApiClient.convertToType(data['docuSignFormId'], 'String');
       }
+      if (data.hasOwnProperty('isArchived')) {
+        obj['isArchived'] = ApiClient.convertToType(data['isArchived'], 'Boolean');
+      }
+      if (data.hasOwnProperty('isVirtual')) {
+        obj['isVirtual'] = ApiClient.convertToType(data['isVirtual'], 'Boolean');
+      }
+      if (data.hasOwnProperty('owner')) {
+        obj['owner'] = RoomDocumentOwner.constructFromObject(data['owner']);
+      }
     }
     return obj;
   }
@@ -114,6 +123,18 @@
    * @member {String} docuSignFormId
    */
   exports.prototype['docuSignFormId'] = undefined;
+  /**
+   * @member {Boolean} isArchived
+   */
+  exports.prototype['isArchived'] = undefined;
+  /**
+   * @member {Boolean} isVirtual
+   */
+  exports.prototype['isVirtual'] = undefined;
+  /**
+   * @member {module:model/RoomDocumentOwner} owner
+   */
+  exports.prototype['owner'] = undefined;
 
 
 

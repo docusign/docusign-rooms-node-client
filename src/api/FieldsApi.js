@@ -100,7 +100,7 @@
         'fieldSetId': fieldSetId
       };
       var queryParams = {
-        'fieldsCustomDataFilters': this.apiClient.buildCollectionParam(optsOrCallback['fieldsCustomDataFilters'], 'multi')
+        'fieldsCustomDataFilters': this.apiClient.buildCollectionParam(optsOrCallback['fieldsCustomDataFilters'], 'csv')
       };
       var headerParams = {
       };
@@ -109,7 +109,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FieldSet;
 
       return this.apiClient.callApi(

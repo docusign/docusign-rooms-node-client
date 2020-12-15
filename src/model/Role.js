@@ -12,18 +12,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/NullablePermissions'], factory);
+    define(['ApiClient', 'model/Permissions'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./NullablePermissions'));
+    module.exports = factory(require('../ApiClient'), require('./Permissions'));
   } else {
     // Browser globals (root is window)
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.Role = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.NullablePermissions);
+    root.DocusignRooms.Role = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.Permissions);
   }
-}(this, function(ApiClient, NullablePermissions) {
+}(this, function(ApiClient, Permissions) {
   'use strict';
 
 
@@ -76,7 +76,7 @@
         obj['isAssigned'] = ApiClient.convertToType(data['isAssigned'], 'Boolean');
       }
       if (data.hasOwnProperty('permissions')) {
-        obj['permissions'] = NullablePermissions.constructFromObject(data['permissions']);
+        obj['permissions'] = Permissions.constructFromObject(data['permissions']);
       }
     }
     return obj;
@@ -111,7 +111,7 @@
    */
   exports.prototype['isAssigned'] = undefined;
   /**
-   * @member {module:model/NullablePermissions} permissions
+   * @member {module:model/Permissions} permissions
    */
   exports.prototype['permissions'] = undefined;
 

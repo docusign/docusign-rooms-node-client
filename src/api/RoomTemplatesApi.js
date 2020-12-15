@@ -63,10 +63,11 @@
      * Returns all room templates that the active user has access to
      * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.officeId Get all room templates you have access to for this office. Response includes Company and Region level templates. If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
-     * @param {Boolean} optsOrCallback.onlyAssignable Get list of templates you have access to. Default value false.
-     * @param {Number} optsOrCallback.count Number of room templates to return. Defaults to the maximum which is 100.
-     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0.
+     * @param {Number} optsOrCallback.officeId Get all room templates you have access to for this office. Response includes Company and Region level  If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
+     * @param {Boolean} optsOrCallback.onlyAssignable Get list of templates you have access to. Default value false. (default to false)
+     * @param {Boolean} optsOrCallback.onlyEnabled When set to true, only returns room templates that are not disabled. (default to true)
+     * @param {Number} optsOrCallback.count Number of room templates to return. Defaults to the maximum which is 100. (default to 100)
+     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
      * @param {module:api/RoomTemplatesApi~getRoomTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomTemplatesSummaryList}
      */
@@ -98,6 +99,7 @@
       var queryParams = {
         'officeId': optsOrCallback['officeId'],
         'onlyAssignable': optsOrCallback['onlyAssignable'],
+        'onlyEnabled': optsOrCallback['onlyEnabled'],
         'count': optsOrCallback['count'],
         'startPosition': optsOrCallback['startPosition']
       };
@@ -108,7 +110,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomTemplatesSummaryList;
 
       return this.apiClient.callApi(

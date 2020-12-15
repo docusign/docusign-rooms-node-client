@@ -68,14 +68,12 @@ describe('SDK Unit Tests:', function (done) {
     var privateKeyFile = fs.readFileSync(path.resolve(__dirname, privateKeyFilename));
     apiClient.requestJWTUserToken(integratorKey, userId, scopes, privateKeyFile, expiresIn)
       .then(function (res) {
-        var baseUri;
         apiClient.addDefaultHeader('Authorization', 'Bearer ' + res.body.access_token);
 
         // console.log(apiClient.getUserInfo(res.body.access_token));
         apiClient.getUserInfo(res.body.access_token)
           .then(function (userInfo) {
             accountId = userInfo.accounts[0].accountId;
-            baseUri = userInfo.accounts[0].baseUri;
             // apiClient.setBasePath(accountDomain[0] + '/restapi');
             // console.log('LoginInformation: ' + JSON.stringify(userInfo));
             done();

@@ -61,18 +61,21 @@
 
     /**
      * Create an office.
-     * @param {module:model/OfficeForCreate} office 
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/OfficeForCreate} optsOrCallback.body 
      * @param {module:api/OfficesApi~createOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Office}
      */
-    this.createOffice = function(office, accountId, callback) {
-      var postBody = office;
+    this.createOffice = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'office' is set
-      if (office === undefined || office === null) {
-        throw new Error("Missing the required parameter 'office' when calling createOffice");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -97,8 +100,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Office;
 
       return this.apiClient.callApi(
@@ -155,7 +158,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -213,7 +216,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Office;
 
       return this.apiClient.callApi(
@@ -232,12 +235,12 @@
      */
 
     /**
-     * Get all offices.
+     * Get all 
      * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.count Number of offices to include in the response, (Default 100)
-     * @param {Number} optsOrCallback.startPosition Position in the overall list of offices to begin results.
-     * @param {Boolean} optsOrCallback.onlyAccessible When true, the response only includes offices accessible to the calling user.
+     * @param {Number} optsOrCallback.count Number of offices to include in the response, (Default 100) (default to 100)
+     * @param {Number} optsOrCallback.startPosition Position in the overall list of offices to begin results. (default to 0)
+     * @param {Boolean} optsOrCallback.onlyAccessible When true, the response only includes offices accessible to the calling user. (default to false)
      * @param {String} optsOrCallback.search When specified, the response only includes offices whose names includes the specified search string.
      * @param {module:api/OfficesApi~getOfficesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfficeSummaryList}
@@ -280,7 +283,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = OfficeSummaryList;
 
       return this.apiClient.callApi(
@@ -338,7 +341,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = OfficeReferenceCountList;
 
       return this.apiClient.callApi(

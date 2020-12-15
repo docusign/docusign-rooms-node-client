@@ -61,18 +61,21 @@
 
     /**
      * Creates a role.
-     * @param {module:model/RoleForCreate} role 
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/RoleForCreate} optsOrCallback.body 
      * @param {module:api/RolesApi~createRoleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Role}
      */
-    this.createRole = function(role, accountId, callback) {
-      var postBody = role;
+    this.createRole = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'role' is set
-      if (role === undefined || role === null) {
-        throw new Error("Missing the required parameter 'role' when calling createRole");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -97,8 +100,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Role;
 
       return this.apiClient.callApi(
@@ -155,7 +158,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -178,7 +181,7 @@
      * @param {String} accountId 
      * @param {Number} roleId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Boolean} optsOrCallback.includeIsAssigned 
+     * @param {Boolean} optsOrCallback.includeIsAssigned  (default to false)
      * @param {module:api/RolesApi~getRoleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Role}
      */
@@ -223,7 +226,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Role;
 
       return this.apiClient.callApi(
@@ -245,10 +248,10 @@
      * Gets a paged-list of roles in your company
      * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Boolean} optsOrCallback.onlyAssignable 
+     * @param {Boolean} optsOrCallback.onlyAssignable  (default to false)
      * @param {String} optsOrCallback.filter 
-     * @param {Number} optsOrCallback.startPosition 
-     * @param {Number} optsOrCallback.count 
+     * @param {Number} optsOrCallback.startPosition  (default to 0)
+     * @param {Number} optsOrCallback.count  (default to 100)
      * @param {module:api/RolesApi~getRolesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoleSummaryList}
      */
@@ -290,7 +293,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoleSummaryList;
 
       return this.apiClient.callApi(
@@ -310,28 +313,31 @@
 
     /**
      * Updates the role with the given roleId.
-     * @param {Number} roleId 
-     * @param {module:model/RoleForUpdate} role 
      * @param {String} accountId 
+     * @param {Number} roleId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/RoleForUpdate} optsOrCallback.body 
      * @param {module:api/RolesApi~updateRoleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Role}
      */
-    this.updateRole = function(role, roleId, accountId, callback) {
-      var postBody = role;
+    this.updateRole = function(accountId, roleId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'roleId' is set
-      if (roleId === undefined || roleId === null) {
-        throw new Error("Missing the required parameter 'roleId' when calling updateRole");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'role' is set
-      if (role === undefined || role === null) {
-        throw new Error("Missing the required parameter 'role' when calling updateRole");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateRole");
+      }
+
+      // verify the required parameter 'roleId' is set
+      if (roleId === undefined || roleId === null) {
+        throw new Error("Missing the required parameter 'roleId' when calling updateRole");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -353,8 +359,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Role;
 
       return this.apiClient.callApi(

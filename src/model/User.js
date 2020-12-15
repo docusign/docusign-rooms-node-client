@@ -12,18 +12,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ClassicManagerPermissions'], factory);
+    define(['ApiClient', 'model/AccessLevel', 'model/ClassicManagerPermissions'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ClassicManagerPermissions'));
+    module.exports = factory(require('../ApiClient'), require('./AccessLevel'), require('./ClassicManagerPermissions'));
   } else {
     // Browser globals (root is window)
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.User = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.ClassicManagerPermissions);
+    root.DocusignRooms.User = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.AccessLevel, root.DocusignRooms.ClassicManagerPermissions);
   }
-}(this, function(ApiClient, ClassicManagerPermissions) {
+}(this, function(ApiClient, AccessLevel, ClassicManagerPermissions) {
   'use strict';
 
 
@@ -73,7 +73,7 @@
         obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
       if (data.hasOwnProperty('accessLevel')) {
-        obj['accessLevel'] = ApiClient.convertToType(data['accessLevel'], 'String');
+        obj['accessLevel'] = AccessLevel.constructFromObject(data['accessLevel']);
       }
       if (data.hasOwnProperty('defaultOfficeId')) {
         obj['defaultOfficeId'] = ApiClient.convertToType(data['defaultOfficeId'], 'Number');
@@ -125,7 +125,7 @@
    */
   exports.prototype['status'] = undefined;
   /**
-   * @member {module:model/User.AccessLevelEnum} accessLevel
+   * @member {module:model/AccessLevel} accessLevel
    */
   exports.prototype['accessLevel'] = undefined;
   /**
@@ -157,43 +157,6 @@
    */
   exports.prototype['permissions'] = undefined;
 
-
-  /**
-   * Allowed values for the <code>accessLevel</code> property.
-   * @enum {String}
-   * @readonly
-   */
-  exports.AccessLevelEnum = {
-    /**
-     * value: "Contributor"
-     * @const
-     */
-    contributor: "Contributor",
-
-    /**
-     * value: "Office"
-     * @const
-     */
-    office: "Office",
-
-    /**
-     * value: "Region"
-     * @const
-     */
-    region: "Region",
-
-    /**
-     * value: "Company"
-     * @const
-     */
-    company: "Company",
-
-    /**
-     * value: "Admin"
-     * @const
-     */
-    admin: "Admin"
-  };
 
 
   return exports;
