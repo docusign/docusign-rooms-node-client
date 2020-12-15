@@ -61,18 +61,21 @@
 
     /**
      * Creates an external form fill session.
-     * @param {module:model/ExternalFormFillSessionForCreate} formFillSessionForCreate 
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/ExternalFormFillSessionForCreate} optsOrCallback.body 
      * @param {module:api/ExternalFormFillSessionsApi~createExternalFormFillSessionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ExternalFormFillSession}
      */
-    this.createExternalFormFillSession = function(formFillSessionForCreate, accountId, callback) {
-      var postBody = formFillSessionForCreate;
+    this.createExternalFormFillSession = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'formFillSessionForCreate' is set
-      if (formFillSessionForCreate === undefined || formFillSessionForCreate === null) {
-        throw new Error("Missing the required parameter 'formFillSessionForCreate' when calling createExternalFormFillSession");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -97,8 +100,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = ExternalFormFillSession;
 
       return this.apiClient.callApi(

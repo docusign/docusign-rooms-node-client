@@ -85,7 +85,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalCurrencies;
 
       return this.apiClient.callApi(

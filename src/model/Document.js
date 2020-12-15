@@ -80,6 +80,9 @@
       if (data.hasOwnProperty('isSigned')) {
         obj['isSigned'] = ApiClient.convertToType(data['isSigned'], 'Boolean');
       }
+      if (data.hasOwnProperty('contentType')) {
+        obj['contentType'] = ApiClient.convertToType(data['contentType'], 'String');
+      }
       if (data.hasOwnProperty('base64Contents')) {
         obj['base64Contents'] = ApiClient.convertToType(data['base64Contents'], 'String');
       }
@@ -119,6 +122,10 @@
    * @member {Boolean} isSigned
    */
   exports.prototype['isSigned'] = undefined;
+  /**
+   * @member {String} contentType
+   */
+  exports.prototype['contentType'] = undefined;
   /**
    * @member {String} base64Contents
    */

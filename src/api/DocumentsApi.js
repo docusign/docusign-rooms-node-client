@@ -61,28 +61,31 @@
 
     /**
      * Grants access to a document for a user.
-     * @param {Number} documentId 
-     * @param {module:model/DocumentUserForCreate} documentUserForCreate 
      * @param {String} accountId 
+     * @param {Number} documentId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/DocumentUserForCreate} optsOrCallback.body 
      * @param {module:api/DocumentsApi~createDocumentUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DocumentUser}
      */
-    this.createDocumentUser = function(documentUserForCreate, documentId, accountId, callback) {
-      var postBody = documentUserForCreate;
+    this.createDocumentUser = function(accountId, documentId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'documentId' is set
-      if (documentId === undefined || documentId === null) {
-        throw new Error("Missing the required parameter 'documentId' when calling createDocumentUser");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'documentUserForCreate' is set
-      if (documentUserForCreate === undefined || documentUserForCreate === null) {
-        throw new Error("Missing the required parameter 'documentUserForCreate' when calling createDocumentUser");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createDocumentUser");
+      }
+
+      // verify the required parameter 'documentId' is set
+      if (documentId === undefined || documentId === null) {
+        throw new Error("Missing the required parameter 'documentId' when calling createDocumentUser");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -104,8 +107,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = DocumentUser;
 
       return this.apiClient.callApi(
@@ -162,7 +165,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -185,7 +188,7 @@
      * @param {String} accountId 
      * @param {Number} documentId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Boolean} optsOrCallback.includeContents 
+     * @param {Boolean} optsOrCallback.includeContents  (default to false)
      * @param {module:api/DocumentsApi~getDocumentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Document}
      */
@@ -230,7 +233,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Document;
 
       return this.apiClient.callApi(

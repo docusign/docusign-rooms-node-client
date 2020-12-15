@@ -63,8 +63,8 @@
      * Gets a paged list of forms libraries.
      * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.count Default value is 100 and max value is 100
-     * @param {Number} optsOrCallback.startPosition Default value is 0
+     * @param {Number} optsOrCallback.count Default value is 100 and max value is 100 (default to 100)
+     * @param {Number} optsOrCallback.startPosition Default value is 0 (default to 0)
      * @param {module:api/FormLibrariesApi~getFormLibrariesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FormLibrarySummaryList}
      */
@@ -104,7 +104,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FormLibrarySummaryList;
 
       return this.apiClient.callApi(
@@ -127,8 +127,8 @@
      * @param {String} accountId 
      * @param {String} formLibraryId Library Id
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.count Default value is 100 and max value is 100
-     * @param {Number} optsOrCallback.startPosition Default value is 0
+     * @param {Number} optsOrCallback.count Default value is 100 and max value is 100 (default to 100)
+     * @param {Number} optsOrCallback.startPosition Default value is 0 (default to 0)
      * @param {module:api/FormLibrariesApi~getFormLibraryFormsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FormSummaryList}
      */
@@ -174,7 +174,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FormSummaryList;
 
       return this.apiClient.callApi(

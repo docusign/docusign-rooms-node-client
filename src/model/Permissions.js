@@ -90,11 +90,26 @@
       if (data.hasOwnProperty('canEditInvitedRoomRole')) {
         obj['canEditInvitedRoomRole'] = ApiClient.convertToType(data['canEditInvitedRoomRole'], 'Boolean');
       }
+      if (data.hasOwnProperty('canEditRoomSide')) {
+        obj['canEditRoomSide'] = ApiClient.convertToType(data['canEditRoomSide'], 'Boolean');
+      }
       if (data.hasOwnProperty('canManageAnyUserRoomAccess')) {
         obj['canManageAnyUserRoomAccess'] = ApiClient.convertToType(data['canManageAnyUserRoomAccess'], 'Boolean');
       }
       if (data.hasOwnProperty('canManageInvitedUserRoomAccess')) {
         obj['canManageInvitedUserRoomAccess'] = ApiClient.convertToType(data['canManageInvitedUserRoomAccess'], 'Boolean');
+      }
+      if (data.hasOwnProperty('isHiddenInRoom')) {
+        obj['isHiddenInRoom'] = ApiClient.convertToType(data['isHiddenInRoom'], 'Boolean');
+      }
+      if (data.hasOwnProperty('canManageRoomOwners')) {
+        obj['canManageRoomOwners'] = ApiClient.convertToType(data['canManageRoomOwners'], 'Boolean');
+      }
+      if (data.hasOwnProperty('canDeleteRooms')) {
+        obj['canDeleteRooms'] = ApiClient.convertToType(data['canDeleteRooms'], 'Boolean');
+      }
+      if (data.hasOwnProperty('canConnectToMortgageCadence')) {
+        obj['canConnectToMortgageCadence'] = ApiClient.convertToType(data['canConnectToMortgageCadence'], 'Boolean');
       }
       if (data.hasOwnProperty('canViewRoomDetails')) {
         obj['canViewRoomDetails'] = ApiClient.convertToType(data['canViewRoomDetails'], 'Boolean');
@@ -174,8 +189,11 @@
       if (data.hasOwnProperty('canAddTasksToRooms')) {
         obj['canAddTasksToRooms'] = ApiClient.convertToType(data['canAddTasksToRooms'], 'Boolean');
       }
-      if (data.hasOwnProperty('canCreateAndManagePackages')) {
-        obj['canCreateAndManagePackages'] = ApiClient.convertToType(data['canCreateAndManagePackages'], 'Boolean');
+      if (data.hasOwnProperty('canReviewAnyTask')) {
+        obj['canReviewAnyTask'] = ApiClient.convertToType(data['canReviewAnyTask'], 'Boolean');
+      }
+      if (data.hasOwnProperty('canManageDocsOnAnyTask')) {
+        obj['canManageDocsOnAnyTask'] = ApiClient.convertToType(data['canManageDocsOnAnyTask'], 'Boolean');
       }
       if (data.hasOwnProperty('canAddMemberAndSetRoleLowerAccessLevel')) {
         obj['canAddMemberAndSetRoleLowerAccessLevel'] = ApiClient.convertToType(data['canAddMemberAndSetRoleLowerAccessLevel'], 'Boolean');
@@ -206,6 +224,9 @@
       }
       if (data.hasOwnProperty('canManageLogo')) {
         obj['canManageLogo'] = ApiClient.convertToType(data['canManageLogo'], 'Boolean');
+      }
+      if (data.hasOwnProperty('canManageRolesAndPermissions')) {
+        obj['canManageRolesAndPermissions'] = ApiClient.convertToType(data['canManageRolesAndPermissions'], 'Boolean');
       }
       if (data.hasOwnProperty('canManageRoomDetails')) {
         obj['canManageRoomDetails'] = ApiClient.convertToType(data['canManageRoomDetails'], 'Boolean');
@@ -269,6 +290,10 @@
    */
   exports.prototype['canEditInvitedRoomRole'] = undefined;
   /**
+   * @member {Boolean} canEditRoomSide
+   */
+  exports.prototype['canEditRoomSide'] = undefined;
+  /**
    * @member {Boolean} canManageAnyUserRoomAccess
    */
   exports.prototype['canManageAnyUserRoomAccess'] = undefined;
@@ -276,6 +301,22 @@
    * @member {Boolean} canManageInvitedUserRoomAccess
    */
   exports.prototype['canManageInvitedUserRoomAccess'] = undefined;
+  /**
+   * @member {Boolean} isHiddenInRoom
+   */
+  exports.prototype['isHiddenInRoom'] = undefined;
+  /**
+   * @member {Boolean} canManageRoomOwners
+   */
+  exports.prototype['canManageRoomOwners'] = undefined;
+  /**
+   * @member {Boolean} canDeleteRooms
+   */
+  exports.prototype['canDeleteRooms'] = undefined;
+  /**
+   * @member {Boolean} canConnectToMortgageCadence
+   */
+  exports.prototype['canConnectToMortgageCadence'] = undefined;
   /**
    * @member {Boolean} canViewRoomDetails
    */
@@ -381,9 +422,13 @@
    */
   exports.prototype['canAddTasksToRooms'] = undefined;
   /**
-   * @member {Boolean} canCreateAndManagePackages
+   * @member {Boolean} canReviewAnyTask
    */
-  exports.prototype['canCreateAndManagePackages'] = undefined;
+  exports.prototype['canReviewAnyTask'] = undefined;
+  /**
+   * @member {Boolean} canManageDocsOnAnyTask
+   */
+  exports.prototype['canManageDocsOnAnyTask'] = undefined;
   /**
    * @member {Boolean} canAddMemberAndSetRoleLowerAccessLevel
    */
@@ -424,6 +469,10 @@
    * @member {Boolean} canManageLogo
    */
   exports.prototype['canManageLogo'] = undefined;
+  /**
+   * @member {Boolean} canManageRolesAndPermissions
+   */
+  exports.prototype['canManageRolesAndPermissions'] = undefined;
   /**
    * @member {Boolean} canManageRoomDetails
    */

@@ -61,27 +61,30 @@
 
     /**
      * Adds the user to the designated office.
-     * @param {Number} userId 
-     * @param {module:model/DesignatedOffice} designatedOffice 
      * @param {String} accountId 
+     * @param {Number} userId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/DesignatedOffice} optsOrCallback.body 
      * @param {module:api/UsersApi~addUserToOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addUserToOffice = function(designatedOffice, userId, accountId, callback) {
-      var postBody = designatedOffice;
+    this.addUserToOffice = function(accountId, userId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling addUserToOffice");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'designatedOffice' is set
-      if (designatedOffice === undefined || designatedOffice === null) {
-        throw new Error("Missing the required parameter 'designatedOffice' when calling addUserToOffice");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling addUserToOffice");
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling addUserToOffice");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -103,8 +106,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -124,27 +127,30 @@
 
     /**
      * Adds the user to the designated region.
-     * @param {Number} userId 
-     * @param {module:model/DesignatedRegion} designatedRegion 
      * @param {String} accountId 
+     * @param {Number} userId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/DesignatedRegion} optsOrCallback.body 
      * @param {module:api/UsersApi~addUserToRegionCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addUserToRegion = function(designatedRegion, userId, accountId, callback) {
-      var postBody = designatedRegion;
+    this.addUserToRegion = function(accountId, userId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling addUserToRegion");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'designatedRegion' is set
-      if (designatedRegion === undefined || designatedRegion === null) {
-        throw new Error("Missing the required parameter 'designatedRegion' when calling addUserToRegion");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling addUserToRegion");
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling addUserToRegion");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -166,8 +172,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -225,7 +231,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = User;
 
       return this.apiClient.callApi(
@@ -244,7 +250,7 @@
      */
 
     /**
-     * Gets a paged-list of users.
+     * Gets a paged-list of 
      * Retrieves a paged-list of Company Users in the User's company using the given filter and sort parameters.
      * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
@@ -256,8 +262,8 @@
      * @param {Number} optsOrCallback.roleId Only valid for next gen companies
      * @param {module:model/String} optsOrCallback.status Valid values are 'Active', 'Pending'
      * @param {Boolean} optsOrCallback.lockedOnly 
-     * @param {Number} optsOrCallback.startPosition Defaults to 0
-     * @param {Number} optsOrCallback.count Defaults to 100. Must be less than or equal to 100
+     * @param {Number} optsOrCallback.startPosition Defaults to 0 (default to 0)
+     * @param {Number} optsOrCallback.count Defaults to 100. Must be less than or equal to 100 (default to 100)
      * @param {module:api/UsersApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSummaryList}
      */
@@ -305,7 +311,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = UserSummaryList;
 
       return this.apiClient.callApi(
@@ -325,18 +331,21 @@
 
     /**
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as an admin.
-     * @param {module:model/ClassicAdminToInvite} invitee Invitee information.
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/ClassicAdminToInvite} optsOrCallback.body 
      * @param {module:api/UsersApi~inviteClassicAdminCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    this.inviteClassicAdmin = function(invitee, accountId, callback) {
-      var postBody = invitee;
+    this.inviteClassicAdmin = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'invitee' is set
-      if (invitee === undefined || invitee === null) {
-        throw new Error("Missing the required parameter 'invitee' when calling inviteClassicAdmin");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -361,8 +370,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = User;
 
       return this.apiClient.callApi(
@@ -382,18 +391,21 @@
 
     /**
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as an agent.
-     * @param {module:model/ClassicAgentToInvite} invitee Invitee information.
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/ClassicAgentToInvite} optsOrCallback.body 
      * @param {module:api/UsersApi~inviteClassicAgentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    this.inviteClassicAgent = function(invitee, accountId, callback) {
-      var postBody = invitee;
+    this.inviteClassicAgent = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'invitee' is set
-      if (invitee === undefined || invitee === null) {
-        throw new Error("Missing the required parameter 'invitee' when calling inviteClassicAgent");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -418,8 +430,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = User;
 
       return this.apiClient.callApi(
@@ -439,18 +451,21 @@
 
     /**
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as a manager.
-     * @param {module:model/ClassicManagerToInvite} invitee Invitee information.
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/ClassicManagerToInvite} optsOrCallback.body 
      * @param {module:api/UsersApi~inviteClassicManagerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    this.inviteClassicManager = function(invitee, accountId, callback) {
-      var postBody = invitee;
+    this.inviteClassicManager = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'invitee' is set
-      if (invitee === undefined || invitee === null) {
-        throw new Error("Missing the required parameter 'invitee' when calling inviteClassicManager");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -475,8 +490,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = User;
 
       return this.apiClient.callApi(
@@ -496,18 +511,21 @@
 
     /**
      * NON-CLASSIC COMPANY ONLY. Send an invitation to the user or non-user having the given email.
-     * @param {module:model/UserToInvite} invitee Invitee information
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/UserToInvite} optsOrCallback.body 
      * @param {module:api/UsersApi~inviteUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    this.inviteUser = function(invitee, accountId, callback) {
-      var postBody = invitee;
+    this.inviteUser = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'invitee' is set
-      if (invitee === undefined || invitee === null) {
-        throw new Error("Missing the required parameter 'invitee' when calling inviteUser");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -532,8 +550,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = User;
 
       return this.apiClient.callApi(
@@ -553,27 +571,30 @@
 
     /**
      * Locks the account of the user.
-     * @param {Number} userId User Id of the user attempting to be locked.
-     * @param {module:model/LockedOutDetails} details Details containing the reason the user is being locked out
      * @param {String} accountId 
+     * @param {Number} userId User Id of the user attempting to be locked.
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/LockedOutDetails} optsOrCallback.body 
      * @param {module:api/UsersApi~lockUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.lockUser = function(details, userId, accountId, callback) {
-      var postBody = details;
+    this.lockUser = function(accountId, userId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling lockUser");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'details' is set
-      if (details === undefined || details === null) {
-        throw new Error("Missing the required parameter 'details' when calling lockUser");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling lockUser");
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling lockUser");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -595,8 +616,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -653,7 +674,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -712,7 +733,7 @@ The rooms will need to be transferred to other agents before removing.
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -732,27 +753,30 @@ The rooms will need to be transferred to other agents before removing.
 
     /**
      * Removes the user from the designated office.
-     * @param {Number} userId 
-     * @param {module:model/DesignatedOffice} designatedOffice 
      * @param {String} accountId 
+     * @param {Number} userId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/DesignatedOffice} optsOrCallback.body 
      * @param {module:api/UsersApi~removeUserFromOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.removeUserFromOffice = function(designatedOffice, userId, accountId, callback) {
-      var postBody = designatedOffice;
+    this.removeUserFromOffice = function(accountId, userId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling removeUserFromOffice");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'designatedOffice' is set
-      if (designatedOffice === undefined || designatedOffice === null) {
-        throw new Error("Missing the required parameter 'designatedOffice' when calling removeUserFromOffice");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling removeUserFromOffice");
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling removeUserFromOffice");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -774,8 +798,8 @@ The rooms will need to be transferred to other agents before removing.
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -795,27 +819,30 @@ The rooms will need to be transferred to other agents before removing.
 
     /**
      * Removes the user from the designated region.
-     * @param {Number} userId 
-     * @param {module:model/DesignatedRegion} designatedRegion 
      * @param {String} accountId 
+     * @param {Number} userId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/DesignatedRegion} optsOrCallback.body 
      * @param {module:api/UsersApi~removeUserFromRegionCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.removeUserFromRegion = function(designatedRegion, userId, accountId, callback) {
-      var postBody = designatedRegion;
+    this.removeUserFromRegion = function(accountId, userId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling removeUserFromRegion");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'designatedRegion' is set
-      if (designatedRegion === undefined || designatedRegion === null) {
-        throw new Error("Missing the required parameter 'designatedRegion' when calling removeUserFromRegion");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling removeUserFromRegion");
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling removeUserFromRegion");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -837,8 +864,8 @@ The rooms will need to be transferred to other agents before removing.
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -895,7 +922,7 @@ The rooms will need to be transferred to other agents before removing.
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -915,28 +942,31 @@ The rooms will need to be transferred to other agents before removing.
 
     /**
      * Updates user information
-     * @param {Number} userId 
-     * @param {module:model/UserForUpdate} userForUpdate 
      * @param {String} accountId 
+     * @param {Number} userId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/UserForUpdate} optsOrCallback.body 
      * @param {module:api/UsersApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    this.updateUser = function(userForUpdate, userId, accountId, callback) {
-      var postBody = userForUpdate;
+    this.updateUser = function(accountId, userId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling updateUser");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'userForUpdate' is set
-      if (userForUpdate === undefined || userForUpdate === null) {
-        throw new Error("Missing the required parameter 'userForUpdate' when calling updateUser");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateUser");
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling updateUser");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -958,8 +988,8 @@ The rooms will need to be transferred to other agents before removing.
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = User;
 
       return this.apiClient.callApi(

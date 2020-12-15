@@ -21,20 +21,20 @@
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.RoomUserSummary = factory(root.DocusignRooms.ApiClient);
+    root.DocusignRooms.RoomDocumentOwner = factory(root.DocusignRooms.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
 
   /**
-   * The RoomUserSummary model module.
-   * @module model/RoomUserSummary
+   * The RoomDocumentOwner model module.
+   * @module model/RoomDocumentOwner
    */
 
   /**
-   * Constructs a new <code>RoomUserSummary</code>.
-   * @alias module:model/RoomUserSummary
+   * Constructs a new <code>RoomDocumentOwner</code>.
+   * @alias module:model/RoomDocumentOwner
    * @class
    */
   var exports = function() {
@@ -44,11 +44,11 @@
   };
 
   /**
-   * Constructs a <code>RoomUserSummary</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>RoomDocumentOwner</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/RoomUserSummary} obj Optional instance to populate.
-   * @return {module:model/RoomUserSummary} The populated <code>RoomUserSummary</code> instance.
+   * @param {module:model/RoomDocumentOwner} obj Optional instance to populate.
+   * @return {module:model/RoomDocumentOwner} The populated <code>RoomDocumentOwner</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -57,29 +57,17 @@
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
-      if (data.hasOwnProperty('email')) {
-        obj['email'] = ApiClient.convertToType(data['email'], 'String');
-      }
       if (data.hasOwnProperty('firstName')) {
         obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
       }
       if (data.hasOwnProperty('lastName')) {
         obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
       }
-      if (data.hasOwnProperty('transactionSideId')) {
-        obj['transactionSideId'] = ApiClient.convertToType(data['transactionSideId'], 'String');
-      }
-      if (data.hasOwnProperty('roleId')) {
-        obj['roleId'] = ApiClient.convertToType(data['roleId'], 'Number');
-      }
-      if (data.hasOwnProperty('titleId')) {
-        obj['titleId'] = ApiClient.convertToType(data['titleId'], 'Number');
-      }
       if (data.hasOwnProperty('companyName')) {
         obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
       }
-      if (data.hasOwnProperty('roleName')) {
-        obj['roleName'] = ApiClient.convertToType(data['roleName'], 'String');
+      if (data.hasOwnProperty('imageSrc')) {
+        obj['imageSrc'] = ApiClient.convertToType(data['imageSrc'], 'String');
       }
     }
     return obj;
@@ -90,10 +78,6 @@
    */
   exports.prototype['userId'] = undefined;
   /**
-   * @member {String} email
-   */
-  exports.prototype['email'] = undefined;
-  /**
    * @member {String} firstName
    */
   exports.prototype['firstName'] = undefined;
@@ -102,25 +86,13 @@
    */
   exports.prototype['lastName'] = undefined;
   /**
-   * @member {String} transactionSideId
-   */
-  exports.prototype['transactionSideId'] = undefined;
-  /**
-   * @member {Number} roleId
-   */
-  exports.prototype['roleId'] = undefined;
-  /**
-   * @member {Number} titleId
-   */
-  exports.prototype['titleId'] = undefined;
-  /**
    * @member {String} companyName
    */
   exports.prototype['companyName'] = undefined;
   /**
-   * @member {String} roleName
+   * @member {String} imageSrc
    */
-  exports.prototype['roleName'] = undefined;
+  exports.prototype['imageSrc'] = undefined;
 
 
 

@@ -64,8 +64,8 @@
      * @param {String} accountId 
      * @param {Number} roomId The room id from which to retrieve folders.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0.
-     * @param {Number} optsOrCallback.count Number of room folders to return. Defaults to the maximum which is 100.
+     * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
+     * @param {Number} optsOrCallback.count Number of room folders to return. Defaults to the maximum which is 100. (default to 100)
      * @param {module:api/RoomFoldersApi~getRoomFoldersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomFolderList}
      */
@@ -111,7 +111,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomFolderList;
 
       return this.apiClient.callApi(

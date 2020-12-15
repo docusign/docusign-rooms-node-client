@@ -61,18 +61,21 @@
 
     /**
      * Creates a new region for a company
-     * @param {module:model/Region} region The information required to create a new region for the caller's company
      * @param {String} accountId 
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/Region} optsOrCallback.body 
      * @param {module:api/RegionsApi~createRegionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Region}
      */
-    this.createRegion = function(region, accountId, callback) {
-      var postBody = region;
+    this.createRegion = function(accountId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'region' is set
-      if (region === undefined || region === null) {
-        throw new Error("Missing the required parameter 'region' when calling createRegion");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
+
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
@@ -97,8 +100,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Region;
 
       return this.apiClient.callApi(
@@ -155,7 +158,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -213,7 +216,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Region;
 
       return this.apiClient.callApi(
@@ -271,7 +274,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RegionReferenceCountList;
 
       return this.apiClient.callApi(
@@ -290,12 +293,12 @@
      */
 
     /**
-     * Get account regions.
+     * Get account 
      * @param {String} accountId 
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.count Number of regions to include in the response, (Default 100).
-     * @param {Number} optsOrCallback.startPosition Position in the overall list of regions to begin results.
-     * @param {Boolean} optsOrCallback.managedOnly When true, the response only includes regions that the calling user can manage.
+     * @param {Number} optsOrCallback.count Number of regions to include in the response, (Default 100). (default to 100)
+     * @param {Number} optsOrCallback.startPosition Position in the overall list of regions to begin results. (default to 0)
+     * @param {Boolean} optsOrCallback.managedOnly When true, the response only includes regions that the calling user can manage. (default to false)
      * @param {module:api/RegionsApi~getRegionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RegionSummaryList}
      */
@@ -336,7 +339,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RegionSummaryList;
 
       return this.apiClient.callApi(

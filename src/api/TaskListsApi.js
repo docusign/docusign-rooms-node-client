@@ -61,28 +61,31 @@
 
     /**
      * Add a task list to a room based on a task list template.
-     * @param {Number} roomId Room ID.
-     * @param {module:model/TaskListForCreate} taskList Details for task list creation.
      * @param {String} accountId 
+     * @param {Number} roomId Room ID.
+     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
+     * @param {module:model/TaskListForCreate} optsOrCallback.body 
      * @param {module:api/TaskListsApi~createTaskListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TaskList}
      */
-    this.createTaskList = function(taskList, roomId, accountId, callback) {
-      var postBody = taskList;
+    this.createTaskList = function(accountId, roomId, optsOrCallback, callback) {
+      optsOrCallback = optsOrCallback || {};
 
-      // verify the required parameter 'roomId' is set
-      if (roomId === undefined || roomId === null) {
-        throw new Error("Missing the required parameter 'roomId' when calling createTaskList");
+      if (typeof optsOrCallback === 'function') {
+        callback = optsOrCallback;
+        optsOrCallback = {};
       }
 
-      // verify the required parameter 'taskList' is set
-      if (taskList === undefined || taskList === null) {
-        throw new Error("Missing the required parameter 'taskList' when calling createTaskList");
-      }
+      var postBody = optsOrCallback['body'];
 
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createTaskList");
+      }
+
+      // verify the required parameter 'roomId' is set
+      if (roomId === undefined || roomId === null) {
+        throw new Error("Missing the required parameter 'roomId' when calling createTaskList");
       }
 
       if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
@@ -104,8 +107,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = TaskList;
 
       return this.apiClient.callApi(
@@ -124,7 +127,7 @@
      */
 
     /**
-     * Deletes a task list. If there are attached documents they will remain in the associated room.
+     * Deletes a task list. If there are attached documents they will remain in the associated 
      * @param {String} accountId 
      * @param {Number} taskListId Task List ID
      * @param {module:api/TaskListsApi~deleteTaskListCallback} callback The callback function, accepting three arguments: error, data, response
@@ -162,7 +165,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -181,7 +184,7 @@
      */
 
     /**
-     * Returns the summary for all viewable task lists in a room.
+     * Returns the summary for all viewable task lists in a 
      * @param {String} accountId 
      * @param {Number} roomId Room ID
      * @param {module:api/TaskListsApi~getTaskListsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -220,7 +223,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = TaskListSummaryList;
 
       return this.apiClient.callApi(

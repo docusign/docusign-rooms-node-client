@@ -70,6 +70,9 @@
       if (data.hasOwnProperty('officeId')) {
         obj['officeId'] = ApiClient.convertToType(data['officeId'], 'Number');
       }
+      if (data.hasOwnProperty('companyTypeId')) {
+        obj['companyTypeId'] = ApiClient.convertToType(data['companyTypeId'], 'String');
+      }
       if (data.hasOwnProperty('eSignPermissionProfileId')) {
         obj['eSignPermissionProfileId'] = ApiClient.convertToType(data['eSignPermissionProfileId'], 'String');
       }
@@ -93,6 +96,10 @@
    * @member {Number} officeId
    */
   exports.prototype['officeId'] = undefined;
+  /**
+   * @member {String} companyTypeId
+   */
+  exports.prototype['companyTypeId'] = undefined;
   /**
    * Required when the company is tightly bound to an eSign account; otherwise ignored.
    * @member {String} eSignPermissionProfileId
