@@ -86,6 +86,9 @@
       if (data.hasOwnProperty('base64Contents')) {
         obj['base64Contents'] = ApiClient.convertToType(data['base64Contents'], 'String');
       }
+      if (data.hasOwnProperty('isDynamic')) {
+        obj['isDynamic'] = ApiClient.convertToType(data['isDynamic'], 'Boolean');
+      }
     }
     return obj;
   }
@@ -130,6 +133,10 @@
    * @member {String} base64Contents
    */
   exports.prototype['base64Contents'] = undefined;
+  /**
+   * @member {Boolean} isDynamic
+   */
+  exports.prototype['isDynamic'] = undefined;
 
 
 

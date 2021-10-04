@@ -61,7 +61,8 @@
 
     /**
      * Gets a paged list of forms libraries.
-     * @param {String} accountId 
+     * Returns a list of form libraries to which the current user has access.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.count Default value is 100 and max value is 100 (default to 100)
      * @param {Number} optsOrCallback.startPosition Default value is 0 (default to 0)
@@ -103,7 +104,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FormLibrarySummaryList;
 
@@ -124,7 +125,8 @@
 
     /**
      * Gets a paged list of forms in a forms library.
-     * @param {String} accountId 
+     * Returns a list of forms  to which the current user has access in the specified form library.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {String} formLibraryId Library Id
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.count Default value is 100 and max value is 100 (default to 100)
@@ -173,7 +175,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FormSummaryList;
 

@@ -61,8 +61,9 @@
 
     /**
      * Adds the user to the designated office.
-     * @param {String} accountId 
-     * @param {Number} userId 
+     * Adds the user to the designated office.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/DesignatedOffice} optsOrCallback.body 
      * @param {module:api/UsersApi~addUserToOfficeCallback} callback The callback function, accepting three arguments: error, data, response
@@ -127,8 +128,9 @@
 
     /**
      * Adds the user to the designated region.
-     * @param {String} accountId 
-     * @param {Number} userId 
+     * Adds the user to the designated region.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/DesignatedRegion} optsOrCallback.body 
      * @param {module:api/UsersApi~addUserToRegionCallback} callback The callback function, accepting three arguments: error, data, response
@@ -193,8 +195,9 @@
 
     /**
      * Retrieves user information for the user having the given UserId.
-     * @param {String} accountId 
-     * @param {Number} userId 
+     * Retrieves user information for the user having the given UserId.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} userId The id of the user.
      * @param {module:api/UsersApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -230,7 +233,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = User;
 
@@ -250,9 +253,9 @@
      */
 
     /**
-     * Gets a paged-list of 
+     * Gets a paged-list of users.
      * Retrieves a paged-list of Company Users in the User's company using the given filter and sort parameters.
-     * @param {String} accountId 
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {String} optsOrCallback.filter Filters by name and email
      * @param {module:model/String} optsOrCallback.sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
@@ -261,7 +264,7 @@
      * @param {Number} optsOrCallback.titleId Only valid for classic companies
      * @param {Number} optsOrCallback.roleId Only valid for next gen companies
      * @param {module:model/String} optsOrCallback.status Valid values are 'Active', 'Pending'
-     * @param {Boolean} optsOrCallback.lockedOnly 
+     * @param {Boolean} optsOrCallback.lockedOnly When set to true, filters for users whose accounts are locked
      * @param {Number} optsOrCallback.startPosition Defaults to 0 (default to 0)
      * @param {Number} optsOrCallback.count Defaults to 100. Must be less than or equal to 100 (default to 100)
      * @param {module:api/UsersApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
@@ -310,7 +313,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = UserSummaryList;
 
@@ -331,7 +334,8 @@
 
     /**
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as an admin.
-     * @param {String} accountId 
+     * Invites a new user to join a company account on Rooms Version 5 as an Admin.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/ClassicAdminToInvite} optsOrCallback.body 
      * @param {module:api/UsersApi~inviteClassicAdminCallback} callback The callback function, accepting three arguments: error, data, response
@@ -391,7 +395,8 @@
 
     /**
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as an agent.
-     * @param {String} accountId 
+     * Invites a new user to join a company account on Rooms Version 5 as an Agent.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/ClassicAgentToInvite} optsOrCallback.body 
      * @param {module:api/UsersApi~inviteClassicAgentCallback} callback The callback function, accepting three arguments: error, data, response
@@ -451,7 +456,8 @@
 
     /**
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as a manager.
-     * @param {String} accountId 
+     * Invites a new user to join a company account on Rooms Version 5 as a Manager.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/ClassicManagerToInvite} optsOrCallback.body 
      * @param {module:api/UsersApi~inviteClassicManagerCallback} callback The callback function, accepting three arguments: error, data, response
@@ -511,7 +517,8 @@
 
     /**
      * NON-CLASSIC COMPANY ONLY. Send an invitation to the user or non-user having the given email.
-     * @param {String} accountId 
+     * Invites a new user to join a company account on Rooms Version 6.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/UserToInvite} optsOrCallback.body 
      * @param {module:api/UsersApi~inviteUserCallback} callback The callback function, accepting three arguments: error, data, response
@@ -571,7 +578,8 @@
 
     /**
      * Locks the account of the user.
-     * @param {String} accountId 
+     * Locks the account of the user.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId User Id of the user attempting to be locked.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/LockedOutDetails} optsOrCallback.body 
@@ -637,7 +645,8 @@
 
     /**
      * Reinvites the pending user with the given userId.
-     * @param {String} accountId 
+     * Reinvites an unactivated user to join a company account. You can use this method with either Rooms Version 5 or Rooms Version 6.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId 
      * @param {module:api/UsersApi~reinviteUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -673,7 +682,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -696,7 +705,7 @@
      * Removes a user from the company.
      * Removes the user. Will fail if the user owns any Rooms. 
 The rooms will need to be transferred to other agents before removing.
-     * @param {String} accountId 
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId Id of the user you wish to remove.
      * @param {module:api/UsersApi~removeUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -732,7 +741,7 @@ The rooms will need to be transferred to other agents before removing.
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -753,8 +762,9 @@ The rooms will need to be transferred to other agents before removing.
 
     /**
      * Removes the user from the designated office.
-     * @param {String} accountId 
-     * @param {Number} userId 
+     * Removes the user from the designated office.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/DesignatedOffice} optsOrCallback.body 
      * @param {module:api/UsersApi~removeUserFromOfficeCallback} callback The callback function, accepting three arguments: error, data, response
@@ -819,8 +829,9 @@ The rooms will need to be transferred to other agents before removing.
 
     /**
      * Removes the user from the designated region.
-     * @param {String} accountId 
-     * @param {Number} userId 
+     * Removes the user from the designated region.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/DesignatedRegion} optsOrCallback.body 
      * @param {module:api/UsersApi~removeUserFromRegionCallback} callback The callback function, accepting three arguments: error, data, response
@@ -885,7 +896,8 @@ The rooms will need to be transferred to other agents before removing.
 
     /**
      * Unlocks the account of the user.
-     * @param {String} accountId 
+     * Unlocks the account of the user.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId User Id of the user attempting to be unlocked.
      * @param {module:api/UsersApi~unlockUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -921,7 +933,7 @@ The rooms will need to be transferred to other agents before removing.
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -942,8 +954,9 @@ The rooms will need to be transferred to other agents before removing.
 
     /**
      * Updates user information
-     * @param {String} accountId 
-     * @param {Number} userId 
+     * Updates user information
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/UserForUpdate} optsOrCallback.body 
      * @param {module:api/UsersApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response

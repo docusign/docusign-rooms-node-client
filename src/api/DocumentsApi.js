@@ -61,8 +61,9 @@
 
     /**
      * Grants access to a document for a user.
-     * @param {String} accountId 
-     * @param {Number} documentId 
+     * Grants a user access to a document. You specify the user's `userId` in the request body. The response is an object that specifies the access the user has.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} documentId The id of the document.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/DocumentUserForCreate} optsOrCallback.body 
      * @param {module:api/DocumentsApi~createDocumentUserCallback} callback The callback function, accepting three arguments: error, data, response
@@ -128,8 +129,9 @@
 
     /**
      * Deletes a document.
-     * @param {String} accountId 
-     * @param {Number} documentId 
+     * Permanently deletes a document. To find the `documentId` of a document that you want to delete, use the Rooms::GetDocuments method.\n\nIf the document is deleted successfully, the HTTP response code is 204 (No Content), so the response body is empty.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} documentId The ID of the document.
      * @param {module:api/DocumentsApi~deleteDocumentCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteDocument = function(accountId, documentId, callback) {
@@ -164,7 +166,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -185,10 +187,11 @@
 
     /**
      * Get information about the Document with the given DocumentId.
-     * @param {String} accountId 
-     * @param {Number} documentId 
+     * Returns information about a document in a room. You can optionally request the contents of the document, which is returned in base64-encoded format.\n\nTo find the `documentId` of the document that you want to retrieve, use the Rooms::GetDocuments method.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} documentId The id of the document.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Boolean} optsOrCallback.includeContents  (default to false)
+     * @param {Boolean} optsOrCallback.includeContents When set to **true**, includes the contents of the document in the `base64Contents` property of the response. The default value is **false**. (default to false)
      * @param {module:api/DocumentsApi~getDocumentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Document}
      */
@@ -232,7 +235,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Document;
 

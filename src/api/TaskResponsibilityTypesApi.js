@@ -61,6 +61,7 @@
 
     /**
      * Retrieves the list of valid task responsibility types.
+     * Returns a list of responsibility types that you can assign to users when you add them to a task.
      * @param {module:api/TaskResponsibilityTypesApi~getTaskResponsibilityTypesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GlobalTaskResponsibilityTypes}
      */
@@ -84,7 +85,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalTaskResponsibilityTypes;
 

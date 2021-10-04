@@ -61,7 +61,8 @@
 
     /**
      * Gets permission profiles from the associated eSign account.
-     * @param {String} accountId 
+     * When you create or invite a new member in Rooms, the system creates an eSignature account for the member at the same time. This method returns a list of the eSignature permission profiles that the current user may be able to assign to a new member. The current user may not assign a permission higher than their own permission.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {module:api/ESignPermissionProfilesApi~getESignPermissionProfilesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ESignPermissionProfileList}
      */
@@ -91,7 +92,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = ESignPermissionProfileList;
 

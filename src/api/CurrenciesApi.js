@@ -61,6 +61,7 @@
 
     /**
      * Retrieves the list of valid currencies.
+     * Returns a list of valid values for the currencies that you can use for listing, offer, and loan amounts.
      * @param {module:api/CurrenciesApi~getCurrenciesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GlobalCurrencies}
      */
@@ -84,7 +85,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalCurrencies;
 

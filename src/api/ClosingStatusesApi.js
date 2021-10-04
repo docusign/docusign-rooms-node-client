@@ -61,6 +61,7 @@
 
     /**
      * Retrieves the list of valid closing statuses.
+     * Returns a list of closing statuses, or valid reasons for closing a room.
      * @param {module:api/ClosingStatusesApi~getClosingStatusesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GlobalClosingStatuses}
      */
@@ -84,7 +85,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalClosingStatuses;
 

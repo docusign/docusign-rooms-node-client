@@ -61,7 +61,8 @@
 
     /**
      * Add a task list to a room based on a task list template.
-     * @param {String} accountId 
+     * Applies a task list to a room, based on the `taskTemplateId` that you specify in the `taskList` request body.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId Room ID.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/TaskListForCreate} optsOrCallback.body 
@@ -127,8 +128,9 @@
      */
 
     /**
-     * Deletes a task list. If there are attached documents they will remain in the associated 
-     * @param {String} accountId 
+     * Deletes a task list. If there are attached documents they will remain in the associated room.
+     * Deletes the specified task list from a room. If there are attached documents, they will remain in the associated room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} taskListId Task List ID
      * @param {module:api/TaskListsApi~deleteTaskListCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -164,7 +166,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -184,8 +186,9 @@
      */
 
     /**
-     * Returns the summary for all viewable task lists in a 
-     * @param {String} accountId 
+     * Returns the summary for all viewable task lists in a room.
+     * Returns the task lists associated with a room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId Room ID
      * @param {module:api/TaskListsApi~getTaskListsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TaskListSummaryList}
@@ -222,7 +225,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = TaskListSummaryList;
 

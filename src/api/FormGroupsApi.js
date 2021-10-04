@@ -61,8 +61,9 @@
 
     /**
      * Assigns a form to a form group.
-     * @param {String} accountId 
-     * @param {String} formGroupId 
+     * Assigns the form specified in the `formId` property of the request to the form group `formGroupId`.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {String} formGroupId The ID of the form group.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/FormGroupFormToAssign} optsOrCallback.body 
      * @param {module:api/FormGroupsApi~assignFormGroupFormCallback} callback The callback function, accepting three arguments: error, data, response
@@ -128,7 +129,8 @@
 
     /**
      * Creates a form group.
-     * @param {String} accountId 
+     * Creates a new form group with the name given in the `name` property of the request body.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/FormGroupForCreate} optsOrCallback.body 
      * @param {module:api/FormGroupsApi~createFormGroupCallback} callback The callback function, accepting three arguments: error, data, response
@@ -188,8 +190,9 @@
 
     /**
      * Deletes a form group.
-     * @param {String} accountId 
-     * @param {String} formGroupId 
+     * Deletes the specified form group.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {String} formGroupId The ID of the form group.
      * @param {module:api/FormGroupsApi~deleteFormGroupCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteFormGroup = function(accountId, formGroupId, callback) {
@@ -224,7 +227,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -245,8 +248,9 @@
 
     /**
      * Gets a form group.
-     * @param {String} accountId 
-     * @param {String} formGroupId 
+     * Get the specified form group.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {String} formGroupId The ID of the form group.
      * @param {module:api/FormGroupsApi~getFormGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FormGroup}
      */
@@ -282,7 +286,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FormGroup;
 
@@ -303,7 +307,8 @@
 
     /**
      * Get account Form Groups.
-     * @param {String} accountId 
+     * Returns the company form groups to which the current user has access.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.count Number of Form Groups to include in the response, (Default 100). (default to 100)
      * @param {Number} optsOrCallback.startPosition Position in the overall list of Form Groups to begin results. (default to 0)
@@ -345,7 +350,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FormGroupSummaryList;
 
@@ -366,9 +371,10 @@
 
     /**
      * Assign office to a form group so the specified office has access to the form group.
-     * @param {String} accountId 
-     * @param {String} formGroupId 
-     * @param {Number} officeId 
+     * "Grants the office `officeId` access to the form group `formGroupId`.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {String} formGroupId The ID of the form group.
+     * @param {Number} officeId The id of the office. This is the id that the system generated when you created the office.
      * @param {module:api/FormGroupsApi~grantOfficeAccessToFormGroupCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.grantOfficeAccessToFormGroup = function(accountId, formGroupId, officeId, callback) {
@@ -409,7 +415,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -430,9 +436,10 @@
 
     /**
      * Removes a form from a form group.
-     * @param {String} accountId 
-     * @param {String} formGroupId 
-     * @param {String} formId 
+     * Removes the form `formId` from the form group `formGroupId`.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {String} formGroupId The ID of the form group.
+     * @param {String} formId The id of the form.
      * @param {module:api/FormGroupsApi~removeFormGroupFormCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.removeFormGroupForm = function(accountId, formGroupId, formId, callback) {
@@ -473,7 +480,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -494,8 +501,9 @@
 
     /**
      * Renames a form group.
-     * @param {String} accountId 
-     * @param {String} formGroupId 
+     * Renames the specified form group with the name given in the `name` property of the request.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {String} formGroupId The ID of the form group.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/FormGroupForUpdate} optsOrCallback.body 
      * @param {module:api/FormGroupsApi~renameFormGroupCallback} callback The callback function, accepting three arguments: error, data, response
@@ -561,9 +569,10 @@
 
     /**
      * Remove office to a form group so the specified office doesn't have access to the form group.
-     * @param {String} accountId 
-     * @param {String} formGroupId 
-     * @param {Number} officeId 
+     * Revoke access to the form group `formGroupId` from the office `officeId`.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {String} formGroupId The ID of the form group.
+     * @param {Number} officeId The id of the office. This is the id that the system generated when you created the office.
      * @param {module:api/FormGroupsApi~revokeOfficeAccessFromFormGroupCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.revokeOfficeAccessFromFormGroup = function(accountId, formGroupId, officeId, callback) {
@@ -604,7 +613,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
