@@ -60,9 +60,10 @@
      */
 
     /**
-     * Add a document to a 
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * Add a document to a room.
+     * Add a document to a room
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/Document} optsOrCallback.body 
      * @param {module:api/RoomsApi~addDocumentToRoomCallback} callback The callback function, accepting three arguments: error, data, response
@@ -128,8 +129,9 @@
 
     /**
      * Add a document to a room via file contents upload.
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * This method uploads the contents of file as a room document for the room that you specify.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Object} optsOrCallback.file 
      * @param {module:api/RoomsApi~addDocumentToRoomViaFileUploadCallback} callback The callback function, accepting three arguments: error, data, response
@@ -196,7 +198,8 @@
 
     /**
      * Adds a DocuSign Form to a room
-     * @param {String} accountId 
+     * Adds a form to a room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId Id of the room to which the DocuSign Form is being added
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/FormForAdd} optsOrCallback.body 
@@ -263,7 +266,8 @@
 
     /**
      * Creates a new Room
-     * @param {String} accountId 
+     * Creates a new Room
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/RoomForCreate} optsOrCallback.body 
      * @param {module:api/RoomsApi~createRoomCallback} callback The callback function, accepting three arguments: error, data, response
@@ -323,7 +327,8 @@
 
     /**
      * Deletes the room having the given room ID.
-     * @param {String} accountId 
+     * Deletes the room having the given room ID.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId ID of the room to be deleted.
      * @param {module:api/RoomsApi~deleteRoomCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -359,7 +364,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -380,13 +385,14 @@
 
     /**
      * Returns the roles for which the calling user, based on their role within the room, can assign to invitees.
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * This method returns the room-level roles that the current user can assign to the members that they invite to a room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {String} optsOrCallback.assigneeEmail Optional parameter indicating to only return roles (internal/external) assignable to this user.
-     * @param {String} optsOrCallback.filter 
-     * @param {Number} optsOrCallback.startPosition  (default to 0)
-     * @param {Number} optsOrCallback.count  (default to 100)
+     * @param {String} optsOrCallback.filter A search filter that returns assignable roles by the beginning of the role name.
+     * @param {Number} optsOrCallback.startPosition The index position within the total result set from which to start returning values. The default value is `0`. (default to 0)
+     * @param {Number} optsOrCallback.count The number of results to return. This value must be a number between `1` and `100` (default). (default to 100)
      * @param {module:api/RoomsApi~getAssignableRolesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssignableRoles}
      */
@@ -433,7 +439,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = AssignableRoles;
 
@@ -454,11 +460,16 @@
 
     /**
      * Get documents in the room accessible to the calling user.
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * This method returns a list of documents that the current user can access for a specific room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.count Number of documents to return. Defaults to the maximum which is 100. (default to 100)
      * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
+     * @param {Boolean} optsOrCallback.requireContentForDynamicDocuments Filter out any isDynamic documents without content. Defaults to false. (default to false)
+     * @param {Number} optsOrCallback.roomFolderId Filter documents by folderId. Defaults to null, to not filter on folderId.
+     * @param {String} optsOrCallback.nameFilter Filter documents where Name contains the filter. Defaults to null, to not filter.
+     * @param {Boolean} optsOrCallback.includeArchived Filter documents to have the same isArchived value as includeArchived. Defaults to true, to include archived documents. (default to true)
      * @param {module:api/RoomsApi~getDocumentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomDocumentList}
      */
@@ -495,7 +506,11 @@
       };
       var queryParams = {
         'count': optsOrCallback['count'],
-        'startPosition': optsOrCallback['startPosition']
+        'startPosition': optsOrCallback['startPosition'],
+        'requireContentForDynamicDocuments': optsOrCallback['requireContentForDynamicDocuments'],
+        'roomFolderId': optsOrCallback['roomFolderId'],
+        'nameFilter': optsOrCallback['nameFilter'],
+        'includeArchived': optsOrCallback['includeArchived']
       };
       var headerParams = {
       };
@@ -503,7 +518,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomDocumentList;
 
@@ -523,9 +538,10 @@
      */
 
     /**
-     * Gets information about the given 
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * Gets information about the given room.
+     * Returns details about the given room
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Boolean} optsOrCallback.includeFieldData Indicates if field data (a.k.a., room details) should be included in the response. Defaults to false. (default to false)
      * @param {module:api/RoomsApi~getRoomCallback} callback The callback function, accepting three arguments: error, data, response
@@ -571,7 +587,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Room;
 
@@ -592,8 +608,9 @@
 
     /**
      * Returns the FieldData associated with the provided roomId.
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * Returns the field data associated with a room. This is the information that appears on the room's **Details** tab.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {module:api/RoomsApi~getRoomFieldDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FieldData}
      */
@@ -629,7 +646,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FieldData;
 
@@ -649,9 +666,10 @@
      */
 
     /**
-     * Gets the field set associated with the 
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * Gets the field set associated with the room.
+     * Returns the field set that a room uses.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {module:api/RoomsApi~getRoomFieldSetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FieldSet}
      */
@@ -687,7 +705,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FieldSet;
 
@@ -707,9 +725,10 @@
      */
 
     /**
-     * Retrieves the list of users in the given 
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * Retrieves the list of users in the given room.
+     * This method returns a list of users associated with a room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.count Number of room users to return. Defaults to the maximum which is 100. (default to 100)
      * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
@@ -761,7 +780,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomUsersResult;
 
@@ -782,7 +801,8 @@
 
     /**
      * Gets rooms available to the calling user.
-     * @param {String} accountId 
+     * Gets rooms available to the calling user
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.count Number of rooms to return. Defaults to the maximum which is 100. (default to 100)
      * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
@@ -836,7 +856,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomSummaryList;
 
@@ -857,8 +877,9 @@
 
     /**
      * Invites a user to the room by email address.
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * This method invites an existing or new member to a specific room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/RoomInvite} optsOrCallback.body 
      * @param {module:api/RoomsApi~inviteUserCallback} callback The callback function, accepting three arguments: error, data, response
@@ -924,9 +945,10 @@
 
     /**
      * Updates the specified user's role and transaction side.
-     * @param {String} accountId 
-     * @param {Number} roomId 
-     * @param {Number} userId 
+     * Updates the specified user's role and transaction side.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
+     * @param {Number} userId The id of the user to update.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/RoomUserForUpdate} optsOrCallback.body 
      * @param {module:api/RoomsApi~putRoomUserCallback} callback The callback function, accepting three arguments: error, data, response
@@ -997,8 +1019,9 @@
      */
 
     /**
-     * Restores the specified user's access to the 
-     * @param {String} accountId 
+     * Restores the specified user's access to the room.
+     * Restores the specified user's access to the room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId The room Id to restore access
      * @param {Number} userId The user Id getting restored to the room
      * @param {module:api/RoomsApi~restoreRoomUserAccessCallback} callback The callback function, accepting three arguments: error, data, response
@@ -1041,7 +1064,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -1061,8 +1084,9 @@
      */
 
     /**
-     * Revokes the specified user's access to the 
-     * @param {String} accountId 
+     * Revokes the specified user's access to the room.
+     * Revokes the specified user's access to the room.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId The room Id to revoke access from
      * @param {Number} userId The user Id getting revoked from the room
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
@@ -1134,9 +1158,9 @@
      */
 
     /**
-     * Update the picture for a 
+     * Update the picture for a room.
      * This endpoint supports the following content types, application/json as JSON PictureForUpdate{"fileName":"string", "Base64Contents":"string"}, multipart/formdata and any other streamed binary content type (as long as either query parameter fileName or request header ContentDisposition filename is included).
-     * @param {String} accountId 
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId ID of the room the picture is for.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Object} optsOrCallback.file 
@@ -1204,8 +1228,9 @@
 
     /**
      * Updates room field data.
-     * @param {String} accountId 
-     * @param {Number} roomId 
+     * Updates room field data.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roomId The id of the room.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/FieldDataForUpdate} optsOrCallback.body 
      * @param {module:api/RoomsApi~updateRoomFieldDataCallback} callback The callback function, accepting three arguments: error, data, response

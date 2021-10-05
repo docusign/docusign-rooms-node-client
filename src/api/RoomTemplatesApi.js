@@ -61,9 +61,10 @@
 
     /**
      * Returns all room templates that the active user has access to
-     * @param {String} accountId 
+     * This method returns a list of room templates that the user can use to create a new room. The response includes company and region-level templates
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.officeId Get all room templates you have access to for this office. Response includes Company and Region level  If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
+     * @param {Number} optsOrCallback.officeId Get all room templates you have access to for this office. Response includes Company and Region level templates. If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
      * @param {Boolean} optsOrCallback.onlyAssignable Get list of templates you have access to. Default value false. (default to false)
      * @param {Boolean} optsOrCallback.onlyEnabled When set to true, only returns room templates that are not disabled. (default to true)
      * @param {Number} optsOrCallback.count Number of room templates to return. Defaults to the maximum which is 100. (default to 100)
@@ -109,7 +110,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomTemplatesSummaryList;
 

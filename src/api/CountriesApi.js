@@ -61,6 +61,7 @@
 
     /**
      * Retrieves the list of valid countries.
+     * Returns a list of countries that the API supports
      * @param {module:api/CountriesApi~getCountriesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GlobalCountries}
      */
@@ -84,7 +85,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalCountries;
 

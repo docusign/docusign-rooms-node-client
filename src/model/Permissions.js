@@ -78,9 +78,6 @@
       if (data.hasOwnProperty('canExportRoomActivityDetailsPeople')) {
         obj['canExportRoomActivityDetailsPeople'] = ApiClient.convertToType(data['canExportRoomActivityDetailsPeople'], 'Boolean');
       }
-      if (data.hasOwnProperty('isVisibleInRooms')) {
-        obj['isVisibleInRooms'] = ApiClient.convertToType(data['isVisibleInRooms'], 'Boolean');
-      }
       if (data.hasOwnProperty('canCopyRoomDetails')) {
         obj['canCopyRoomDetails'] = ApiClient.convertToType(data['canCopyRoomDetails'], 'Boolean');
       }
@@ -146,6 +143,9 @@
       }
       if (data.hasOwnProperty('canShareDocsNotOwned')) {
         obj['canShareDocsNotOwned'] = ApiClient.convertToType(data['canShareDocsNotOwned'], 'Boolean');
+      }
+      if (data.hasOwnProperty('canCreateFormTemplates')) {
+        obj['canCreateFormTemplates'] = ApiClient.convertToType(data['canCreateFormTemplates'], 'Boolean');
       }
       if (data.hasOwnProperty('canAddTasksToAnyTaskLists')) {
         obj['canAddTasksToAnyTaskLists'] = ApiClient.convertToType(data['canAddTasksToAnyTaskLists'], 'Boolean');
@@ -274,10 +274,6 @@
    */
   exports.prototype['canExportRoomActivityDetailsPeople'] = undefined;
   /**
-   * @member {Boolean} isVisibleInRooms
-   */
-  exports.prototype['isVisibleInRooms'] = undefined;
-  /**
    * @member {Boolean} canCopyRoomDetails
    */
   exports.prototype['canCopyRoomDetails'] = undefined;
@@ -365,6 +361,10 @@
    * @member {Boolean} canShareDocsNotOwned
    */
   exports.prototype['canShareDocsNotOwned'] = undefined;
+  /**
+   * @member {Boolean} canCreateFormTemplates
+   */
+  exports.prototype['canCreateFormTemplates'] = undefined;
   /**
    * @member {Boolean} canAddTasksToAnyTaskLists
    */

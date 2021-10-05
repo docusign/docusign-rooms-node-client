@@ -61,6 +61,7 @@
 
     /**
      * Retrieves the list of valid origins of leads.
+     * Returns a list of origins of leads (such as Trulia or Zillow) that you can specify for rooms.
      * @param {module:api/OriginsOfLeadsApi~getOriginsOfLeadsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GlobalOriginsOfLeads}
      */
@@ -84,7 +85,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalOriginsOfLeads;
 

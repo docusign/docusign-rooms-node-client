@@ -61,7 +61,8 @@
 
     /**
      * Gets form based on Id.
-     * @param {String} accountId 
+     * Returns details about a specific form, such as the date it was created and last updated, the number of pages, the form owner, and other information.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {String} formId Form ID
      * @param {module:api/FormDetailsApi~getFormDetailsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FormDetails}
@@ -98,7 +99,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FormDetails;
 

@@ -61,7 +61,8 @@
 
     /**
      * Create an office.
-     * @param {String} accountId 
+     * Create an office.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/OfficeForCreate} optsOrCallback.body 
      * @param {module:api/OfficesApi~createOfficeCallback} callback The callback function, accepting three arguments: error, data, response
@@ -121,7 +122,8 @@
 
     /**
      * Delete an office.
-     * @param {String} accountId 
+     * This method deletes an office from a Rooms account.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} officeId 
      * @param {module:api/OfficesApi~deleteOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -157,7 +159,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -178,8 +180,9 @@
 
     /**
      * Get information about the office with the given officeId.
-     * @param {String} accountId 
-     * @param {Number} officeId 
+     * Get information about the office with the given officeId.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} officeId The id of the office.
      * @param {module:api/OfficesApi~getOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Office}
      */
@@ -215,7 +218,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Office;
 
@@ -235,8 +238,9 @@
      */
 
     /**
-     * Get all 
-     * @param {String} accountId 
+     * Get all offices.
+     * This method returns a list of offices associated with an account.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.count Number of offices to include in the response, (Default 100) (default to 100)
      * @param {Number} optsOrCallback.startPosition Position in the overall list of offices to begin results. (default to 0)
@@ -282,7 +286,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = OfficeSummaryList;
 
@@ -303,7 +307,8 @@
 
     /**
      * Lists the number of objects of each type that reference the office.
-     * @param {String} accountId 
+     * This method returns a list of each type of object and the number of objects of that type referencing the specified office. Note that an office cannot be deleted while existing objects reference it.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} officeId 
      * @param {module:api/OfficesApi~getReferenceCountsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfficeReferenceCountList}
@@ -340,7 +345,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = OfficeReferenceCountList;
 

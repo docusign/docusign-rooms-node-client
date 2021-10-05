@@ -61,7 +61,8 @@
 
     /**
      * Get information about the account.
-     * @param {String} accountId 
+     * Returns details about a company account.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {module:api/AccountsApi~getAccountInformationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AccountSummary}
      */
@@ -91,7 +92,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = AccountSummary;
 

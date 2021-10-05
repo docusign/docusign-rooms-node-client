@@ -61,6 +61,7 @@
 
     /**
      * Retrieves the list of valid time zones.
+     * Gets a list of time zones that you can assign to an office.
      * @param {module:api/TimeZonesApi~getTimeZonesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GlobalTimeZones}
      */
@@ -84,7 +85,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalTimeZones;
 

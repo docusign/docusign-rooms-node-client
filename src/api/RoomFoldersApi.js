@@ -61,7 +61,8 @@
 
     /**
      * Gets room folders accessible to the calling user.
-     * @param {String} accountId 
+     * Gets a list of room folders in the specified room that are accessible to the current user.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId The room id from which to retrieve folders.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
@@ -110,7 +111,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoomFolderList;
 

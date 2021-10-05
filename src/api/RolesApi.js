@@ -61,7 +61,8 @@
 
     /**
      * Creates a role.
-     * @param {String} accountId 
+     * Creates a new company role in Rooms
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/RoleForCreate} optsOrCallback.body 
      * @param {module:api/RolesApi~createRoleCallback} callback The callback function, accepting three arguments: error, data, response
@@ -121,8 +122,9 @@
 
     /**
      * Deletes the role with the given roleId.
-     * @param {String} accountId 
-     * @param {Number} roleId 
+     * Deletes a role from a company account in Rooms
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roleId The id of the role.
      * @param {module:api/RolesApi~deleteRoleCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteRole = function(accountId, roleId, callback) {
@@ -157,7 +159,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = null;
 
@@ -178,10 +180,11 @@
 
     /**
      * Get information about the role with the given roleId.
-     * @param {String} accountId 
-     * @param {Number} roleId 
+     * Get information about the role with the given roleId.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roleId The id of the role.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Boolean} optsOrCallback.includeIsAssigned  (default to false)
+     * @param {Boolean} optsOrCallback.includeIsAssigned When set to true, the response includes the `isAssigned` property, which specifies whether the role is currently assigned to any users. The default is false. (default to false)
      * @param {module:api/RolesApi~getRoleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Role}
      */
@@ -225,7 +228,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = Role;
 
@@ -246,12 +249,14 @@
 
     /**
      * Gets a paged-list of roles in your company
-     * @param {String} accountId 
+     * Returns a list of roles associated with a company account
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Boolean} optsOrCallback.onlyAssignable  (default to false)
-     * @param {String} optsOrCallback.filter 
-     * @param {Number} optsOrCallback.startPosition  (default to 0)
-     * @param {Number} optsOrCallback.count  (default to 100)
+     * @param {Boolean} optsOrCallback.onlyAssignable Returns assignable roles based on calling user's company permissions.               DEPRECATED: Please use filterContext parameter to get the assignable roles. AssignableRolesBasedOnCompanyPermissions returns same results as onlyAssignable=true (default to false)
+     * @param {module:model/String} optsOrCallback.filterContext Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
+     * @param {String} optsOrCallback.filter A search filter that returns roles by the beginning of the role name. You can enter the beginning of the role name only to return all of the roles that begin with the text that you entered.
+     * @param {Number} optsOrCallback.startPosition The starting zero-based index position of the result set. The default value is 0. (default to 0)
+     * @param {Number} optsOrCallback.count The number of results to return. This value must be a number between `1` and `100` (default). (default to 100)
      * @param {module:api/RolesApi~getRolesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoleSummaryList}
      */
@@ -282,6 +287,7 @@
       };
       var queryParams = {
         'onlyAssignable': optsOrCallback['onlyAssignable'],
+        'filterContext': optsOrCallback['filterContext'],
         'filter': optsOrCallback['filter'],
         'startPosition': optsOrCallback['startPosition'],
         'count': optsOrCallback['count']
@@ -292,7 +298,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = RoleSummaryList;
 
@@ -313,8 +319,9 @@
 
     /**
      * Updates the role with the given roleId.
-     * @param {String} accountId 
-     * @param {Number} roleId 
+     * Updates the role with the given roleId.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {Number} roleId The id of the role.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {module:model/RoleForUpdate} optsOrCallback.body 
      * @param {module:api/RolesApi~updateRoleCallback} callback The callback function, accepting three arguments: error, data, response

@@ -61,10 +61,11 @@
 
     /**
      * Get details of a specific field set.
-     * @param {String} accountId 
-     * @param {String} fieldSetId 
+     * Get details of a specific field set.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
+     * @param {String} fieldSetId The id of the field set.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Array.<module:model/String>} optsOrCallback.fieldsCustomDataFilters 
+     * @param {Array.<module:model/String>} optsOrCallback.fieldsCustomDataFilters A comma-separated list that limits the fields to return:\\n\\n- `IsRequiredOnCreate`: include fields that are required in room creation.\\n- `IsRequiredOnSubmit`: include fields that are required when submitting a room for review.\\n
      * @param {module:api/FieldsApi~getFieldSetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FieldSet}
      */
@@ -108,7 +109,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = FieldSet;
 

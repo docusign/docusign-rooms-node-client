@@ -84,6 +84,9 @@
       if (data.hasOwnProperty('isVirtual')) {
         obj['isVirtual'] = ApiClient.convertToType(data['isVirtual'], 'Boolean');
       }
+      if (data.hasOwnProperty('isDynamic')) {
+        obj['isDynamic'] = ApiClient.convertToType(data['isDynamic'], 'Boolean');
+      }
       if (data.hasOwnProperty('owner')) {
         obj['owner'] = RoomDocumentOwner.constructFromObject(data['owner']);
       }
@@ -131,6 +134,10 @@
    * @member {Boolean} isVirtual
    */
   exports.prototype['isVirtual'] = undefined;
+  /**
+   * @member {Boolean} isDynamic
+   */
+  exports.prototype['isDynamic'] = undefined;
   /**
    * @member {module:model/RoomDocumentOwner} owner
    */

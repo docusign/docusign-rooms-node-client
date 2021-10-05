@@ -61,6 +61,7 @@
 
     /**
      * Retrieves the list of valid task date types.
+     * Returns a list of date types that you can use with tasks, such as `Actual Close Date` and `Task Due Date`
      * @param {module:api/TaskDateTypesApi~getTaskDateTypesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GlobalTaskDateTypes}
      */
@@ -84,7 +85,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalTaskDateTypes;
 

@@ -61,10 +61,11 @@
 
     /**
      * Returns all task list templates for the company of the active user.
-     * @param {String} accountId 
+     * Returns all task list templates for the company of the active user.
+     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {Number} optsOrCallback.startPosition  (default to 0)
-     * @param {Number} optsOrCallback.count  (default to 100)
+     * @param {Number} optsOrCallback.startPosition The starting zero-based index position from which to start returning values. The default is `0`. (default to 0)
+     * @param {Number} optsOrCallback.count The number of results to return. This value must be a number between `1` and `100` (default). (default to 100)
      * @param {module:api/TaskListTemplatesApi~getTaskListTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TaskListTemplateList}
      */
@@ -103,7 +104,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = TaskListTemplateList;
 

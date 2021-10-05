@@ -61,6 +61,7 @@
 
     /**
      * Retrieves the list of valid seller decision types.
+     * Returns a list of valid seller decision types.
      * @param {module:api/SellerDecisionTypesApi~getSellerDecisionTypesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GlobalSellerDecisionTypes}
      */
@@ -84,7 +85,7 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = [];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       var accepts = ['text/plain', 'application/json', 'text/json'];
       var returnType = GlobalSellerDecisionTypes;
 
