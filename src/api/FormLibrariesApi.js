@@ -105,7 +105,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = FormLibrarySummaryList;
 
       return this.apiClient.callApi(
@@ -176,7 +176,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = FormSummaryList;
 
       return this.apiClient.callApi(

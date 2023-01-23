@@ -12,18 +12,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-	define(['Configuration', 'ApiClient', 'model/ApiError', 'model/ClassicAdminToInvite', 'model/ClassicAgentToInvite', 'model/ClassicManagerToInvite', 'model/DesignatedOffice', 'model/DesignatedRegion', 'model/LockedOutDetails', 'model/User', 'model/UserForUpdate', 'model/UserSummaryList', 'model/UserToInvite'], factory);
+	define(['Configuration', 'ApiClient', 'model/ApiError', 'model/DesignatedOffice', 'model/DesignatedRegion', 'model/LockedOutDetails', 'model/User', 'model/UserForUpdate', 'model/UserSummaryList', 'model/UserToInvite'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../Configuration'), require('../ApiClient'), require('../model/ApiError'), require('../model/ClassicAdminToInvite'), require('../model/ClassicAgentToInvite'), require('../model/ClassicManagerToInvite'), require('../model/DesignatedOffice'), require('../model/DesignatedRegion'), require('../model/LockedOutDetails'), require('../model/User'), require('../model/UserForUpdate'), require('../model/UserSummaryList'), require('../model/UserToInvite'));
+    module.exports = factory(require('../Configuration'), require('../ApiClient'), require('../model/ApiError'), require('../model/DesignatedOffice'), require('../model/DesignatedRegion'), require('../model/LockedOutDetails'), require('../model/User'), require('../model/UserForUpdate'), require('../model/UserSummaryList'), require('../model/UserToInvite'));
   } else {
     // Browser globals (root is window)
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.UsersApi = factory(root.DocusignRooms.Configuration, root.DocusignRooms.ApiClient, root.DocusignRooms.ApiError, root.DocusignRooms.ClassicAdminToInvite, root.DocusignRooms.ClassicAgentToInvite, root.DocusignRooms.ClassicManagerToInvite, root.DocusignRooms.DesignatedOffice, root.DocusignRooms.DesignatedRegion, root.DocusignRooms.LockedOutDetails, root.DocusignRooms.User, root.DocusignRooms.UserForUpdate, root.DocusignRooms.UserSummaryList, root.DocusignRooms.UserToInvite);
+    root.DocusignRooms.UsersApi = factory(root.DocusignRooms.Configuration, root.DocusignRooms.ApiClient, root.DocusignRooms.ApiError, root.DocusignRooms.DesignatedOffice, root.DocusignRooms.DesignatedRegion, root.DocusignRooms.LockedOutDetails, root.DocusignRooms.User, root.DocusignRooms.UserForUpdate, root.DocusignRooms.UserSummaryList, root.DocusignRooms.UserToInvite);
   }
-}(this, function(Configuration, ApiClient, ApiError, ClassicAdminToInvite, ClassicAgentToInvite, ClassicManagerToInvite, DesignatedOffice, DesignatedRegion, LockedOutDetails, User, UserForUpdate, UserSummaryList, UserToInvite) {
+}(this, function(Configuration, ApiClient, ApiError, DesignatedOffice, DesignatedRegion, LockedOutDetails, User, UserForUpdate, UserSummaryList, UserToInvite) {
   'use strict';
 
   /**
@@ -65,7 +65,7 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/DesignatedOffice} optsOrCallback.body 
+     * @param {module:model/DesignatedOffice} optsOrCallback.body Details of the office that the user will be added to
      * @param {module:api/UsersApi~addUserToOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.addUserToOffice = function(accountId, userId, optsOrCallback, callback) {
@@ -107,8 +107,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -132,7 +132,7 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/DesignatedRegion} optsOrCallback.body 
+     * @param {module:model/DesignatedRegion} optsOrCallback.body Region that given user will be added to
      * @param {module:api/UsersApi~addUserToRegionCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.addUserToRegion = function(accountId, userId, optsOrCallback, callback) {
@@ -174,8 +174,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -234,7 +234,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = User;
 
       return this.apiClient.callApi(
@@ -258,12 +258,12 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {String} optsOrCallback.filter Filters by name and email
-     * @param {module:model/String} optsOrCallback.sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
-     * @param {Number} optsOrCallback.defaultOfficeId 
-     * @param {module:model/String} optsOrCallback.accessLevel Valid values are 'Company', 'Region', 'Office', 'Contributor'
+     * @param {Object} optsOrCallback.sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
+     * @param {Number} optsOrCallback.defaultOfficeId Default office ID
+     * @param {Object} optsOrCallback.accessLevel Valid values are 'Company', 'Region', 'Office', 'Contributor'
      * @param {Number} optsOrCallback.titleId Only valid for classic companies
      * @param {Number} optsOrCallback.roleId Only valid for next gen companies
-     * @param {module:model/String} optsOrCallback.status Valid values are 'Active', 'Pending'
+     * @param {Object} optsOrCallback.status Valid values are 'Active', 'Pending'
      * @param {Boolean} optsOrCallback.lockedOnly When set to true, filters for users whose accounts are locked
      * @param {Number} optsOrCallback.startPosition Defaults to 0 (default to 0)
      * @param {Number} optsOrCallback.count Defaults to 100. Must be less than or equal to 100 (default to 100)
@@ -314,194 +314,11 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = UserSummaryList;
 
       return this.apiClient.callApi(
         '/v2/accounts/{accountId}/users', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    };
-
-    /**
-     * (Optional) Callback function to receive the result of the inviteClassicAdmin operation. If none specified a Promise will be returned.
-     * @callback module:api/UsersApi~inviteClassicAdminCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} If a callback was specified, the response The complete HTTP response, else a Promise resolving the response Data.
-     */
-
-    /**
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as an admin.
-     * Invites a new user to join a company account on Rooms Version 5 as an Admin.
-     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
-     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/ClassicAdminToInvite} optsOrCallback.body 
-     * @param {module:api/UsersApi~inviteClassicAdminCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
-     */
-    this.inviteClassicAdmin = function(accountId, optsOrCallback, callback) {
-      optsOrCallback = optsOrCallback || {};
-
-      if (typeof optsOrCallback === 'function') {
-        callback = optsOrCallback;
-        optsOrCallback = {};
-      }
-
-      var postBody = optsOrCallback['body'];
-
-      // verify the required parameter 'accountId' is set
-      if (accountId === undefined || accountId === null) {
-        throw new Error("Missing the required parameter 'accountId' when calling inviteClassicAdmin");
-      }
-
-      if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
-        if (typeof optsOrCallback !== 'undefined') {
-          optsOrCallback = callback;
-        }
-        callback = arguments[arguments.length-1];
-      }
-
-      var pathParams = {
-        'accountId': accountId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
-      var returnType = User;
-
-      return this.apiClient.callApi(
-        '/v2/accounts/{accountId}/users/invite_classic_admin', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    };
-
-    /**
-     * (Optional) Callback function to receive the result of the inviteClassicAgent operation. If none specified a Promise will be returned.
-     * @callback module:api/UsersApi~inviteClassicAgentCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} If a callback was specified, the response The complete HTTP response, else a Promise resolving the response Data.
-     */
-
-    /**
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as an agent.
-     * Invites a new user to join a company account on Rooms Version 5 as an Agent.
-     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
-     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/ClassicAgentToInvite} optsOrCallback.body 
-     * @param {module:api/UsersApi~inviteClassicAgentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
-     */
-    this.inviteClassicAgent = function(accountId, optsOrCallback, callback) {
-      optsOrCallback = optsOrCallback || {};
-
-      if (typeof optsOrCallback === 'function') {
-        callback = optsOrCallback;
-        optsOrCallback = {};
-      }
-
-      var postBody = optsOrCallback['body'];
-
-      // verify the required parameter 'accountId' is set
-      if (accountId === undefined || accountId === null) {
-        throw new Error("Missing the required parameter 'accountId' when calling inviteClassicAgent");
-      }
-
-      if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
-        if (typeof optsOrCallback !== 'undefined') {
-          optsOrCallback = callback;
-        }
-        callback = arguments[arguments.length-1];
-      }
-
-      var pathParams = {
-        'accountId': accountId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
-      var returnType = User;
-
-      return this.apiClient.callApi(
-        '/v2/accounts/{accountId}/users/invite_classic_agent', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    };
-
-    /**
-     * (Optional) Callback function to receive the result of the inviteClassicManager operation. If none specified a Promise will be returned.
-     * @callback module:api/UsersApi~inviteClassicManagerCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} If a callback was specified, the response The complete HTTP response, else a Promise resolving the response Data.
-     */
-
-    /**
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as a manager.
-     * Invites a new user to join a company account on Rooms Version 5 as a Manager.
-     * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
-     * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/ClassicManagerToInvite} optsOrCallback.body 
-     * @param {module:api/UsersApi~inviteClassicManagerCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
-     */
-    this.inviteClassicManager = function(accountId, optsOrCallback, callback) {
-      optsOrCallback = optsOrCallback || {};
-
-      if (typeof optsOrCallback === 'function') {
-        callback = optsOrCallback;
-        optsOrCallback = {};
-      }
-
-      var postBody = optsOrCallback['body'];
-
-      // verify the required parameter 'accountId' is set
-      if (accountId === undefined || accountId === null) {
-        throw new Error("Missing the required parameter 'accountId' when calling inviteClassicManager");
-      }
-
-      if (typeof callback !== 'function' &&  arguments.length && typeof arguments[arguments.length-1] === 'function'){
-        if (typeof optsOrCallback !== 'undefined') {
-          optsOrCallback = callback;
-        }
-        callback = arguments[arguments.length-1];
-      }
-
-      var pathParams = {
-        'accountId': accountId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
-      var returnType = User;
-
-      return this.apiClient.callApi(
-        '/v2/accounts/{accountId}/users/invite_classic_manager', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -520,7 +337,7 @@
      * Invites a new user to join a company account on Rooms Version 6.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/UserToInvite} optsOrCallback.body 
+     * @param {module:model/UserToInvite} optsOrCallback.body Invitee information
      * @param {module:api/UsersApi~inviteUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -558,7 +375,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = User;
 
       return this.apiClient.callApi(
@@ -582,7 +399,7 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId User Id of the user attempting to be locked.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/LockedOutDetails} optsOrCallback.body 
+     * @param {module:model/LockedOutDetails} optsOrCallback.body Details containing the reason the user is being locked out
      * @param {module:api/UsersApi~lockUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.lockUser = function(accountId, userId, optsOrCallback, callback) {
@@ -625,7 +442,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -647,7 +464,7 @@
      * Reinvites the pending user with the given userId.
      * Reinvites an unactivated user to join a company account. You can use this method with either Rooms Version 5 or Rooms Version 6.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
-     * @param {Number} userId 
+     * @param {Number} userId ID of the user to be invited
      * @param {module:api/UsersApi~reinviteUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.reinviteUser = function(accountId, userId, callback) {
@@ -683,7 +500,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -742,7 +559,7 @@ The rooms will need to be transferred to other agents before removing.
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -766,7 +583,7 @@ The rooms will need to be transferred to other agents before removing.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/DesignatedOffice} optsOrCallback.body 
+     * @param {module:model/DesignatedOffice} optsOrCallback.body Details of the office that the user will be removed from
      * @param {module:api/UsersApi~removeUserFromOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.removeUserFromOffice = function(accountId, userId, optsOrCallback, callback) {
@@ -808,8 +625,8 @@ The rooms will need to be transferred to other agents before removing.
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -833,7 +650,7 @@ The rooms will need to be transferred to other agents before removing.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/DesignatedRegion} optsOrCallback.body 
+     * @param {module:model/DesignatedRegion} optsOrCallback.body Region that given user will be removed from
      * @param {module:api/UsersApi~removeUserFromRegionCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.removeUserFromRegion = function(accountId, userId, optsOrCallback, callback) {
@@ -875,8 +692,8 @@ The rooms will need to be transferred to other agents before removing.
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -934,7 +751,7 @@ The rooms will need to be transferred to other agents before removing.
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -958,7 +775,7 @@ The rooms will need to be transferred to other agents before removing.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} userId The id of the user.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/UserForUpdate} optsOrCallback.body 
+     * @param {module:model/UserForUpdate} optsOrCallback.body Request body to update the user
      * @param {module:api/UsersApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -1001,8 +818,8 @@ The rooms will need to be transferred to other agents before removing.
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = User;
 
       return this.apiClient.callApi(

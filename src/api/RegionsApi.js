@@ -64,7 +64,7 @@
      * Creates a new region for a company
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/Region} optsOrCallback.body 
+     * @param {module:model/Region} optsOrCallback.body The information required to create a new region for the caller's company
      * @param {module:api/RegionsApi~createRegionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Region}
      */
@@ -101,8 +101,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = Region;
 
       return this.apiClient.callApi(
@@ -160,7 +160,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -219,7 +219,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = Region;
 
       return this.apiClient.callApi(
@@ -278,7 +278,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = RegionReferenceCountList;
 
       return this.apiClient.callApi(
@@ -344,7 +344,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = RegionSummaryList;
 
       return this.apiClient.callApi(

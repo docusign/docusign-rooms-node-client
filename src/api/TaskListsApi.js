@@ -65,7 +65,7 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} roomId Room ID.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/TaskListForCreate} optsOrCallback.body 
+     * @param {module:model/TaskListForCreate} optsOrCallback.body Details for task list creation
      * @param {module:api/TaskListsApi~createTaskListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TaskList}
      */
@@ -109,7 +109,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = TaskList;
 
       return this.apiClient.callApi(
@@ -167,7 +167,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -226,7 +226,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = TaskListSummaryList;
 
       return this.apiClient.callApi(

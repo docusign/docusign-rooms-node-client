@@ -81,11 +81,17 @@
       if (data.hasOwnProperty('createdByUserId')) {
         obj['createdByUserId'] = ApiClient.convertToType(data['createdByUserId'], 'Number');
       }
+      if (data.hasOwnProperty('roomOwnerIds')) {
+        obj['roomOwnerIds'] = ApiClient.convertToType(data['roomOwnerIds'], ['Number']);
+      }
       if (data.hasOwnProperty('rejectedByUserId')) {
         obj['rejectedByUserId'] = ApiClient.convertToType(data['rejectedByUserId'], 'Number');
       }
       if (data.hasOwnProperty('closedStatusId')) {
         obj['closedStatusId'] = ApiClient.convertToType(data['closedStatusId'], 'String');
+      }
+      if (data.hasOwnProperty('fieldDataLastUpdatedDate')) {
+        obj['fieldDataLastUpdatedDate'] = ApiClient.convertToType(data['fieldDataLastUpdatedDate'], 'Date');
       }
       if (data.hasOwnProperty('fieldData')) {
         obj['fieldData'] = FieldData.constructFromObject(data['fieldData']);
@@ -131,6 +137,10 @@
    */
   exports.prototype['createdByUserId'] = undefined;
   /**
+   * @member {Array.<Number>} roomOwnerIds
+   */
+  exports.prototype['roomOwnerIds'] = undefined;
+  /**
    * @member {Number} rejectedByUserId
    */
   exports.prototype['rejectedByUserId'] = undefined;
@@ -138,6 +148,10 @@
    * @member {String} closedStatusId
    */
   exports.prototype['closedStatusId'] = undefined;
+  /**
+   * @member {Date} fieldDataLastUpdatedDate
+   */
+  exports.prototype['fieldDataLastUpdatedDate'] = undefined;
   /**
    * @member {module:model/FieldData} fieldData
    */

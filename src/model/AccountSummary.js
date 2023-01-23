@@ -12,18 +12,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ProductVersion'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ProductVersion'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.AccountSummary = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.ProductVersion);
+    root.DocusignRooms.AccountSummary = factory(root.DocusignRooms.ApiClient);
   }
-}(this, function(ApiClient, ProductVersion) {
+}(this, function(ApiClient) {
   'use strict';
 
 
@@ -61,7 +61,7 @@
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
       if (data.hasOwnProperty('companyVersion')) {
-        obj['companyVersion'] = ProductVersion.constructFromObject(data['companyVersion']);
+        obj['companyVersion'] = ApiClient.convertToType(data['companyVersion'], 'String');
       }
       if (data.hasOwnProperty('docuSignAccountGuid')) {
         obj['docuSignAccountGuid'] = ApiClient.convertToType(data['docuSignAccountGuid'], 'String');
@@ -85,7 +85,7 @@
    */
   exports.prototype['name'] = undefined;
   /**
-   * @member {module:model/ProductVersion} companyVersion
+   * @member {module:model/AccountSummary.CompanyVersionEnum} companyVersion
    */
   exports.prototype['companyVersion'] = undefined;
   /**
@@ -101,6 +101,25 @@
    */
   exports.prototype['requireOfficeLibraryAssignments'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>companyVersion</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.CompanyVersionEnum = {
+    /**
+     * value: "v5"
+     * @const
+     */
+    v5: "v5",
+
+    /**
+     * value: "v6"
+     * @const
+     */
+    v6: "v6"
+  };
 
 
   return exports;

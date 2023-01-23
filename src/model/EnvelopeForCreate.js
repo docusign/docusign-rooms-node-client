@@ -21,20 +21,20 @@
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.ApiError = factory(root.DocusignRooms.ApiClient);
+    root.DocusignRooms.EnvelopeForCreate = factory(root.DocusignRooms.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
 
   /**
-   * The ApiError model module.
-   * @module model/ApiError
+   * The EnvelopeForCreate model module.
+   * @module model/EnvelopeForCreate
    */
 
   /**
-   * Constructs a new <code>ApiError</code>.
-   * @alias module:model/ApiError
+   * Constructs a new <code>EnvelopeForCreate</code>.
+   * @alias module:model/EnvelopeForCreate
    * @class
    */
   var exports = function() {
@@ -44,41 +44,34 @@
   };
 
   /**
-   * Constructs a <code>ApiError</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>EnvelopeForCreate</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ApiError} obj Optional instance to populate.
-   * @return {module:model/ApiError} The populated <code>ApiError</code> instance.
+   * @param {module:model/EnvelopeForCreate} obj Optional instance to populate.
+   * @return {module:model/EnvelopeForCreate} The populated <code>EnvelopeForCreate</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('errorCode')) {
-        obj['errorCode'] = ApiClient.convertToType(data['errorCode'], 'String');
+      if (data.hasOwnProperty('envelopeName')) {
+        obj['envelopeName'] = ApiClient.convertToType(data['envelopeName'], 'String');
       }
-      if (data.hasOwnProperty('message')) {
-        obj['message'] = ApiClient.convertToType(data['message'], 'String');
-      }
-      if (data.hasOwnProperty('referenceId')) {
-        obj['referenceId'] = ApiClient.convertToType(data['referenceId'], 'String');
+      if (data.hasOwnProperty('documentIds')) {
+        obj['documentIds'] = ApiClient.convertToType(data['documentIds'], ['Number']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} errorCode
+   * @member {String} envelopeName
    */
-  exports.prototype['errorCode'] = undefined;
+  exports.prototype['envelopeName'] = undefined;
   /**
-   * @member {String} message
+   * @member {Array.<Number>} documentIds
    */
-  exports.prototype['message'] = undefined;
-  /**
-   * @member {String} referenceId
-   */
-  exports.prototype['referenceId'] = undefined;
+  exports.prototype['documentIds'] = undefined;
 
 
 
