@@ -86,7 +86,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = GlobalCountries;
 
       return this.apiClient.callApi(

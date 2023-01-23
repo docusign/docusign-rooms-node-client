@@ -108,6 +108,9 @@
       if (data.hasOwnProperty('canConnectToMortgageCadence')) {
         obj['canConnectToMortgageCadence'] = ApiClient.convertToType(data['canConnectToMortgageCadence'], 'Boolean');
       }
+      if (data.hasOwnProperty('autoAccessToRoomsInOfficeOnly')) {
+        obj['autoAccessToRoomsInOfficeOnly'] = ApiClient.convertToType(data['autoAccessToRoomsInOfficeOnly'], 'Boolean');
+      }
       if (data.hasOwnProperty('canViewRoomDetails')) {
         obj['canViewRoomDetails'] = ApiClient.convertToType(data['canViewRoomDetails'], 'Boolean');
       }
@@ -135,6 +138,12 @@
       if (data.hasOwnProperty('canDeleteOwnedDocuments')) {
         obj['canDeleteOwnedDocuments'] = ApiClient.convertToType(data['canDeleteOwnedDocuments'], 'Boolean');
       }
+      if (data.hasOwnProperty('canDeleteSignedDocuments')) {
+        obj['canDeleteSignedDocuments'] = ApiClient.convertToType(data['canDeleteSignedDocuments'], 'Boolean');
+      }
+      if (data.hasOwnProperty('canDeleteUnsignedDocuments')) {
+        obj['canDeleteUnsignedDocuments'] = ApiClient.convertToType(data['canDeleteUnsignedDocuments'], 'Boolean');
+      }
       if (data.hasOwnProperty('canManageSharedDocs')) {
         obj['canManageSharedDocs'] = ApiClient.convertToType(data['canManageSharedDocs'], 'Boolean');
       }
@@ -146,6 +155,9 @@
       }
       if (data.hasOwnProperty('canCreateFormTemplates')) {
         obj['canCreateFormTemplates'] = ApiClient.convertToType(data['canCreateFormTemplates'], 'Boolean');
+      }
+      if (data.hasOwnProperty('canManageFormPackets')) {
+        obj['canManageFormPackets'] = ApiClient.convertToType(data['canManageFormPackets'], 'Boolean');
       }
       if (data.hasOwnProperty('canAddTasksToAnyTaskLists')) {
         obj['canAddTasksToAnyTaskLists'] = ApiClient.convertToType(data['canAddTasksToAnyTaskLists'], 'Boolean');
@@ -237,6 +249,9 @@
       if (data.hasOwnProperty('canManageIntegrationSettings')) {
         obj['canManageIntegrationSettings'] = ApiClient.convertToType(data['canManageIntegrationSettings'], 'Boolean');
       }
+      if (data.hasOwnProperty('canExportCompanyUsageReport')) {
+        obj['canExportCompanyUsageReport'] = ApiClient.convertToType(data['canExportCompanyUsageReport'], 'Boolean');
+      }
     }
     return obj;
   }
@@ -314,6 +329,10 @@
    */
   exports.prototype['canConnectToMortgageCadence'] = undefined;
   /**
+   * @member {Boolean} autoAccessToRoomsInOfficeOnly
+   */
+  exports.prototype['autoAccessToRoomsInOfficeOnly'] = undefined;
+  /**
    * @member {Boolean} canViewRoomDetails
    */
   exports.prototype['canViewRoomDetails'] = undefined;
@@ -350,6 +369,14 @@
    */
   exports.prototype['canDeleteOwnedDocuments'] = undefined;
   /**
+   * @member {Boolean} canDeleteSignedDocuments
+   */
+  exports.prototype['canDeleteSignedDocuments'] = undefined;
+  /**
+   * @member {Boolean} canDeleteUnsignedDocuments
+   */
+  exports.prototype['canDeleteUnsignedDocuments'] = undefined;
+  /**
    * @member {Boolean} canManageSharedDocs
    */
   exports.prototype['canManageSharedDocs'] = undefined;
@@ -365,6 +392,10 @@
    * @member {Boolean} canCreateFormTemplates
    */
   exports.prototype['canCreateFormTemplates'] = undefined;
+  /**
+   * @member {Boolean} canManageFormPackets
+   */
+  exports.prototype['canManageFormPackets'] = undefined;
   /**
    * @member {Boolean} canAddTasksToAnyTaskLists
    */
@@ -485,6 +516,10 @@
    * @member {Boolean} canManageIntegrationSettings
    */
   exports.prototype['canManageIntegrationSettings'] = undefined;
+  /**
+   * @member {Boolean} canExportCompanyUsageReport
+   */
+  exports.prototype['canExportCompanyUsageReport'] = undefined;
 
 
 

@@ -21,35 +21,34 @@
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.ExternalFormFillSessionForCreate = factory(root.DocusignRooms.ApiClient);
+    root.DocusignRooms.FormGroupForm = factory(root.DocusignRooms.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
 
   /**
-   * The ExternalFormFillSessionForCreate model module.
-   * @module model/ExternalFormFillSessionForCreate
+   * The FormGroupForm model module.
+   * @module model/FormGroupForm
    */
 
   /**
-   * Constructs a new <code>ExternalFormFillSessionForCreate</code>.
-   * @alias module:model/ExternalFormFillSessionForCreate
+   * Constructs a new <code>FormGroupForm</code>.
+   * @alias module:model/FormGroupForm
    * @class
-   * @param roomId {Number} 
    */
-  var exports = function(roomId) {
+  var exports = function() {
     var _this = this;
 
-    _this['roomId'] = roomId;
+
   };
 
   /**
-   * Constructs a <code>ExternalFormFillSessionForCreate</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FormGroupForm</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ExternalFormFillSessionForCreate} obj Optional instance to populate.
-   * @return {module:model/ExternalFormFillSessionForCreate} The populated <code>ExternalFormFillSessionForCreate</code> instance.
+   * @param {module:model/FormGroupForm} obj Optional instance to populate.
+   * @return {module:model/FormGroupForm} The populated <code>FormGroupForm</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -58,14 +57,14 @@
       if (data.hasOwnProperty('formId')) {
         obj['formId'] = ApiClient.convertToType(data['formId'], 'String');
       }
-      if (data.hasOwnProperty('roomId')) {
-        obj['roomId'] = ApiClient.convertToType(data['roomId'], 'Number');
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('formIds')) {
-        obj['formIds'] = ApiClient.convertToType(data['formIds'], ['String']);
+      if (data.hasOwnProperty('isRequired')) {
+        obj['isRequired'] = ApiClient.convertToType(data['isRequired'], 'Boolean');
       }
-      if (data.hasOwnProperty('xFrameAllowedUrl')) {
-        obj['xFrameAllowedUrl'] = ApiClient.convertToType(data['xFrameAllowedUrl'], 'String');
+      if (data.hasOwnProperty('lastUpdatedDate')) {
+        obj['lastUpdatedDate'] = ApiClient.convertToType(data['lastUpdatedDate'], 'Date');
       }
     }
     return obj;
@@ -76,17 +75,17 @@
    */
   exports.prototype['formId'] = undefined;
   /**
-   * @member {Number} roomId
+   * @member {String} name
    */
-  exports.prototype['roomId'] = undefined;
+  exports.prototype['name'] = undefined;
   /**
-   * @member {Array.<String>} formIds
+   * @member {Boolean} isRequired
    */
-  exports.prototype['formIds'] = undefined;
+  exports.prototype['isRequired'] = undefined;
   /**
-   * @member {String} xFrameAllowedUrl
+   * @member {Date} lastUpdatedDate
    */
-  exports.prototype['xFrameAllowedUrl'] = undefined;
+  exports.prototype['lastUpdatedDate'] = undefined;
 
 
 

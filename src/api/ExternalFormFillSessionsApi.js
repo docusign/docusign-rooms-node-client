@@ -61,10 +61,11 @@
 
     /**
      * Creates an external form fill session.
-     * Returns a URL for a new external form fill session, based on the `roomId` and `formId` that you specify in the `formFillSessionForCreate` request body.
+     * Returns a URL for a new external form fill session, based on the `roomId` and `formId` or `formIds` that you specify in the `formFillSessionForCreate` request body.
+User may supply up to 10 `formIds`. Eventually, `formId` will be deprecated.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/ExternalFormFillSessionForCreate} optsOrCallback.body 
+     * @param {module:model/ExternalFormFillSessionForCreate} optsOrCallback.body Request body that accepts the `roomId` and `formId` or `formIds` that you specify in the `formFillSessionForCreate` request body. User may supply up to 10 `formIds`. Eventually, `formId` will be deprecated
      * @param {module:api/ExternalFormFillSessionsApi~createExternalFormFillSessionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ExternalFormFillSession}
      */
@@ -101,8 +102,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = ExternalFormFillSession;
 
       return this.apiClient.callApi(

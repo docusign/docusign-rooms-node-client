@@ -63,6 +63,9 @@
       if (data.hasOwnProperty('lastUpdatedDate')) {
         obj['lastUpdatedDate'] = ApiClient.convertToType(data['lastUpdatedDate'], 'Date');
       }
+      if (data.hasOwnProperty('viewingUserHasAccess')) {
+        obj['viewingUserHasAccess'] = ApiClient.convertToType(data['viewingUserHasAccess'], 'Boolean');
+      }
     }
     return obj;
   }
@@ -79,6 +82,10 @@
    * @member {Date} lastUpdatedDate
    */
   exports.prototype['lastUpdatedDate'] = undefined;
+  /**
+   * @member {Boolean} viewingUserHasAccess
+   */
+  exports.prototype['viewingUserHasAccess'] = undefined;
 
 
 

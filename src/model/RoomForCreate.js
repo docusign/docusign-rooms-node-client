@@ -77,6 +77,9 @@
       if (data.hasOwnProperty('fieldData')) {
         obj['fieldData'] = FieldDataForCreate.constructFromObject(data['fieldData']);
       }
+      if (data.hasOwnProperty('listingSource')) {
+        obj['listingSource'] = ApiClient.convertToType(data['listingSource'], 'String');
+      }
     }
     return obj;
   }
@@ -110,7 +113,30 @@
    * @member {module:model/FieldDataForCreate} fieldData
    */
   exports.prototype['fieldData'] = undefined;
+  /**
+   * @member {module:model/RoomForCreate.ListingSourceEnum} listingSource
+   */
+  exports.prototype['listingSource'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>listingSource</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.ListingSourceEnum = {
+    /**
+     * value: "PublicRecords"
+     * @const
+     */
+    publicRecords: "PublicRecords",
+
+    /**
+     * value: "MLS"
+     * @const
+     */
+    MLS: "MLS"
+  };
 
 
   return exports;

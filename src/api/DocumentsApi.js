@@ -65,7 +65,7 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Number} documentId The id of the document.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/DocumentUserForCreate} optsOrCallback.body 
+     * @param {module:model/DocumentUserForCreate} optsOrCallback.body Request body with user id that the document has to be granted to
      * @param {module:api/DocumentsApi~createDocumentUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DocumentUser}
      */
@@ -108,8 +108,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = DocumentUser;
 
       return this.apiClient.callApi(
@@ -167,7 +167,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -236,7 +236,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = Document;
 
       return this.apiClient.callApi(

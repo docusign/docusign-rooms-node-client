@@ -64,7 +64,7 @@
      * Create an office.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/OfficeForCreate} optsOrCallback.body 
+     * @param {module:model/OfficeForCreate} optsOrCallback.body Creates an office with given name and other details like Region,Address
      * @param {module:api/OfficesApi~createOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Office}
      */
@@ -101,8 +101,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = Office;
 
       return this.apiClient.callApi(
@@ -124,7 +124,7 @@
      * Delete an office.
      * This method deletes an office from a Rooms account.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
-     * @param {Number} officeId 
+     * @param {Number} officeId Office ID to be deleted
      * @param {module:api/OfficesApi~deleteOfficeCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteOffice = function(accountId, officeId, callback) {
@@ -160,7 +160,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -219,7 +219,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = Office;
 
       return this.apiClient.callApi(
@@ -287,7 +287,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = OfficeSummaryList;
 
       return this.apiClient.callApi(
@@ -309,7 +309,7 @@
      * Lists the number of objects of each type that reference the office.
      * This method returns a list of each type of object and the number of objects of that type referencing the specified office. Note that an office cannot be deleted while existing objects reference it.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
-     * @param {Number} officeId 
+     * @param {Number} officeId ID of the office
      * @param {module:api/OfficesApi~getReferenceCountsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfficeReferenceCountList}
      */
@@ -346,7 +346,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = OfficeReferenceCountList;
 
       return this.apiClient.callApi(

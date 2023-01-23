@@ -12,18 +12,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AccessLevel'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./AccessLevel'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.DocusignRooms) {
       root.DocusignRooms = {};
     }
-    root.DocusignRooms.UserSummary = factory(root.DocusignRooms.ApiClient, root.DocusignRooms.AccessLevel);
+    root.DocusignRooms.UserSummary = factory(root.DocusignRooms.ApiClient);
   }
-}(this, function(ApiClient, AccessLevel) {
+}(this, function(ApiClient) {
   'use strict';
 
 
@@ -73,7 +73,7 @@
         obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
       if (data.hasOwnProperty('accessLevel')) {
-        obj['accessLevel'] = AccessLevel.constructFromObject(data['accessLevel']);
+        obj['accessLevel'] = ApiClient.convertToType(data['accessLevel'], 'String');
       }
       if (data.hasOwnProperty('defaultOfficeId')) {
         obj['defaultOfficeId'] = ApiClient.convertToType(data['defaultOfficeId'], 'Number');
@@ -116,7 +116,7 @@
    */
   exports.prototype['status'] = undefined;
   /**
-   * @member {module:model/AccessLevel} accessLevel
+   * @member {module:model/UserSummary.AccessLevelEnum} accessLevel
    */
   exports.prototype['accessLevel'] = undefined;
   /**
@@ -136,6 +136,43 @@
    */
   exports.prototype['profileImageUrl'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>accessLevel</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.AccessLevelEnum = {
+    /**
+     * value: "Contributor"
+     * @const
+     */
+    contributor: "Contributor",
+
+    /**
+     * value: "Office"
+     * @const
+     */
+    office: "Office",
+
+    /**
+     * value: "Region"
+     * @const
+     */
+    region: "Region",
+
+    /**
+     * value: "Company"
+     * @const
+     */
+    company: "Company",
+
+    /**
+     * value: "Admin"
+     * @const
+     */
+    admin: "Admin"
+  };
 
 
   return exports;

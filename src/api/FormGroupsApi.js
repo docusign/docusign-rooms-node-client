@@ -65,7 +65,7 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {String} formGroupId The ID of the form group.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/FormGroupFormToAssign} optsOrCallback.body 
+     * @param {module:model/FormGroupFormToAssign} optsOrCallback.body Assigns the form specified in the `formId` property of the request to the form group `formGroupId`.
      * @param {module:api/FormGroupsApi~assignFormGroupFormCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FormGroupFormToAssign}
      */
@@ -108,8 +108,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = FormGroupFormToAssign;
 
       return this.apiClient.callApi(
@@ -132,7 +132,7 @@
      * Creates a new form group with the name given in the `name` property of the request body.
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/FormGroupForCreate} optsOrCallback.body 
+     * @param {module:model/FormGroupForCreate} optsOrCallback.body Required input of name for the form group
      * @param {module:api/FormGroupsApi~createFormGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FormGroup}
      */
@@ -169,8 +169,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = FormGroup;
 
       return this.apiClient.callApi(
@@ -228,7 +228,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -287,7 +287,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = FormGroup;
 
       return this.apiClient.callApi(
@@ -351,7 +351,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = FormGroupSummaryList;
 
       return this.apiClient.callApi(
@@ -416,7 +416,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -481,7 +481,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
@@ -505,7 +505,7 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {String} formGroupId The ID of the form group.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
-     * @param {module:model/FormGroupForUpdate} optsOrCallback.body 
+     * @param {module:model/FormGroupForUpdate} optsOrCallback.body Required input of name for the form group
      * @param {module:api/FormGroupsApi~renameFormGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FormGroup}
      */
@@ -548,8 +548,8 @@
       };
 
       var authNames = ['docusignAccessCode'];
-      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = FormGroup;
 
       return this.apiClient.callApi(
@@ -614,7 +614,7 @@
 
       var authNames = ['docusignAccessCode'];
       var contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
-      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var accepts = ['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = null;
 
       return this.apiClient.callApi(
