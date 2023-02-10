@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ApiClient.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DocusignAPIError.html">DocusignAPIError</a></li><li><a href="DocusignAuthorizationError.html">DocusignAuthorizationError</a></li><li><a href="DocusignTokenError.html">DocusignTokenError</a></li><li><a href="module-api_AccountsApi.html">api/AccountsApi</a><ul class='methods'><li data-type='method'><a href="module-api_AccountsApi.html#getAccountInformation">getAccountInformation</a></li></ul></li><li><a href="module-api_ActivityTypesApi.html">api/ActivityTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_ActivityTypesApi.html#getActivityTypes">getActivityTypes</a></li></ul></li><li><a href="module-api_ClosingStatusesApi.html">api/ClosingStatusesApi</a><ul class='methods'><li data-type='method'><a href="module-api_ClosingStatusesApi.html#getClosingStatuses">getClosingStatuses</a></li></ul></li><li><a href="module-api_ContactSidesApi.html">api/ContactSidesApi</a><ul class='methods'><li data-type='method'><a href="module-api_ContactSidesApi.html#getContactSides">getContactSides</a></li></ul></li><li><a href="module-api_CountriesApi.html">api/CountriesApi</a><ul class='methods'><li data-type='method'><a href="module-api_CountriesApi.html#getCountries">getCountries</a></li></ul></li><li><a href="module-api_CurrenciesApi.html">api/CurrenciesApi</a><ul class='methods'><li data-type='method'><a href="module-api_CurrenciesApi.html#getCurrencies">getCurrencies</a></li></ul></li><li><a href="module-api_DocumentsApi.html">api/DocumentsApi</a><ul class='methods'><li data-type='method'><a href="module-api_DocumentsApi.html#createDocumentUser">createDocumentUser</a></li><li data-type='method'><a href="module-api_DocumentsApi.html#deleteDocument">deleteDocument</a></li><li data-type='method'><a href="module-api_DocumentsApi.html#getDocument">getDocument</a></li></ul></li><li><a href="module-api_ESignPermissionProfilesApi.html">api/ESignPermissionProfilesApi</a><ul class='methods'><li data-type='method'><a href="module-api_ESignPermissionProfilesApi.html#getESignPermissionProfiles">getESignPermissionProfiles</a></li></ul></li><li><a href="module-api_ExternalFormFillSessionsApi.html">api/ExternalFormFillSessionsApi</a><ul class='methods'><li data-type='method'><a href="module-api_ExternalFormFillSessionsApi.html#createExternalFormFillSession">createExternalFormFillSession</a></li></ul></li><li><a href="module-api_FieldsApi.html">api/FieldsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FieldsApi.html#getFieldSet">getFieldSet</a></li></ul></li><li><a href="module-api_FinancingTypesApi.html">api/FinancingTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_FinancingTypesApi.html#getFinancingTypes">getFinancingTypes</a></li></ul></li><li><a href="module-api_FormDetailsApi.html">api/FormDetailsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormDetailsApi.html#getFormDetails">getFormDetails</a></li></ul></li><li><a href="module-api_FormGroupFormsApi.html">api/FormGroupFormsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormGroupFormsApi.html#getFormGroupForms">getFormGroupForms</a></li></ul></li><li><a href="module-api_FormGroupsApi.html">api/FormGroupsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormGroupsApi.html#assignFormGroupForm">assignFormGroupForm</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#createFormGroup">createFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#deleteFormGroup">deleteFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#getFormGroup">getFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#getFormGroups">getFormGroups</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#grantOfficeAccessToFormGroup">grantOfficeAccessToFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#removeFormGroupForm">removeFormGroupForm</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#renameFormGroup">renameFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#revokeOfficeAccessFromFormGroup">revokeOfficeAccessFromFormGroup</a></li></ul></li><li><a href="module-api_FormLibrariesApi.html">api/FormLibrariesApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormLibrariesApi.html#getFormLibraries">getFormLibraries</a></li><li data-type='method'><a href="module-api_FormLibrariesApi.html#getFormLibraryForms">getFormLibraryForms</a></li></ul></li><li><a href="module-api_FormProviderAssociationsApi.html">api/FormProviderAssociationsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormProviderAssociationsApi.html#getFormProviderAssociations">getFormProviderAssociations</a></li></ul></li><li><a href="module-api_OfficesApi.html">api/OfficesApi</a><ul class='methods'><li data-type='method'><a href="module-api_OfficesApi.html#createOffice">createOffice</a></li><li data-type='method'><a href="module-api_OfficesApi.html#deleteOffice">deleteOffice</a></li><li data-type='method'><a href="module-api_OfficesApi.html#getOffice">getOffice</a></li><li data-type='method'><a href="module-api_OfficesApi.html#getOffices">getOffices</a></li><li data-type='method'><a href="module-api_OfficesApi.html#getReferenceCounts">getReferenceCounts</a></li></ul></li><li><a href="module-api_OriginsOfLeadsApi.html">api/OriginsOfLeadsApi</a><ul class='methods'><li data-type='method'><a href="module-api_OriginsOfLeadsApi.html#getOriginsOfLeads">getOriginsOfLeads</a></li></ul></li><li><a href="module-api_PropertyTypesApi.html">api/PropertyTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_PropertyTypesApi.html#getPropertyTypes">getPropertyTypes</a></li></ul></li><li><a href="module-api_RegionsApi.html">api/RegionsApi</a><ul class='methods'><li data-type='method'><a href="module-api_RegionsApi.html#createRegion">createRegion</a></li><li data-type='method'><a href="module-api_RegionsApi.html#deleteRegion">deleteRegion</a></li><li data-type='method'><a href="module-api_RegionsApi.html#getRegion">getRegion</a></li><li data-type='method'><a href="module-api_RegionsApi.html#getRegionReferenceCounts">getRegionReferenceCounts</a></li><li data-type='method'><a href="module-api_RegionsApi.html#getRegions">getRegions</a></li></ul></li><li><a href="module-api_RolesApi.html">api/RolesApi</a><ul class='methods'><li data-type='method'><a href="module-api_RolesApi.html#createRole">createRole</a></li><li data-type='method'><a href="module-api_RolesApi.html#deleteRole">deleteRole</a></li><li data-type='method'><a href="module-api_RolesApi.html#getRole">getRole</a></li><li data-type='method'><a href="module-api_RolesApi.html#getRoles">getRoles</a></li><li data-type='method'><a href="module-api_RolesApi.html#updateRole">updateRole</a></li></ul></li><li><a href="module-api_RoomContactTypesApi.html">api/RoomContactTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomContactTypesApi.html#getRoomContactTypes">getRoomContactTypes</a></li></ul></li><li><a href="module-api_RoomEnvelopesApi.html">api/RoomEnvelopesApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomEnvelopesApi.html#createRoomEnvelope">createRoomEnvelope</a></li></ul></li><li><a href="module-api_RoomFoldersApi.html">api/RoomFoldersApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomFoldersApi.html#getRoomFolders">getRoomFolders</a></li></ul></li><li><a href="module-api_RoomsApi.html">api/RoomsApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomsApi.html#addDocumentToRoom">addDocumentToRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#addDocumentToRoomViaFileUpload">addDocumentToRoomViaFileUpload</a></li><li data-type='method'><a href="module-api_RoomsApi.html#addFormToRoom">addFormToRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#createRoom">createRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#deleteRoom">deleteRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getAssignableRoles">getAssignableRoles</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getDocuments">getDocuments</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRoom">getRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRoomFieldData">getRoomFieldData</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRoomFieldSet">getRoomFieldSet</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRooms">getRooms</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRoomUsers">getRoomUsers</a></li><li data-type='method'><a href="module-api_RoomsApi.html#inviteUser">inviteUser</a></li><li data-type='method'><a href="module-api_RoomsApi.html#putRoomUser">putRoomUser</a></li><li data-type='method'><a href="module-api_RoomsApi.html#restoreRoomUserAccess">restoreRoomUserAccess</a></li><li data-type='method'><a href="module-api_RoomsApi.html#revokeRoomUserAccess">revokeRoomUserAccess</a></li><li data-type='method'><a href="module-api_RoomsApi.html#updatePicture">updatePicture</a></li><li data-type='method'><a href="module-api_RoomsApi.html#updateRoomFieldData">updateRoomFieldData</a></li></ul></li><li><a href="module-api_RoomTemplatesApi.html">api/RoomTemplatesApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomTemplatesApi.html#getRoomTemplates">getRoomTemplates</a></li></ul></li><li><a href="module-api_SellerDecisionTypesApi.html">api/SellerDecisionTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_SellerDecisionTypesApi.html#getSellerDecisionTypes">getSellerDecisionTypes</a></li></ul></li><li><a href="module-api_SpecialCircumstanceTypesApi.html">api/SpecialCircumstanceTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_SpecialCircumstanceTypesApi.html#getSpecialCircumstanceTypes">getSpecialCircumstanceTypes</a></li></ul></li><li><a href="module-api_StatesApi.html">api/StatesApi</a><ul class='methods'><li data-type='method'><a href="module-api_StatesApi.html#getStates">getStates</a></li></ul></li><li><a href="module-api_TaskDateTypesApi.html">api/TaskDateTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskDateTypesApi.html#getTaskDateTypes">getTaskDateTypes</a></li></ul></li><li><a href="module-api_TaskListsApi.html">api/TaskListsApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskListsApi.html#createTaskList">createTaskList</a></li><li data-type='method'><a href="module-api_TaskListsApi.html#deleteTaskList">deleteTaskList</a></li><li data-type='method'><a href="module-api_TaskListsApi.html#getTaskLists">getTaskLists</a></li></ul></li><li><a href="module-api_TaskListTemplatesApi.html">api/TaskListTemplatesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskListTemplatesApi.html#getTaskListTemplates">getTaskListTemplates</a></li></ul></li><li><a href="module-api_TaskResponsibilityTypesApi.html">api/TaskResponsibilityTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskResponsibilityTypesApi.html#getTaskResponsibilityTypes">getTaskResponsibilityTypes</a></li></ul></li><li><a href="module-api_TaskStatusesApi.html">api/TaskStatusesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskStatusesApi.html#getTaskStatuses">getTaskStatuses</a></li></ul></li><li><a href="module-api_TimeZonesApi.html">api/TimeZonesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TimeZonesApi.html#getTimeZones">getTimeZones</a></li></ul></li><li><a href="module-api_TransactionSidesApi.html">api/TransactionSidesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TransactionSidesApi.html#getTransactionSides">getTransactionSides</a></li></ul></li><li><a href="module-api_UsersApi.html">api/UsersApi</a><ul class='methods'><li data-type='method'><a href="module-api_UsersApi.html#addUserToOffice">addUserToOffice</a></li><li data-type='method'><a href="module-api_UsersApi.html#addUserToRegion">addUserToRegion</a></li><li data-type='method'><a href="module-api_UsersApi.html#getUser">getUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#getUsers">getUsers</a></li><li data-type='method'><a href="module-api_UsersApi.html#inviteUser">inviteUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#lockUser">lockUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#reinviteUser">reinviteUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#removeUser">removeUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#removeUserFromOffice">removeUserFromOffice</a></li><li data-type='method'><a href="module-api_UsersApi.html#removeUserFromRegion">removeUserFromRegion</a></li><li data-type='method'><a href="module-api_UsersApi.html#unlockUser">unlockUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#updateUser">updateUser</a></li></ul></li><li><a href="module-ApiClient.html">ApiClient</a><ul class='methods'><li data-type='method'><a href="module-ApiClient.html#.constructFromObject">constructFromObject</a></li><li data-type='method'><a href="module-ApiClient.html#.convertToType">convertToType</a></li><li data-type='method'><a href="module-ApiClient.html#.parseDate">parseDate</a></li><li data-type='method'><a href="module-ApiClient.html#addDefaultHeader">addDefaultHeader</a></li><li data-type='method'><a href="module-ApiClient.html#applyAuthToRequest">applyAuthToRequest</a></li><li data-type='method'><a href="module-ApiClient.html#buildCollectionParam">buildCollectionParam</a></li><li data-type='method'><a href="module-ApiClient.html#buildUrl">buildUrl</a></li><li data-type='method'><a href="module-ApiClient.html#callApi">callApi</a></li><li data-type='method'><a href="module-ApiClient.html#configureJWTAuthorizationFlow">configureJWTAuthorizationFlow</a></li><li data-type='method'><a href="module-ApiClient.html#deserialize">deserialize</a></li><li data-type='method'><a href="module-ApiClient.html#generateAccessToken">generateAccessToken</a></li><li data-type='method'><a href="module-ApiClient.html#getAuthorizationUri">getAuthorizationUri</a></li><li data-type='method'><a href="module-ApiClient.html#getBasePath">getBasePath</a></li><li data-type='method'><a href="module-ApiClient.html#getJWTUri">getJWTUri</a></li><li data-type='method'><a href="module-ApiClient.html#getOAuthBasePath">getOAuthBasePath</a></li><li data-type='method'><a href="module-ApiClient.html#getUserInfo">getUserInfo</a></li><li data-type='method'><a href="module-ApiClient.html#isFileParam">isFileParam</a></li><li data-type='method'><a href="module-ApiClient.html#isJsonMime">isJsonMime</a></li><li data-type='method'><a href="module-ApiClient.html#jsonPreferredMime">jsonPreferredMime</a></li><li data-type='method'><a href="module-ApiClient.html#normalizeParams">normalizeParams</a></li><li data-type='method'><a href="module-ApiClient.html#paramToString">paramToString</a></li><li data-type='method'><a href="module-ApiClient.html#setBasePath">setBasePath</a></li><li data-type='method'><a href="module-ApiClient.html#setOAuthBasePath">setOAuthBasePath</a></li></ul></li><li><a href="module-model_Accounts.html">model/Accounts</a><ul class='methods'><li data-type='method'><a href="module-model_Accounts.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_AccountSummary.html">model/AccountSummary</a><ul class='methods'><li data-type='method'><a href="module-model_AccountSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ActivityType.html">model/ActivityType</a><ul class='methods'><li data-type='method'><a href="module-model_ActivityType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ApiError.html">model/ApiError</a><ul class='methods'><li data-type='method'><a href="module-model_ApiError.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_AssignableRoles.html">model/AssignableRoles</a><ul class='methods'><li data-type='method'><a href="module-model_AssignableRoles.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClassicAdminToInvite.html">model/ClassicAdminToInvite</a><ul class='methods'><li data-type='method'><a href="module-model_ClassicAdminToInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClassicAgentToInvite.html">model/ClassicAgentToInvite</a><ul class='methods'><li data-type='method'><a href="module-model_ClassicAgentToInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClassicManagerPermissions.html">model/ClassicManagerPermissions</a><ul class='methods'><li data-type='method'><a href="module-model_ClassicManagerPermissions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClassicManagerToInvite.html">model/ClassicManagerToInvite</a><ul class='methods'><li data-type='method'><a href="module-model_ClassicManagerToInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClosingStatus.html">model/ClosingStatus</a><ul class='methods'><li data-type='method'><a href="module-model_ClosingStatus.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClosingStatuses.html">model/ClosingStatuses</a><ul class='methods'><li data-type='method'><a href="module-model_ClosingStatuses.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ContactSide.html">model/ContactSide</a><ul class='methods'><li data-type='method'><a href="module-model_ContactSide.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ContactSides.html">model/ContactSides</a><ul class='methods'><li data-type='method'><a href="module-model_ContactSides.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Countries.html">model/Countries</a><ul class='methods'><li data-type='method'><a href="module-model_Countries.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Country.html">model/Country</a><ul class='methods'><li data-type='method'><a href="module-model_Country.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Currencies.html">model/Currencies</a><ul class='methods'><li data-type='method'><a href="module-model_Currencies.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Currency.html">model/Currency</a><ul class='methods'><li data-type='method'><a href="module-model_Currency.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_CustomData.html">model/CustomData</a><ul class='methods'><li data-type='method'><a href="module-model_CustomData.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DependsOn.html">model/DependsOn</a><ul class='methods'><li data-type='method'><a href="module-model_DependsOn.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DesignatedOffice.html">model/DesignatedOffice</a><ul class='methods'><li data-type='method'><a href="module-model_DesignatedOffice.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DesignatedRegion.html">model/DesignatedRegion</a><ul class='methods'><li data-type='method'><a href="module-model_DesignatedRegion.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Document.html">model/Document</a><ul class='methods'><li data-type='method'><a href="module-model_Document.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Documents.html">model/Documents</a><ul class='methods'><li data-type='method'><a href="module-model_Documents.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DocumentUser.html">model/DocumentUser</a><ul class='methods'><li data-type='method'><a href="module-model_DocumentUser.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DocumentUserForCreate.html">model/DocumentUserForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_DocumentUserForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Envelope.html">model/Envelope</a><ul class='methods'><li data-type='method'><a href="module-model_Envelope.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_EnvelopeForCreate.html">model/EnvelopeForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_EnvelopeForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ESignAccountRoleSettings.html">model/ESignAccountRoleSettings</a><ul class='methods'><li data-type='method'><a href="module-model_ESignAccountRoleSettings.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ESignPermissionProfile.html">model/ESignPermissionProfile</a><ul class='methods'><li data-type='method'><a href="module-model_ESignPermissionProfile.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ESignPermissionProfileList.html">model/ESignPermissionProfileList</a><ul class='methods'><li data-type='method'><a href="module-model_ESignPermissionProfileList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ESignPermissionProfiles.html">model/ESignPermissionProfiles</a><ul class='methods'><li data-type='method'><a href="module-model_ESignPermissionProfiles.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ExternalFormFillSession.html">model/ExternalFormFillSession</a><ul class='methods'><li data-type='method'><a href="module-model_ExternalFormFillSession.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ExternalFormFillSessionForCreate.html">model/ExternalFormFillSessionForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_ExternalFormFillSessionForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ExternalFormFillSessions.html">model/ExternalFormFillSessions</a><ul class='methods'><li data-type='method'><a href="module-model_ExternalFormFillSessions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Field.html">model/Field</a><ul class='methods'><li data-type='method'><a href="module-model_Field.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldConfiguration.html">model/FieldConfiguration</a><ul class='methods'><li data-type='method'><a href="module-model_FieldConfiguration.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldData.html">model/FieldData</a><ul class='methods'><li data-type='method'><a href="module-model_FieldData.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldDataForCreate.html">model/FieldDataForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_FieldDataForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldDataForUpdate.html">model/FieldDataForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_FieldDataForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Fields.html">model/Fields</a><ul class='methods'><li data-type='method'><a href="module-model_Fields.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldSet.html">model/FieldSet</a><ul class='methods'><li data-type='method'><a href="module-model_FieldSet.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FinancingType.html">model/FinancingType</a><ul class='methods'><li data-type='method'><a href="module-model_FinancingType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FinancingTypes.html">model/FinancingTypes</a><ul class='methods'><li data-type='method'><a href="module-model_FinancingTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormDetails.html">model/FormDetails</a><ul class='methods'><li data-type='method'><a href="module-model_FormDetails.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormForAdd.html">model/FormForAdd</a><ul class='methods'><li data-type='method'><a href="module-model_FormForAdd.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroup.html">model/FormGroup</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroup.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupForCreate.html">model/FormGroupForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupForm.html">model/FormGroupForm</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupForm.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupFormList.html">model/FormGroupFormList</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupFormList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupFormToAssign.html">model/FormGroupFormToAssign</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupFormToAssign.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupForUpdate.html">model/FormGroupForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroups.html">model/FormGroups</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroups.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupSummary.html">model/FormGroupSummary</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupSummaryList.html">model/FormGroupSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormLibraries.html">model/FormLibraries</a><ul class='methods'><li data-type='method'><a href="module-model_FormLibraries.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormLibrarySummary.html">model/FormLibrarySummary</a><ul class='methods'><li data-type='method'><a href="module-model_FormLibrarySummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormLibrarySummaryList.html">model/FormLibrarySummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_FormLibrarySummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormProviderAssociationsSummaryList.html">model/FormProviderAssociationsSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_FormProviderAssociationsSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormProviderAssociationSummary.html">model/FormProviderAssociationSummary</a><ul class='methods'><li data-type='method'><a href="module-model_FormProviderAssociationSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormSummary.html">model/FormSummary</a><ul class='methods'><li data-type='method'><a href="module-model_FormSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormSummaryList.html">model/FormSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_FormSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalActivityTypes.html">model/GlobalActivityTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalActivityTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalClosingStatuses.html">model/GlobalClosingStatuses</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalClosingStatuses.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalContactSides.html">model/GlobalContactSides</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalContactSides.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalCountries.html">model/GlobalCountries</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalCountries.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalCurrencies.html">model/GlobalCurrencies</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalCurrencies.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalFinancingTypes.html">model/GlobalFinancingTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalFinancingTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalOriginsOfLeads.html">model/GlobalOriginsOfLeads</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalOriginsOfLeads.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalPropertyTypes.html">model/GlobalPropertyTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalPropertyTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalRoomContactTypes.html">model/GlobalRoomContactTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalRoomContactTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalSellerDecisionTypes.html">model/GlobalSellerDecisionTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalSellerDecisionTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalSpecialCircumstanceTypes.html">model/GlobalSpecialCircumstanceTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalSpecialCircumstanceTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalStates.html">model/GlobalStates</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalStates.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTaskDateTypes.html">model/GlobalTaskDateTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTaskDateTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTaskResponsibilityTypes.html">model/GlobalTaskResponsibilityTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTaskResponsibilityTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTaskStatuses.html">model/GlobalTaskStatuses</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTaskStatuses.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTimeZones.html">model/GlobalTimeZones</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTimeZones.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTransactionSides.html">model/GlobalTransactionSides</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTransactionSides.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GroupForm.html">model/GroupForm</a><ul class='methods'><li data-type='method'><a href="module-model_GroupForm.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_LockedOutDetails.html">model/LockedOutDetails</a><ul class='methods'><li data-type='method'><a href="module-model_LockedOutDetails.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_NullableFieldData.html">model/NullableFieldData</a><ul class='methods'><li data-type='method'><a href="module-model_NullableFieldData.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_NullablePermissions.html">model/NullablePermissions</a><ul class='methods'><li data-type='method'><a href="module-model_NullablePermissions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OauthAccess.html">model/OauthAccess</a><ul class='methods'><li data-type='method'><a href="module-model_OauthAccess.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Office.html">model/Office</a><ul class='methods'><li data-type='method'><a href="module-model_Office.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeForCreate.html">model/OfficeForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeReferenceCount.html">model/OfficeReferenceCount</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeReferenceCount.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeReferenceCountList.html">model/OfficeReferenceCountList</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeReferenceCountList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Offices.html">model/Offices</a><ul class='methods'><li data-type='method'><a href="module-model_Offices.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeSummary.html">model/OfficeSummary</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeSummaryList.html">model/OfficeSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OriginOfLead.html">model/OriginOfLead</a><ul class='methods'><li data-type='method'><a href="module-model_OriginOfLead.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OriginsOfLeads.html">model/OriginsOfLeads</a><ul class='methods'><li data-type='method'><a href="module-model_OriginsOfLeads.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Permissions.html">model/Permissions</a><ul class='methods'><li data-type='method'><a href="module-model_Permissions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_PropertyType.html">model/PropertyType</a><ul class='methods'><li data-type='method'><a href="module-model_PropertyType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_PropertyTypes.html">model/PropertyTypes</a><ul class='methods'><li data-type='method'><a href="module-model_PropertyTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Region.html">model/Region</a><ul class='methods'><li data-type='method'><a href="module-model_Region.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RegionReferenceCount.html">model/RegionReferenceCount</a><ul class='methods'><li data-type='method'><a href="module-model_RegionReferenceCount.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RegionReferenceCountList.html">model/RegionReferenceCountList</a><ul class='methods'><li data-type='method'><a href="module-model_RegionReferenceCountList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Regions.html">model/Regions</a><ul class='methods'><li data-type='method'><a href="module-model_Regions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RegionSummary.html">model/RegionSummary</a><ul class='methods'><li data-type='method'><a href="module-model_RegionSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RegionSummaryList.html">model/RegionSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_RegionSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Role.html">model/Role</a><ul class='methods'><li data-type='method'><a href="module-model_Role.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoleForCreate.html">model/RoleForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_RoleForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoleForUpdate.html">model/RoleForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_RoleForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Roles.html">model/Roles</a><ul class='methods'><li data-type='method'><a href="module-model_Roles.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoleSummary.html">model/RoleSummary</a><ul class='methods'><li data-type='method'><a href="module-model_RoleSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoleSummaryList.html">model/RoleSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_RoleSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Room.html">model/Room</a><ul class='methods'><li data-type='method'><a href="module-model_Room.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomContactType.html">model/RoomContactType</a><ul class='methods'><li data-type='method'><a href="module-model_RoomContactType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomContactTypes.html">model/RoomContactTypes</a><ul class='methods'><li data-type='method'><a href="module-model_RoomContactTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomDocument.html">model/RoomDocument</a><ul class='methods'><li data-type='method'><a href="module-model_RoomDocument.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomDocumentList.html">model/RoomDocumentList</a><ul class='methods'><li data-type='method'><a href="module-model_RoomDocumentList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomDocumentOwner.html">model/RoomDocumentOwner</a><ul class='methods'><li data-type='method'><a href="module-model_RoomDocumentOwner.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomFolder.html">model/RoomFolder</a><ul class='methods'><li data-type='method'><a href="module-model_RoomFolder.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomFolderList.html">model/RoomFolderList</a><ul class='methods'><li data-type='method'><a href="module-model_RoomFolderList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomFolders.html">model/RoomFolders</a><ul class='methods'><li data-type='method'><a href="module-model_RoomFolders.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomForCreate.html">model/RoomForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_RoomForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomInvite.html">model/RoomInvite</a><ul class='methods'><li data-type='method'><a href="module-model_RoomInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomInviteResponse.html">model/RoomInviteResponse</a><ul class='methods'><li data-type='method'><a href="module-model_RoomInviteResponse.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomPicture.html">model/RoomPicture</a><ul class='methods'><li data-type='method'><a href="module-model_RoomPicture.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Rooms.html">model/Rooms</a><ul class='methods'><li data-type='method'><a href="module-model_Rooms.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomSummary.html">model/RoomSummary</a><ul class='methods'><li data-type='method'><a href="module-model_RoomSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomSummaryList.html">model/RoomSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_RoomSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomTemplate.html">model/RoomTemplate</a><ul class='methods'><li data-type='method'><a href="module-model_RoomTemplate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomTemplates.html">model/RoomTemplates</a><ul class='methods'><li data-type='method'><a href="module-model_RoomTemplates.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomTemplatesSummaryList.html">model/RoomTemplatesSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_RoomTemplatesSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUser.html">model/RoomUser</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUser.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUserForUpdate.html">model/RoomUserForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUserForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUserRemovalDetail.html">model/RoomUserRemovalDetail</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUserRemovalDetail.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUsersResult.html">model/RoomUsersResult</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUsersResult.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUserSummary.html">model/RoomUserSummary</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUserSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SelectListFieldOption.html">model/SelectListFieldOption</a><ul class='methods'><li data-type='method'><a href="module-model_SelectListFieldOption.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SellerDecisionType.html">model/SellerDecisionType</a><ul class='methods'><li data-type='method'><a href="module-model_SellerDecisionType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SellerDecisionTypes.html">model/SellerDecisionTypes</a><ul class='methods'><li data-type='method'><a href="module-model_SellerDecisionTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SpecialCircumstanceType.html">model/SpecialCircumstanceType</a><ul class='methods'><li data-type='method'><a href="module-model_SpecialCircumstanceType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SpecialCircumstanceTypes.html">model/SpecialCircumstanceTypes</a><ul class='methods'><li data-type='method'><a href="module-model_SpecialCircumstanceTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_State.html">model/State</a><ul class='methods'><li data-type='method'><a href="module-model_State.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_States.html">model/States</a><ul class='methods'><li data-type='method'><a href="module-model_States.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskDateType.html">model/TaskDateType</a><ul class='methods'><li data-type='method'><a href="module-model_TaskDateType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskDateTypes.html">model/TaskDateTypes</a><ul class='methods'><li data-type='method'><a href="module-model_TaskDateTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskList.html">model/TaskList</a><ul class='methods'><li data-type='method'><a href="module-model_TaskList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListForCreate.html">model/TaskListForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskLists.html">model/TaskLists</a><ul class='methods'><li data-type='method'><a href="module-model_TaskLists.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListSummary.html">model/TaskListSummary</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListSummaryList.html">model/TaskListSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListTemplate.html">model/TaskListTemplate</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListTemplate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListTemplateList.html">model/TaskListTemplateList</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListTemplateList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListTemplates.html">model/TaskListTemplates</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListTemplates.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskResponsibilityType.html">model/TaskResponsibilityType</a><ul class='methods'><li data-type='method'><a href="module-model_TaskResponsibilityType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskResponsibilityTypes.html">model/TaskResponsibilityTypes</a><ul class='methods'><li data-type='method'><a href="module-model_TaskResponsibilityTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskStatus.html">model/TaskStatus</a><ul class='methods'><li data-type='method'><a href="module-model_TaskStatus.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskStatuses.html">model/TaskStatuses</a><ul class='methods'><li data-type='method'><a href="module-model_TaskStatuses.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskSummary.html">model/TaskSummary</a><ul class='methods'><li data-type='method'><a href="module-model_TaskSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TimeZone.html">model/TimeZone</a><ul class='methods'><li data-type='method'><a href="module-model_TimeZone.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TimeZones.html">model/TimeZones</a><ul class='methods'><li data-type='method'><a href="module-model_TimeZones.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TransactionSide.html">model/TransactionSide</a><ul class='methods'><li data-type='method'><a href="module-model_TransactionSide.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TransactionSides.html">model/TransactionSides</a><ul class='methods'><li data-type='method'><a href="module-model_TransactionSides.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_User.html">model/User</a><ul class='methods'><li data-type='method'><a href="module-model_User.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserForUpdate.html">model/UserForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_UserForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserInfo.html">model/UserInfo</a><ul class='methods'><li data-type='method'><a href="module-model_UserInfo.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Users.html">model/Users</a><ul class='methods'><li data-type='method'><a href="module-model_Users.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserSummary.html">model/UserSummary</a><ul class='methods'><li data-type='method'><a href="module-model_UserSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserSummaryList.html">model/UserSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_UserSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserToInvite.html">model/UserToInvite</a><ul class='methods'><li data-type='method'><a href="module-model_UserToInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-oauth_Link.html">oauth/Link</a><ul class='methods'><li data-type='method'><a href="module-oauth_Link.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-oauth_Organization.html">oauth/Organization</a><ul class='methods'><li data-type='method'><a href="module-oauth_Organization.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="Strategy.html">Strategy</a><ul class='methods'><li data-type='method'><a href="Strategy.html#_convertProfileFields">_convertProfileFields</a></li><li data-type='method'><a href="Strategy.html#authenticate">authenticate</a></li><li data-type='method'><a href="Strategy.html#authorizationParams">authorizationParams</a></li><li data-type='method'><a href="Strategy.html#parseErrorResponse">parseErrorResponse</a></li><li data-type='method'><a href="Strategy.html#userProfile">userProfile</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-api_AccountsApi.html">api/AccountsApi</a><ul class='methods'><li data-type='method'><a href="module-api_AccountsApi.html#getAccountInformation">getAccountInformation</a></li></ul></li><li><a href="module-api_ActivityTypesApi.html">api/ActivityTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_ActivityTypesApi.html#getActivityTypes">getActivityTypes</a></li></ul></li><li><a href="module-api_ClosingStatusesApi.html">api/ClosingStatusesApi</a><ul class='methods'><li data-type='method'><a href="module-api_ClosingStatusesApi.html#getClosingStatuses">getClosingStatuses</a></li></ul></li><li><a href="module-api_ContactSidesApi.html">api/ContactSidesApi</a><ul class='methods'><li data-type='method'><a href="module-api_ContactSidesApi.html#getContactSides">getContactSides</a></li></ul></li><li><a href="module-api_CountriesApi.html">api/CountriesApi</a><ul class='methods'><li data-type='method'><a href="module-api_CountriesApi.html#getCountries">getCountries</a></li></ul></li><li><a href="module-api_CurrenciesApi.html">api/CurrenciesApi</a><ul class='methods'><li data-type='method'><a href="module-api_CurrenciesApi.html#getCurrencies">getCurrencies</a></li></ul></li><li><a href="module-api_DocumentsApi.html">api/DocumentsApi</a><ul class='methods'><li data-type='method'><a href="module-api_DocumentsApi.html#createDocumentUser">createDocumentUser</a></li><li data-type='method'><a href="module-api_DocumentsApi.html#deleteDocument">deleteDocument</a></li><li data-type='method'><a href="module-api_DocumentsApi.html#getDocument">getDocument</a></li></ul></li><li><a href="module-api_ESignPermissionProfilesApi.html">api/ESignPermissionProfilesApi</a><ul class='methods'><li data-type='method'><a href="module-api_ESignPermissionProfilesApi.html#getESignPermissionProfiles">getESignPermissionProfiles</a></li></ul></li><li><a href="module-api_ExternalFormFillSessionsApi.html">api/ExternalFormFillSessionsApi</a><ul class='methods'><li data-type='method'><a href="module-api_ExternalFormFillSessionsApi.html#createExternalFormFillSession">createExternalFormFillSession</a></li></ul></li><li><a href="module-api_FieldsApi.html">api/FieldsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FieldsApi.html#getFieldSet">getFieldSet</a></li></ul></li><li><a href="module-api_FinancingTypesApi.html">api/FinancingTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_FinancingTypesApi.html#getFinancingTypes">getFinancingTypes</a></li></ul></li><li><a href="module-api_FormDetailsApi.html">api/FormDetailsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormDetailsApi.html#getFormDetails">getFormDetails</a></li></ul></li><li><a href="module-api_FormGroupFormsApi.html">api/FormGroupFormsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormGroupFormsApi.html#getFormGroupForms">getFormGroupForms</a></li></ul></li><li><a href="module-api_FormGroupsApi.html">api/FormGroupsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormGroupsApi.html#assignFormGroupForm">assignFormGroupForm</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#createFormGroup">createFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#deleteFormGroup">deleteFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#getFormGroup">getFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#getFormGroups">getFormGroups</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#grantOfficeAccessToFormGroup">grantOfficeAccessToFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#removeFormGroupForm">removeFormGroupForm</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#renameFormGroup">renameFormGroup</a></li><li data-type='method'><a href="module-api_FormGroupsApi.html#revokeOfficeAccessFromFormGroup">revokeOfficeAccessFromFormGroup</a></li></ul></li><li><a href="module-api_FormLibrariesApi.html">api/FormLibrariesApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormLibrariesApi.html#getFormLibraries">getFormLibraries</a></li><li data-type='method'><a href="module-api_FormLibrariesApi.html#getFormLibraryForms">getFormLibraryForms</a></li></ul></li><li><a href="module-api_FormProviderAssociationsApi.html">api/FormProviderAssociationsApi</a><ul class='methods'><li data-type='method'><a href="module-api_FormProviderAssociationsApi.html#getFormProviderAssociations">getFormProviderAssociations</a></li></ul></li><li><a href="module-api_OfficesApi.html">api/OfficesApi</a><ul class='methods'><li data-type='method'><a href="module-api_OfficesApi.html#createOffice">createOffice</a></li><li data-type='method'><a href="module-api_OfficesApi.html#deleteOffice">deleteOffice</a></li><li data-type='method'><a href="module-api_OfficesApi.html#getOffice">getOffice</a></li><li data-type='method'><a href="module-api_OfficesApi.html#getOffices">getOffices</a></li><li data-type='method'><a href="module-api_OfficesApi.html#getReferenceCounts">getReferenceCounts</a></li></ul></li><li><a href="module-api_OriginsOfLeadsApi.html">api/OriginsOfLeadsApi</a><ul class='methods'><li data-type='method'><a href="module-api_OriginsOfLeadsApi.html#getOriginsOfLeads">getOriginsOfLeads</a></li></ul></li><li><a href="module-api_PropertyTypesApi.html">api/PropertyTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_PropertyTypesApi.html#getPropertyTypes">getPropertyTypes</a></li></ul></li><li><a href="module-api_RegionsApi.html">api/RegionsApi</a><ul class='methods'><li data-type='method'><a href="module-api_RegionsApi.html#createRegion">createRegion</a></li><li data-type='method'><a href="module-api_RegionsApi.html#deleteRegion">deleteRegion</a></li><li data-type='method'><a href="module-api_RegionsApi.html#getRegion">getRegion</a></li><li data-type='method'><a href="module-api_RegionsApi.html#getRegionReferenceCounts">getRegionReferenceCounts</a></li><li data-type='method'><a href="module-api_RegionsApi.html#getRegions">getRegions</a></li></ul></li><li><a href="module-api_RolesApi.html">api/RolesApi</a><ul class='methods'><li data-type='method'><a href="module-api_RolesApi.html#createRole">createRole</a></li><li data-type='method'><a href="module-api_RolesApi.html#deleteRole">deleteRole</a></li><li data-type='method'><a href="module-api_RolesApi.html#getRole">getRole</a></li><li data-type='method'><a href="module-api_RolesApi.html#getRoles">getRoles</a></li><li data-type='method'><a href="module-api_RolesApi.html#updateRole">updateRole</a></li></ul></li><li><a href="module-api_RoomContactTypesApi.html">api/RoomContactTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomContactTypesApi.html#getRoomContactTypes">getRoomContactTypes</a></li></ul></li><li><a href="module-api_RoomEnvelopesApi.html">api/RoomEnvelopesApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomEnvelopesApi.html#createRoomEnvelope">createRoomEnvelope</a></li></ul></li><li><a href="module-api_RoomFoldersApi.html">api/RoomFoldersApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomFoldersApi.html#getRoomFolders">getRoomFolders</a></li></ul></li><li><a href="module-api_RoomsApi.html">api/RoomsApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomsApi.html#addDocumentToRoom">addDocumentToRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#addDocumentToRoomViaFileUpload">addDocumentToRoomViaFileUpload</a></li><li data-type='method'><a href="module-api_RoomsApi.html#addFormToRoom">addFormToRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#createRoom">createRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#deleteRoom">deleteRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getAssignableRoles">getAssignableRoles</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getDocuments">getDocuments</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRoom">getRoom</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRoomFieldData">getRoomFieldData</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRoomFieldSet">getRoomFieldSet</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRooms">getRooms</a></li><li data-type='method'><a href="module-api_RoomsApi.html#getRoomUsers">getRoomUsers</a></li><li data-type='method'><a href="module-api_RoomsApi.html#inviteUser">inviteUser</a></li><li data-type='method'><a href="module-api_RoomsApi.html#putRoomUser">putRoomUser</a></li><li data-type='method'><a href="module-api_RoomsApi.html#restoreRoomUserAccess">restoreRoomUserAccess</a></li><li data-type='method'><a href="module-api_RoomsApi.html#revokeRoomUserAccess">revokeRoomUserAccess</a></li><li data-type='method'><a href="module-api_RoomsApi.html#updatePicture">updatePicture</a></li><li data-type='method'><a href="module-api_RoomsApi.html#updateRoomFieldData">updateRoomFieldData</a></li></ul></li><li><a href="module-api_RoomTemplatesApi.html">api/RoomTemplatesApi</a><ul class='methods'><li data-type='method'><a href="module-api_RoomTemplatesApi.html#getRoomTemplates">getRoomTemplates</a></li></ul></li><li><a href="module-api_SellerDecisionTypesApi.html">api/SellerDecisionTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_SellerDecisionTypesApi.html#getSellerDecisionTypes">getSellerDecisionTypes</a></li></ul></li><li><a href="module-api_SpecialCircumstanceTypesApi.html">api/SpecialCircumstanceTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_SpecialCircumstanceTypesApi.html#getSpecialCircumstanceTypes">getSpecialCircumstanceTypes</a></li></ul></li><li><a href="module-api_StatesApi.html">api/StatesApi</a><ul class='methods'><li data-type='method'><a href="module-api_StatesApi.html#getStates">getStates</a></li></ul></li><li><a href="module-api_TaskDateTypesApi.html">api/TaskDateTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskDateTypesApi.html#getTaskDateTypes">getTaskDateTypes</a></li></ul></li><li><a href="module-api_TaskListsApi.html">api/TaskListsApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskListsApi.html#createTaskList">createTaskList</a></li><li data-type='method'><a href="module-api_TaskListsApi.html#deleteTaskList">deleteTaskList</a></li><li data-type='method'><a href="module-api_TaskListsApi.html#getTaskLists">getTaskLists</a></li></ul></li><li><a href="module-api_TaskListTemplatesApi.html">api/TaskListTemplatesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskListTemplatesApi.html#getTaskListTemplates">getTaskListTemplates</a></li></ul></li><li><a href="module-api_TaskResponsibilityTypesApi.html">api/TaskResponsibilityTypesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskResponsibilityTypesApi.html#getTaskResponsibilityTypes">getTaskResponsibilityTypes</a></li></ul></li><li><a href="module-api_TaskStatusesApi.html">api/TaskStatusesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TaskStatusesApi.html#getTaskStatuses">getTaskStatuses</a></li></ul></li><li><a href="module-api_TimeZonesApi.html">api/TimeZonesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TimeZonesApi.html#getTimeZones">getTimeZones</a></li></ul></li><li><a href="module-api_TransactionSidesApi.html">api/TransactionSidesApi</a><ul class='methods'><li data-type='method'><a href="module-api_TransactionSidesApi.html#getTransactionSides">getTransactionSides</a></li></ul></li><li><a href="module-api_UsersApi.html">api/UsersApi</a><ul class='methods'><li data-type='method'><a href="module-api_UsersApi.html#addUserToOffice">addUserToOffice</a></li><li data-type='method'><a href="module-api_UsersApi.html#addUserToRegion">addUserToRegion</a></li><li data-type='method'><a href="module-api_UsersApi.html#getUser">getUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#getUsers">getUsers</a></li><li data-type='method'><a href="module-api_UsersApi.html#inviteUser">inviteUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#lockUser">lockUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#reinviteUser">reinviteUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#removeUser">removeUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#removeUserFromOffice">removeUserFromOffice</a></li><li data-type='method'><a href="module-api_UsersApi.html#removeUserFromRegion">removeUserFromRegion</a></li><li data-type='method'><a href="module-api_UsersApi.html#unlockUser">unlockUser</a></li><li data-type='method'><a href="module-api_UsersApi.html#updateUser">updateUser</a></li></ul></li><li><a href="module-ApiClient.html">ApiClient</a><ul class='methods'><li data-type='method'><a href="module-ApiClient.html#.constructFromObject">constructFromObject</a></li><li data-type='method'><a href="module-ApiClient.html#.convertToType">convertToType</a></li><li data-type='method'><a href="module-ApiClient.html#.parseDate">parseDate</a></li><li data-type='method'><a href="module-ApiClient.html#addDefaultHeader">addDefaultHeader</a></li><li data-type='method'><a href="module-ApiClient.html#applyAuthToRequest">applyAuthToRequest</a></li><li data-type='method'><a href="module-ApiClient.html#buildCollectionParam">buildCollectionParam</a></li><li data-type='method'><a href="module-ApiClient.html#buildUrl">buildUrl</a></li><li data-type='method'><a href="module-ApiClient.html#callApi">callApi</a></li><li data-type='method'><a href="module-ApiClient.html#configureJWTAuthorizationFlow">configureJWTAuthorizationFlow</a></li><li data-type='method'><a href="module-ApiClient.html#deserialize">deserialize</a></li><li data-type='method'><a href="module-ApiClient.html#generateAccessToken">generateAccessToken</a></li><li data-type='method'><a href="module-ApiClient.html#getAuthorizationUri">getAuthorizationUri</a></li><li data-type='method'><a href="module-ApiClient.html#getBasePath">getBasePath</a></li><li data-type='method'><a href="module-ApiClient.html#getJWTUri">getJWTUri</a></li><li data-type='method'><a href="module-ApiClient.html#getOAuthBasePath">getOAuthBasePath</a></li><li data-type='method'><a href="module-ApiClient.html#getUserInfo">getUserInfo</a></li><li data-type='method'><a href="module-ApiClient.html#isFileParam">isFileParam</a></li><li data-type='method'><a href="module-ApiClient.html#isJsonMime">isJsonMime</a></li><li data-type='method'><a href="module-ApiClient.html#jsonPreferredMime">jsonPreferredMime</a></li><li data-type='method'><a href="module-ApiClient.html#normalizeParams">normalizeParams</a></li><li data-type='method'><a href="module-ApiClient.html#paramToString">paramToString</a></li><li data-type='method'><a href="module-ApiClient.html#setBasePath">setBasePath</a></li><li data-type='method'><a href="module-ApiClient.html#setOAuthBasePath">setOAuthBasePath</a></li></ul></li><li><a href="module-index.html">index</a></li><li><a href="module-model_Accounts.html">model/Accounts</a><ul class='methods'><li data-type='method'><a href="module-model_Accounts.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_AccountSummary.html">model/AccountSummary</a><ul class='methods'><li data-type='method'><a href="module-model_AccountSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ActivityType.html">model/ActivityType</a><ul class='methods'><li data-type='method'><a href="module-model_ActivityType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ApiError.html">model/ApiError</a><ul class='methods'><li data-type='method'><a href="module-model_ApiError.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_AssignableRoles.html">model/AssignableRoles</a><ul class='methods'><li data-type='method'><a href="module-model_AssignableRoles.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClassicAdminToInvite.html">model/ClassicAdminToInvite</a><ul class='methods'><li data-type='method'><a href="module-model_ClassicAdminToInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClassicAgentToInvite.html">model/ClassicAgentToInvite</a><ul class='methods'><li data-type='method'><a href="module-model_ClassicAgentToInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClassicManagerPermissions.html">model/ClassicManagerPermissions</a><ul class='methods'><li data-type='method'><a href="module-model_ClassicManagerPermissions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClassicManagerToInvite.html">model/ClassicManagerToInvite</a><ul class='methods'><li data-type='method'><a href="module-model_ClassicManagerToInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClosingStatus.html">model/ClosingStatus</a><ul class='methods'><li data-type='method'><a href="module-model_ClosingStatus.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ClosingStatuses.html">model/ClosingStatuses</a><ul class='methods'><li data-type='method'><a href="module-model_ClosingStatuses.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ContactSide.html">model/ContactSide</a><ul class='methods'><li data-type='method'><a href="module-model_ContactSide.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ContactSides.html">model/ContactSides</a><ul class='methods'><li data-type='method'><a href="module-model_ContactSides.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Countries.html">model/Countries</a><ul class='methods'><li data-type='method'><a href="module-model_Countries.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Country.html">model/Country</a><ul class='methods'><li data-type='method'><a href="module-model_Country.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Currencies.html">model/Currencies</a><ul class='methods'><li data-type='method'><a href="module-model_Currencies.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Currency.html">model/Currency</a><ul class='methods'><li data-type='method'><a href="module-model_Currency.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_CustomData.html">model/CustomData</a><ul class='methods'><li data-type='method'><a href="module-model_CustomData.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DependsOn.html">model/DependsOn</a><ul class='methods'><li data-type='method'><a href="module-model_DependsOn.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DesignatedOffice.html">model/DesignatedOffice</a><ul class='methods'><li data-type='method'><a href="module-model_DesignatedOffice.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DesignatedRegion.html">model/DesignatedRegion</a><ul class='methods'><li data-type='method'><a href="module-model_DesignatedRegion.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Document.html">model/Document</a><ul class='methods'><li data-type='method'><a href="module-model_Document.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Documents.html">model/Documents</a><ul class='methods'><li data-type='method'><a href="module-model_Documents.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DocumentUser.html">model/DocumentUser</a><ul class='methods'><li data-type='method'><a href="module-model_DocumentUser.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_DocumentUserForCreate.html">model/DocumentUserForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_DocumentUserForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Envelope.html">model/Envelope</a><ul class='methods'><li data-type='method'><a href="module-model_Envelope.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_EnvelopeForCreate.html">model/EnvelopeForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_EnvelopeForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ESignAccountRoleSettings.html">model/ESignAccountRoleSettings</a><ul class='methods'><li data-type='method'><a href="module-model_ESignAccountRoleSettings.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ESignPermissionProfile.html">model/ESignPermissionProfile</a><ul class='methods'><li data-type='method'><a href="module-model_ESignPermissionProfile.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ESignPermissionProfileList.html">model/ESignPermissionProfileList</a><ul class='methods'><li data-type='method'><a href="module-model_ESignPermissionProfileList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ESignPermissionProfiles.html">model/ESignPermissionProfiles</a><ul class='methods'><li data-type='method'><a href="module-model_ESignPermissionProfiles.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ExternalFormFillSession.html">model/ExternalFormFillSession</a><ul class='methods'><li data-type='method'><a href="module-model_ExternalFormFillSession.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ExternalFormFillSessionForCreate.html">model/ExternalFormFillSessionForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_ExternalFormFillSessionForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_ExternalFormFillSessions.html">model/ExternalFormFillSessions</a><ul class='methods'><li data-type='method'><a href="module-model_ExternalFormFillSessions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Field.html">model/Field</a><ul class='methods'><li data-type='method'><a href="module-model_Field.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldConfiguration.html">model/FieldConfiguration</a><ul class='methods'><li data-type='method'><a href="module-model_FieldConfiguration.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldData.html">model/FieldData</a><ul class='methods'><li data-type='method'><a href="module-model_FieldData.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldDataForCreate.html">model/FieldDataForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_FieldDataForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldDataForUpdate.html">model/FieldDataForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_FieldDataForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Fields.html">model/Fields</a><ul class='methods'><li data-type='method'><a href="module-model_Fields.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FieldSet.html">model/FieldSet</a><ul class='methods'><li data-type='method'><a href="module-model_FieldSet.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FinancingType.html">model/FinancingType</a><ul class='methods'><li data-type='method'><a href="module-model_FinancingType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FinancingTypes.html">model/FinancingTypes</a><ul class='methods'><li data-type='method'><a href="module-model_FinancingTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormDetails.html">model/FormDetails</a><ul class='methods'><li data-type='method'><a href="module-model_FormDetails.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormForAdd.html">model/FormForAdd</a><ul class='methods'><li data-type='method'><a href="module-model_FormForAdd.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroup.html">model/FormGroup</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroup.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupForCreate.html">model/FormGroupForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupForm.html">model/FormGroupForm</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupForm.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupFormList.html">model/FormGroupFormList</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupFormList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupFormToAssign.html">model/FormGroupFormToAssign</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupFormToAssign.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupForUpdate.html">model/FormGroupForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroups.html">model/FormGroups</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroups.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupSummary.html">model/FormGroupSummary</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormGroupSummaryList.html">model/FormGroupSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_FormGroupSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormLibraries.html">model/FormLibraries</a><ul class='methods'><li data-type='method'><a href="module-model_FormLibraries.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormLibrarySummary.html">model/FormLibrarySummary</a><ul class='methods'><li data-type='method'><a href="module-model_FormLibrarySummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormLibrarySummaryList.html">model/FormLibrarySummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_FormLibrarySummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormProviderAssociationsSummaryList.html">model/FormProviderAssociationsSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_FormProviderAssociationsSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormProviderAssociationSummary.html">model/FormProviderAssociationSummary</a><ul class='methods'><li data-type='method'><a href="module-model_FormProviderAssociationSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormSummary.html">model/FormSummary</a><ul class='methods'><li data-type='method'><a href="module-model_FormSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_FormSummaryList.html">model/FormSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_FormSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalActivityTypes.html">model/GlobalActivityTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalActivityTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalClosingStatuses.html">model/GlobalClosingStatuses</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalClosingStatuses.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalContactSides.html">model/GlobalContactSides</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalContactSides.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalCountries.html">model/GlobalCountries</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalCountries.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalCurrencies.html">model/GlobalCurrencies</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalCurrencies.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalFinancingTypes.html">model/GlobalFinancingTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalFinancingTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalOriginsOfLeads.html">model/GlobalOriginsOfLeads</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalOriginsOfLeads.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalPropertyTypes.html">model/GlobalPropertyTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalPropertyTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalRoomContactTypes.html">model/GlobalRoomContactTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalRoomContactTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalSellerDecisionTypes.html">model/GlobalSellerDecisionTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalSellerDecisionTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalSpecialCircumstanceTypes.html">model/GlobalSpecialCircumstanceTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalSpecialCircumstanceTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalStates.html">model/GlobalStates</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalStates.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTaskDateTypes.html">model/GlobalTaskDateTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTaskDateTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTaskResponsibilityTypes.html">model/GlobalTaskResponsibilityTypes</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTaskResponsibilityTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTaskStatuses.html">model/GlobalTaskStatuses</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTaskStatuses.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTimeZones.html">model/GlobalTimeZones</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTimeZones.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GlobalTransactionSides.html">model/GlobalTransactionSides</a><ul class='methods'><li data-type='method'><a href="module-model_GlobalTransactionSides.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_GroupForm.html">model/GroupForm</a><ul class='methods'><li data-type='method'><a href="module-model_GroupForm.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_LockedOutDetails.html">model/LockedOutDetails</a><ul class='methods'><li data-type='method'><a href="module-model_LockedOutDetails.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_NullableFieldData.html">model/NullableFieldData</a><ul class='methods'><li data-type='method'><a href="module-model_NullableFieldData.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_NullablePermissions.html">model/NullablePermissions</a><ul class='methods'><li data-type='method'><a href="module-model_NullablePermissions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OauthAccess.html">model/OauthAccess</a><ul class='methods'><li data-type='method'><a href="module-model_OauthAccess.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Office.html">model/Office</a><ul class='methods'><li data-type='method'><a href="module-model_Office.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeForCreate.html">model/OfficeForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeReferenceCount.html">model/OfficeReferenceCount</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeReferenceCount.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeReferenceCountList.html">model/OfficeReferenceCountList</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeReferenceCountList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Offices.html">model/Offices</a><ul class='methods'><li data-type='method'><a href="module-model_Offices.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeSummary.html">model/OfficeSummary</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OfficeSummaryList.html">model/OfficeSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_OfficeSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OriginOfLead.html">model/OriginOfLead</a><ul class='methods'><li data-type='method'><a href="module-model_OriginOfLead.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_OriginsOfLeads.html">model/OriginsOfLeads</a><ul class='methods'><li data-type='method'><a href="module-model_OriginsOfLeads.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Permissions.html">model/Permissions</a><ul class='methods'><li data-type='method'><a href="module-model_Permissions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_PropertyType.html">model/PropertyType</a><ul class='methods'><li data-type='method'><a href="module-model_PropertyType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_PropertyTypes.html">model/PropertyTypes</a><ul class='methods'><li data-type='method'><a href="module-model_PropertyTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Region.html">model/Region</a><ul class='methods'><li data-type='method'><a href="module-model_Region.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RegionReferenceCount.html">model/RegionReferenceCount</a><ul class='methods'><li data-type='method'><a href="module-model_RegionReferenceCount.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RegionReferenceCountList.html">model/RegionReferenceCountList</a><ul class='methods'><li data-type='method'><a href="module-model_RegionReferenceCountList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Regions.html">model/Regions</a><ul class='methods'><li data-type='method'><a href="module-model_Regions.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RegionSummary.html">model/RegionSummary</a><ul class='methods'><li data-type='method'><a href="module-model_RegionSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RegionSummaryList.html">model/RegionSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_RegionSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Role.html">model/Role</a><ul class='methods'><li data-type='method'><a href="module-model_Role.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoleForCreate.html">model/RoleForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_RoleForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoleForUpdate.html">model/RoleForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_RoleForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Roles.html">model/Roles</a><ul class='methods'><li data-type='method'><a href="module-model_Roles.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoleSummary.html">model/RoleSummary</a><ul class='methods'><li data-type='method'><a href="module-model_RoleSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoleSummaryList.html">model/RoleSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_RoleSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Room.html">model/Room</a><ul class='methods'><li data-type='method'><a href="module-model_Room.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomContactType.html">model/RoomContactType</a><ul class='methods'><li data-type='method'><a href="module-model_RoomContactType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomContactTypes.html">model/RoomContactTypes</a><ul class='methods'><li data-type='method'><a href="module-model_RoomContactTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomDocument.html">model/RoomDocument</a><ul class='methods'><li data-type='method'><a href="module-model_RoomDocument.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomDocumentList.html">model/RoomDocumentList</a><ul class='methods'><li data-type='method'><a href="module-model_RoomDocumentList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomDocumentOwner.html">model/RoomDocumentOwner</a><ul class='methods'><li data-type='method'><a href="module-model_RoomDocumentOwner.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomFolder.html">model/RoomFolder</a><ul class='methods'><li data-type='method'><a href="module-model_RoomFolder.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomFolderList.html">model/RoomFolderList</a><ul class='methods'><li data-type='method'><a href="module-model_RoomFolderList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomFolders.html">model/RoomFolders</a><ul class='methods'><li data-type='method'><a href="module-model_RoomFolders.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomForCreate.html">model/RoomForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_RoomForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomInvite.html">model/RoomInvite</a><ul class='methods'><li data-type='method'><a href="module-model_RoomInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomInviteResponse.html">model/RoomInviteResponse</a><ul class='methods'><li data-type='method'><a href="module-model_RoomInviteResponse.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomPicture.html">model/RoomPicture</a><ul class='methods'><li data-type='method'><a href="module-model_RoomPicture.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Rooms.html">model/Rooms</a><ul class='methods'><li data-type='method'><a href="module-model_Rooms.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomSummary.html">model/RoomSummary</a><ul class='methods'><li data-type='method'><a href="module-model_RoomSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomSummaryList.html">model/RoomSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_RoomSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomTemplate.html">model/RoomTemplate</a><ul class='methods'><li data-type='method'><a href="module-model_RoomTemplate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomTemplates.html">model/RoomTemplates</a><ul class='methods'><li data-type='method'><a href="module-model_RoomTemplates.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomTemplatesSummaryList.html">model/RoomTemplatesSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_RoomTemplatesSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUser.html">model/RoomUser</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUser.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUserForUpdate.html">model/RoomUserForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUserForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUserRemovalDetail.html">model/RoomUserRemovalDetail</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUserRemovalDetail.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUsersResult.html">model/RoomUsersResult</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUsersResult.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_RoomUserSummary.html">model/RoomUserSummary</a><ul class='methods'><li data-type='method'><a href="module-model_RoomUserSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SelectListFieldOption.html">model/SelectListFieldOption</a><ul class='methods'><li data-type='method'><a href="module-model_SelectListFieldOption.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SellerDecisionType.html">model/SellerDecisionType</a><ul class='methods'><li data-type='method'><a href="module-model_SellerDecisionType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SellerDecisionTypes.html">model/SellerDecisionTypes</a><ul class='methods'><li data-type='method'><a href="module-model_SellerDecisionTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SpecialCircumstanceType.html">model/SpecialCircumstanceType</a><ul class='methods'><li data-type='method'><a href="module-model_SpecialCircumstanceType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_SpecialCircumstanceTypes.html">model/SpecialCircumstanceTypes</a><ul class='methods'><li data-type='method'><a href="module-model_SpecialCircumstanceTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_State.html">model/State</a><ul class='methods'><li data-type='method'><a href="module-model_State.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_States.html">model/States</a><ul class='methods'><li data-type='method'><a href="module-model_States.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskDateType.html">model/TaskDateType</a><ul class='methods'><li data-type='method'><a href="module-model_TaskDateType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskDateTypes.html">model/TaskDateTypes</a><ul class='methods'><li data-type='method'><a href="module-model_TaskDateTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskList.html">model/TaskList</a><ul class='methods'><li data-type='method'><a href="module-model_TaskList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListForCreate.html">model/TaskListForCreate</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListForCreate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskLists.html">model/TaskLists</a><ul class='methods'><li data-type='method'><a href="module-model_TaskLists.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListSummary.html">model/TaskListSummary</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListSummaryList.html">model/TaskListSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListTemplate.html">model/TaskListTemplate</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListTemplate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListTemplateList.html">model/TaskListTemplateList</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListTemplateList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskListTemplates.html">model/TaskListTemplates</a><ul class='methods'><li data-type='method'><a href="module-model_TaskListTemplates.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskResponsibilityType.html">model/TaskResponsibilityType</a><ul class='methods'><li data-type='method'><a href="module-model_TaskResponsibilityType.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskResponsibilityTypes.html">model/TaskResponsibilityTypes</a><ul class='methods'><li data-type='method'><a href="module-model_TaskResponsibilityTypes.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskStatus.html">model/TaskStatus</a><ul class='methods'><li data-type='method'><a href="module-model_TaskStatus.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskStatuses.html">model/TaskStatuses</a><ul class='methods'><li data-type='method'><a href="module-model_TaskStatuses.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TaskSummary.html">model/TaskSummary</a><ul class='methods'><li data-type='method'><a href="module-model_TaskSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TimeZone.html">model/TimeZone</a><ul class='methods'><li data-type='method'><a href="module-model_TimeZone.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TimeZones.html">model/TimeZones</a><ul class='methods'><li data-type='method'><a href="module-model_TimeZones.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TransactionSide.html">model/TransactionSide</a><ul class='methods'><li data-type='method'><a href="module-model_TransactionSide.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_TransactionSides.html">model/TransactionSides</a><ul class='methods'><li data-type='method'><a href="module-model_TransactionSides.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_User.html">model/User</a><ul class='methods'><li data-type='method'><a href="module-model_User.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserForUpdate.html">model/UserForUpdate</a><ul class='methods'><li data-type='method'><a href="module-model_UserForUpdate.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserInfo.html">model/UserInfo</a><ul class='methods'><li data-type='method'><a href="module-model_UserInfo.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_Users.html">model/Users</a><ul class='methods'><li data-type='method'><a href="module-model_Users.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserSummary.html">model/UserSummary</a><ul class='methods'><li data-type='method'><a href="module-model_UserSummary.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserSummaryList.html">model/UserSummaryList</a><ul class='methods'><li data-type='method'><a href="module-model_UserSummaryList.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-model_UserToInvite.html">model/UserToInvite</a><ul class='methods'><li data-type='method'><a href="module-model_UserToInvite.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-oauth_Account.html">oauth/Account</a></li><li><a href="module-oauth_Link.html">oauth/Link</a><ul class='methods'><li data-type='method'><a href="module-oauth_Link.html#.constructFromObject">constructFromObject</a></li></ul></li><li><a href="module-oauth_Organization.html">oauth/Organization</a><ul class='methods'><li data-type='method'><a href="module-oauth_Organization.html#.constructFromObject">constructFromObject</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html"></a></li><li><a href="global.html#active">active</a></li><li><a href="global.html#admin">admin</a></li><li><a href="global.html#allRoles">allRoles</a></li><li><a href="global.html#assignableRolesBasedOnAllPermissions">assignableRolesBasedOnAllPermissions</a></li><li><a href="global.html#assignableRolesBasedOnCompanyPermissions">assignableRolesBasedOnCompanyPermissions</a></li><li><a href="global.html#closed">closed</a></li><li><a href="global.html#company">company</a></li><li><a href="global.html#contributor">contributor</a></li><li><a href="global.html#emailAsc">emailAsc</a></li><li><a href="global.html#emailDesc">emailDesc</a></li><li><a href="global.html#firstNameAsc">firstNameAsc</a></li><li><a href="global.html#firstNameDesc">firstNameDesc</a></li><li><a href="global.html#isRequiredOnCreate">isRequiredOnCreate</a></li><li><a href="global.html#isRequiredOnSubmit">isRequiredOnSubmit</a></li><li><a href="global.html#lastNameAsc">lastNameAsc</a></li><li><a href="global.html#lastNameDesc">lastNameDesc</a></li><li><a href="global.html#MLS">MLS</a></li><li><a href="global.html#none">none</a></li><li><a href="global.html#office">office</a></li><li><a href="global.html#open">open</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#pending">pending</a></li><li><a href="global.html#publicRecords">publicRecords</a></li><li><a href="global.html#region">region</a></li><li><a href="global.html#v5">v5</a></li><li><a href="global.html#v6">v6</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">ApiClient.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * DocuSign REST API
+ * The DocuSign REST API provides you with a powerful, convenient, and simple Web services API for interacting with DocuSign.
+ *
+ * OpenAPI spec version: v2
+ * Contact: devcenter@docusign.com
+ *
+ * NOTE: This class is auto generated. Do not edit the class manually and submit a new issue instead.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' &amp;&amp; define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['superagent'], factory);
+  } else if (typeof module === 'object' &amp;&amp; module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('superagent'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.Docusign) {
+      root.Docusign = {};
+    }
+    root.Docusign.ApiClient = factory(root.superagent, optsOrCallback);
+  }
+}(this, function(superagent, optsOrCallback) {
+  'use strict';
+
+  var removeNulls = function(obj) {
+    var isArray = obj instanceof Array;
+    for (var k in obj) {
+      if (typeof obj[k] === "object") removeNulls(obj[k]);
+      if (isArray &amp;&amp; obj.length === k) removeNulls(obj);
+      if (obj[k] instanceof Array &amp;&amp; obj[k].length === 0) delete obj[k];
+    }
+    return obj;
+  };
+
+  var generateAndSignJWTAssertion = function(clientId, scopes, privateKey, oAuthBasePath, expiresIn, userId) {
+    if(typeof expiresIn !== 'number' || expiresIn &lt; 0)
+      throw new Error("Invalid expires in param detected");
+
+    var MILLESECONDS_PER_SECOND = 1000,
+      JWT_SIGNING_ALGO = "RS256",
+      now = Math.floor(Date.now() / MILLESECONDS_PER_SECOND),
+      later = now + expiresIn,
+      jwt = require('jsonwebtoken'),
+      parsedScopes = Array.isArray(scopes) ? scopes.join(' ') : scopes;
+
+    var jwtPayload = {
+      iss: clientId,
+      aud: oAuthBasePath,
+      iat: now,
+      exp: later,
+      scope: parsedScopes,
+    };
+
+    /** optional parameters  **/
+    if(userId) {
+      jwtPayload.sub = userId;
+    }
+    return jwt.sign(jwtPayload, privateKey, { algorithm: JWT_SIGNING_ALGO });
+  };
+
+  var sendJWTTokenRequest = function (assertion, oAuthBasePath, callback) {
+    var request = superagent.post("https://" + oAuthBasePath + "/oauth/token")
+      .timeout(exports.prototype.timeout)
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Cache-Control', 'no-store')
+      .set('Pragma', 'no-cache')
+      .send({
+        'assertion': assertion,
+        'grant_type': 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+      });
+
+    if (!callback){
+      return new Promise(function(resolve, reject){
+        request.end(function(err, data){
+          if (err){
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        })
+      })
+    } else {
+      request.end(callback);
+    }
+  };
+
+  var deriveOAuthBasePathFromRestBasePath = function(basePath) {
+    if (basePath == null) {
+      return exports.prototype.OAuth.BasePath.PRODUCTION;
+    }
+    if (basePath.includes('https://stage')) {
+      return exports.prototype.OAuth.BasePath.STAGE;
+    }
+    if (basePath.includes('https://demo')) {
+      return exports.prototype.OAuth.BasePath.DEMO;
+    }
+    if (basePath.includes('https://www.docusign')) {
+      return exports.prototype.OAuth.BasePath.PRODUCTION;
+    }
+    return exports.prototype.OAuth.BasePath.PRODUCTION;
+  };
+
+  /**
+   * @module ApiClient
+   * @version 3.0.0
+   */
+
+  /**
+   * Manages low level client-server communications, parameter marshalling, etc. There should not be any need for an
+   * application to use this class directly - the *Api and model classes provide the public API for the service. The
+   * contents of this file should be regarded as internal but are documented for completeness.
+   * @alias module:ApiClient
+   * @class
+   */
+  var exports = function(optsOrCallback) {
+    var defaults = {
+      basePath: 'https://www.docusign.net/restapi'.replace(/\/+$/, ''),
+      oAuthBasePath: require('./OAuth').BasePath.PRODUCTION,
+    };
+
+    optsOrCallback = Object.assign({},defaults, optsOrCallback);
+    optsOrCallback.oAuthBasePath = deriveOAuthBasePathFromRestBasePath(optsOrCallback.basePath);
+
+    /**
+     * The base URL against which to resolve every API call's (relative) path.
+     * @type {String}
+     * @default https://www.docusign.net/restapi
+     */
+    this.basePath = optsOrCallback.basePath;
+
+    /**
+     * The base URL against which to resolve every authentication API call's (relative) path.
+     * @type {String}
+     * @default https://www.docusign.net/restapi
+     */
+    this.oAuthBasePath = optsOrCallback.oAuthBasePath;
+
+    /**
+     * The authentication methods to be included for all API calls.
+     * @type {Array.&lt;String>}
+     */
+    this.authentications = {
+      'docusignAccessCode': {type: 'oauth2'}
+    };
+    /**
+     * The default HTTP headers to be included for all API calls.
+     * @type {Array.&lt;String>}
+     * @default {}
+     */
+    this.defaultHeaders = { "X-DocuSign-SDK": "Node" };
+
+    /**
+     * The default HTTP timeout for all API calls.
+     * @type {Number}
+     * @default 60000
+     */
+    this.timeout = 60000;
+
+    /**
+     * If set to false an additional timestamp parameter is added to all API GET calls to
+     * prevent browser caching
+     * @type {Boolean}
+     * @default true
+     */
+    this.cache = true;
+  };
+
+  /**
+   * Gets the API endpoint base URL.
+   */
+  exports.prototype.getBasePath = function getBasePath() {
+    return this.basePath;
+  };
+
+  /**
+   * Sets the API endpoint base URL.
+   */
+  exports.prototype.setBasePath = function setBasePath(basePath) {
+    this.basePath = basePath;
+    this.oAuthBasePath = deriveOAuthBasePathFromRestBasePath(basePath);
+  };
+
+  /**
+   * Gets the authentication server endpoint base URL.
+   */
+  exports.prototype.getOAuthBasePath = function getOAuthBasePath() {
+    return this.oAuthBasePath;
+  };
+
+  /**
+   * Sets the authentication server endpoint base URL.
+   */
+  exports.prototype.setOAuthBasePath = function setOAuthBasePath(oAuthBasePath) {
+    this.oAuthBasePath = oAuthBasePath;
+  };
+
+  /**
+   * Adds request headers to the API client. Useful for Authentication.
+   */
+  exports.prototype.addDefaultHeader = function addDefaultHeader(header, value) {
+    this.defaultHeaders[header] = value;
+  };
+
+  /**
+   * Returns a string representation for an actual parameter.
+   * @param param The actual parameter.
+   * @returns {String} The string representation of &lt;code>param&lt;/code>.
+   */
+  exports.prototype.paramToString = function(param) {
+    if (param == undefined || param == null) {
+      return '';
+    }
+    if (param instanceof Date) {
+      return param.toJSON();
+    }
+    return param.toString();
+  };
+
+  /**
+   * Builds full URL by appending the given path to the base URL and replacing path parameter place-holders with parameter values.
+   * NOTE: query parameters are not handled here.
+   * @param {String} path The path to append to the base URL.
+   * @param {Object} pathParams The parameter values to append.
+   * @returns {String} The encoded path with parameter values substituted.
+   */
+  exports.prototype.buildUrl = function(path, pathParams) {
+    if (!path.match(/^\//)) {
+      path = '/' + path;
+    }
+    var url = this.basePath + path;
+    var _this = this;
+    url = url.replace(/\{([\w-]+)\}/g, function(fullMatch, key) {
+      var value;
+      if (pathParams.hasOwnProperty(key)) {
+        value = _this.paramToString(pathParams[key]);
+      } else {
+        value = fullMatch;
+      }
+      return encodeURIComponent(value);
+    });
+    return url;
+  };
+
+  /**
+   * Checks whether the given content type represents JSON.&lt;br>
+   * JSON content type examples:&lt;br>
+   * &lt;ul>
+   * &lt;li>application/json&lt;/li>
+   * &lt;li>application/json; charset=UTF8&lt;/li>
+   * &lt;li>APPLICATION/JSON&lt;/li>
+   * &lt;/ul>
+   * @param {String} contentType The MIME content type to check.
+   * @returns {Boolean} &lt;code>true&lt;/code> if &lt;code>contentType&lt;/code> represents JSON, otherwise &lt;code>false&lt;/code>.
+   */
+  exports.prototype.isJsonMime = function(contentType) {
+    return Boolean(contentType != null &amp;&amp; contentType.match(/^application\/json(;.*)?$/i));
+  };
+
+  /**
+   * Chooses a content type from the given array, with JSON preferred; i.e. return JSON if included, otherwise return the first.
+   * @param {Array.&lt;String>} contentTypes
+   * @returns {String} The chosen content type, preferring JSON.
+   */
+  exports.prototype.jsonPreferredMime = function(contentTypes) {
+    for (var i = 0; i &lt; contentTypes.length; i++) {
+      if (this.isJsonMime(contentTypes[i])) {
+        return contentTypes[i];
+      }
+    }
+    return contentTypes[0];
+  };
+
+  /**
+   * Checks whether the given parameter value represents file-like content.
+   * @param param The parameter to check.
+   * @returns {Boolean} &lt;code>true&lt;/code> if &lt;code>param&lt;/code> represents a file.
+   */
+  exports.prototype.isFileParam = function(param) {
+    // fs.ReadStream in Node.js (but not in runtime like browserify)
+    if (typeof window === 'undefined' &amp;&amp;
+      typeof require === 'function' &amp;&amp;
+      require('fs') &amp;&amp;
+      param instanceof require('fs').ReadStream) {
+      return true;
+    }
+    // Buffer in Node.js
+    if (typeof Buffer === 'function' &amp;&amp; param instanceof Buffer) {
+      return true;
+    }
+    // Blob in browser
+    if (typeof Blob === 'function' &amp;&amp; param instanceof Blob) {
+      return true;
+    }
+    // File in browser (it seems File object is also instance of Blob, but keep this for safe)
+    if (typeof File === 'function' &amp;&amp; param instanceof File) {
+      return true;
+    }
+    return false;
+  };
+
+  /**
+   * Normalizes parameter values:
+   * &lt;ul>
+   * &lt;li>remove nils&lt;/li>
+   * &lt;li>keep files and arrays&lt;/li>
+   * &lt;li>format to string with `paramToString` for other cases&lt;/li>
+   * &lt;/ul>
+   * @param {Object.&lt;String, Object>} params The parameters as object properties.
+   * @returns {Object.&lt;String, Object>} normalized parameters.
+   */
+  exports.prototype.normalizeParams = function(params) {
+    var newParams = {};
+    for (var key in params) {
+      if (params.hasOwnProperty(key) &amp;&amp; params[key] != undefined &amp;&amp; params[key] != null) {
+        var value = params[key];
+        if (this.isFileParam(value) || Array.isArray(value)) {
+          newParams[key] = value;
+        } else {
+          newParams[key] = this.paramToString(value);
+        }
+      }
+    }
+    return newParams;
+  };
+
+  /**
+   * Enumeration of collection format separator strategies.
+   * @enum {String}
+   * @readonly
+   */
+  exports.CollectionFormatEnum = {
+    /**
+     * Comma-separated values. Value: &lt;code>csv&lt;/code>
+     * @const
+     */
+    CSV: ',',
+    /**
+     * Space-separated values. Value: &lt;code>ssv&lt;/code>
+     * @const
+     */
+    SSV: ' ',
+    /**
+     * Tab-separated values. Value: &lt;code>tsv&lt;/code>
+     * @const
+     */
+    TSV: '\t',
+    /**
+     * Pipe(|)-separated values. Value: &lt;code>pipes&lt;/code>
+     * @const
+     */
+    PIPES: '|',
+    /**
+     * Native array. Value: &lt;code>multi&lt;/code>
+     * @const
+     */
+    MULTI: 'multi'
+  };
+
+  /**
+   * Builds a string representation of an array-type actual parameter, according to the given collection format.
+   * @param {Array} param An array parameter.
+   * @param {module:ApiClient.CollectionFormatEnum} collectionFormat The array element separator strategy.
+   * @returns {String|Array} A string representation of the supplied collection, using the specified delimiter. Returns
+   * &lt;code>param&lt;/code> as is if &lt;code>collectionFormat&lt;/code> is &lt;code>multi&lt;/code>.
+   */
+  exports.prototype.buildCollectionParam = function buildCollectionParam(param, collectionFormat) {
+    if (param == null) {
+      return null;
+    }
+    switch (collectionFormat) {
+      case 'csv':
+        return param.map(this.paramToString).join(',');
+      case 'ssv':
+        return param.map(this.paramToString).join(' ');
+      case 'tsv':
+        return param.map(this.paramToString).join('\t');
+      case 'pipes':
+        return param.map(this.paramToString).join('|');
+      case 'multi':
+        // return the array directly as SuperAgent will handle it as expected
+        return param.map(this.paramToString);
+      default:
+        throw new Error('Unknown collection format: ' + collectionFormat);
+    }
+  };
+
+  /**
+   * Applies authentication headers to the request.
+   * @param {Object} request The request object created by a &lt;code>superagent()&lt;/code> call.
+   * @param {Array.&lt;String>} authNames An array of authentication method names.
+   */
+  exports.prototype.applyAuthToRequest = function(request, authNames) {
+    var _this = this;
+    authNames.forEach(function(authName) {
+      var auth = _this.authentications[authName];
+      switch (auth.type) {
+        case 'basic':
+          if (auth.username || auth.password) {
+            request.auth(auth.username || '', auth.password || '');
+          }
+          break;
+        case 'apiKey':
+          if (auth.apiKey) {
+            var data = {};
+            if (auth.apiKeyPrefix) {
+              data[auth.name] = auth.apiKeyPrefix + ' ' + auth.apiKey;
+            } else {
+              data[auth.name] = auth.apiKey;
+            }
+            if (auth['in'] === 'header') {
+              request.set(data);
+            } else {
+              request.query(data);
+            }
+          }
+          break;
+        case 'oauth2':
+          if (auth.accessToken) {
+            request.set({'Authorization': 'Bearer ' + auth.accessToken});
+          }
+          break;
+        default:
+          throw new Error('Unknown authentication type: ' + auth.type);
+      }
+    });
+  };
+
+  /**
+   * Deserializes an HTTP response body into a value of the specified type.
+   * @param {Object} response A SuperAgent response object.
+   * @param {(String|Array.&lt;String>|Object.&lt;String, Object>|Function)} returnType The type to return. Pass a string for simple types
+   * or the constructor function for a complex type. Pass an array containing the type name to return an array of that type. To
+   * return an object, pass an object with one property whose name is the key type and whose value is the corresponding value type:
+   * all properties on &lt;code>data&lt;code> will be converted to this type.
+   * @returns A value of the specified type.
+   */
+  exports.prototype.deserialize = function deserialize(response, returnType) {
+    if (response == null || returnType == null || response.status == 204) {
+      return null;
+    }
+    // Rely on SuperAgent for parsing response body.
+    // See http://visionmedia.github.io/superagent/#parsing-response-bodies
+    var data = response.body || (response.res &amp;&amp; response.res.data);
+    if (data == null || !Object.keys(data).length) {
+      // SuperAgent does not always produce a body; use the unparsed response as a fallback
+      data = response.text;
+    }
+    return exports.convertToType(data, returnType);
+  };
+
+  /**
+   * (Optional)Callback function to receive the result of the &lt;operationId> operation. If none specified a Promise will be returned.
+   * @callback module:ApiClient~callApiCallback
+   * @param {String} error Error message, if any.
+   * @param data The data returned by the service call.
+   * @param {String} response The complete HTTP response.
+   */
+
+  /**
+   * Invokes the REST service using the supplied settings and parameters.
+   * @param {String} path The base URL to invoke.
+   * @param {String} httpMethod The HTTP method to use.
+   * @param {Object.&lt;String, String>} pathParams A map of path parameters and their values.
+   * @param {Object.&lt;String, Object>} queryParams A map of query parameters and their values.
+   * @param {Object.&lt;String, Object>} headerParams A map of header parameters and their values.
+   * @param {Object.&lt;String, Object>} formParams A map of form parameters and their values.
+   * @param {Object} bodyParam The value to pass as the request body.
+   * @param {Array.&lt;String>} authNames An array of authentication type names.
+   * @param {Array.&lt;String>} contentTypes An array of request MIME types.
+   * @param {Array.&lt;String>} accepts An array of acceptable response MIME types.
+   * @param {(String|Array|ObjectFunction)} returnType The required type to return; can be a string for simple types or the
+   * constructor for a complex type.
+   * @param {module:ApiClient~callApiCallback} callback The callback function. If this is left undefined, this method will return a promise instead.
+   * @returns {Object} The SuperAgent request object if a callback is specified, else {Promise} A {@link https://www.promisejs.org/|Promise} object.
+   */
+  exports.prototype.callApi = function callApi(path, httpMethod, pathParams,
+                                               queryParams, headerParams, formParams, bodyParam, authNames, contentTypes, accepts,
+                                               returnType, callback) {
+
+    var _this = this;
+    var url = this.buildUrl(path, pathParams);
+    var request = superagent(httpMethod, url);
+
+    // apply authentications
+    this.applyAuthToRequest(request, authNames);
+
+    // set query parameters
+    if (httpMethod.toUpperCase() === 'GET' &amp;&amp; this.cache === false) {
+      queryParams['_'] = new Date().getTime();
+    }
+    request.query(this.normalizeParams(queryParams));
+
+    // set header parameters
+    request.set(this.defaultHeaders).set(this.normalizeParams(headerParams));
+
+    // set request timeout
+    request.timeout(this.timeout);
+
+    var contentType = this.jsonPreferredMime(contentTypes);
+    if (contentType) {
+      // Issue with superagent and multipart/form-data (https://github.com/visionmedia/superagent/issues/746)
+      if(contentType != 'multipart/form-data') {
+        request.type(contentType);
+      }
+    } else if (!request.header['Content-Type']) {
+      request.type('application/json');
+    }
+
+    if (contentType === 'application/x-www-form-urlencoded') {
+      request.send(this.normalizeParams(formParams));
+    } else if (contentType == 'multipart/form-data') {
+      var _formParams = this.normalizeParams(formParams);
+      for (var key in _formParams) {
+        if (_formParams.hasOwnProperty(key)) {
+          if (this.isFileParam(_formParams[key])) {
+            // file field
+            request.attach(key, _formParams[key]);
+          } else {
+            request.field(key, _formParams[key]);
+          }
+        }
+      }
+    } else if (bodyParam) {
+      request.send(removeNulls(bodyParam));
+    }
+
+    var accept = this.jsonPreferredMime(accepts);
+    if (accept) {
+      request.accept(accept);
+    }
+
+    var data;
+    if (request.header['Accept'] === 'application/pdf') {
+      request.buffer();
+      data = '';
+    } else {
+      data = '';
+    }
+
+    if (request.header['Accept'] === 'application/pdf') {
+      request.parse( function (res, fn) {
+        res.data = '';
+        res.setEncoding('binary');
+        res.on( 'data', function (chunk) { res.data += chunk; } );
+        res.on( 'end', function () {
+          try {
+            fn( null, res.data );
+          } catch ( err ) {
+            fn( err );
+          }
+        });
+      })
+    }
+
+
+    var data = null;
+    if (!callback) {
+      return new Promise(function(resolve, reject){
+        request.end(function(error, data) {
+          if (error) {
+            reject(error);
+          } else {
+            try {
+              data = _this.deserialize(data, returnType);
+              resolve(data);
+            } catch(error) {
+              reject(error);
+            }
+          }
+        })
+      });
+    } else {
+      request.end(function(error, response) {
+        if (!error) {
+          try {
+            data = _this.deserialize(response, returnType);
+          } catch (err) {
+            error = err;
+          }
+        }
+        callback(error, data, response);
+      });
+      return request;
+    }
+  };
+
+  /**
+   * Parses an ISO-8601 string representation of a date value.
+   * @param {String} str The date value as a string.
+   * @returns {Date} The parsed date object.
+   */
+  exports.parseDate = function(str) {
+    return new Date(str.replace(/T/i, ' '));
+  };
+
+  /**
+   * Converts a value to the specified type.
+   * @param {(String|Object)} data The data to convert, as a string or object.
+   * @param {(String|Array.&lt;String>|Object.&lt;String, Object>|Function)} type The type to return. Pass a string for simple types
+   * or the constructor function for a complex type. Pass an array containing the type name to return an array of that type. To
+   * return an object, pass an object with one property whose name is the key type and whose value is the corresponding value type:
+   * all properties on &lt;code>data&lt;code> will be converted to this type.
+   * @returns An instance of the specified type.
+   */
+  exports.convertToType = function(data, type) {
+    switch (type) {
+      case 'Boolean':
+        return Boolean(data);
+      case 'Integer':
+        return parseInt(data, 10);
+      case 'Number':
+        return parseFloat(data);
+      case 'String':
+        return String(data);
+      case 'Date':
+        return this.parseDate(String(data));
+      default:
+        if (type === Object) {
+          // generic object, return directly
+          return data;
+        } else if (typeof type === 'function') {
+          // for model type like: User
+          return type.constructFromObject(data);
+        } else if (Array.isArray(type)) {
+          // for array type like: ['String']
+          var itemType = type[0];
+          return data.map(function(item) {
+            return exports.convertToType(item, itemType);
+          });
+        } else if (typeof type === 'object') {
+          // for plain object type like: {'String': 'Integer'}
+          var keyType, valueType;
+          for (var k in type) {
+            if (type.hasOwnProperty(k)) {
+              keyType = k;
+              valueType = type[k];
+              break;
+            }
+          }
+          var result = {};
+          for (var k in data) {
+            if (data.hasOwnProperty(k)) {
+              var key = exports.convertToType(k, keyType);
+              var value = exports.convertToType(data[k], valueType);
+              result[key] = value;
+            }
+          }
+          return result;
+        } else {
+          // for unknown type, return the data directly
+          return data;
+        }
+    }
+  };
+
+  /**
+   * Constructs a new map or array model from REST data.
+   * @param data {Object|Array} The REST data.
+   * @param obj {Object|Array} The target object or array.
+   */
+  exports.constructFromObject = function(data, obj, itemType) {
+    if (Array.isArray(data)) {
+      for (var i = 0; i &lt; data.length; i++) {
+        if (data.hasOwnProperty(i))
+          obj[i] = exports.convertToType(data[i], itemType);
+      }
+    } else {
+      for (var k in data) {
+        if (data.hasOwnProperty(k))
+          obj[k] = exports.convertToType(data[k], itemType);
+      }
+    }
+  };
+
+  /**
+   * Helper method to configure the OAuth accessCode/implicit flow parameters
+   * @param clientId OAuth2 client ID: Identifies the client making the request.
+   * Client applications may be scoped to a limited set of system access.
+   * @param scopes the list of requested scopes.
+   * @param redirectUri this determines where to deliver the response containing the authorization code or access token.
+   * @param responseType determines the response type of the authorization request.
+   * &lt;br>&lt;i>Note&lt;/i>: these response types are mutually exclusive for a client application.
+   * A public/native client application may only request a response type of "token";
+   * a private/trusted client application may only request a response type of "code".
+   * @param state Allows for arbitrary state that may be useful to your application.
+   * The value in this parameter will be round-tripped along with the response so you can make sure it didn't change.
+   */
+  exports.prototype.getAuthorizationUri = function(clientId, scopes, redirectUri, responseType, state) {
+    if (!clientId) throw new Error('Error clientId is required');
+    if (!scopes) throw new Error('Error scopes is required');
+    if (!scopes) throw new Error('Error scopes is required');
+    if (!this.hasNoInvalidScopes(scopes)) throw new Error('Error invalid scope detected');
+    if (!redirectUri) throw new Error('Error redirectUri is required');
+    if (!responseType) throw new Error('Error responseType is required');
+
+    var formattedScopes = scopes.join(encodeURI(' '));
+    return  "https://" +
+      this.getOAuthBasePath() +
+      "/oauth/auth"+
+      "?response_type=" + responseType +
+      "&amp;scope=" + formattedScopes +
+      "&amp;client_id="+ clientId +
+      "&amp;redirect_uri=" + encodeURIComponent(redirectUri) +
+      (state ? "&amp;state=" + state : '');
+  };
+
+  /**
+   * @param clientId OAuth2 client ID: Identifies the client making the request.
+   * Client applications may be scoped to a limited set of system access.
+   * @param clientSecret the secret key you generated when you set up the integration in DocuSign Admin console.
+   * @param code The authorization code that you received from the &lt;i>getAuthorizationUri&lt;/i> callback.
+   * @return OAuthToken object.xx
+   */
+  exports.prototype.generateAccessToken = function(clientId, clientSecret, code, callback) {
+    if (!clientId) throw new Error('Error clientId is required', null);
+    if (!clientSecret) throw new Error('Error clientSecret is required', null);
+    if (!code) throw new Error('Error code is required', null);
+
+    var clientString = clientId + ":" + clientSecret,
+      postData = {
+        "grant_type": "authorization_code",
+        code: code,
+      },
+      headers = {
+        "Authorization": "Basic " + (new Buffer(clientString).toString('base64')),
+        "Cache-Control": "no-store",
+        "Pragma": "no-cache"
+      },
+      OAuthToken = require('./OAuth').OAuthToken,
+      request = superagent.post("https://" + this.getOAuthBasePath() + "/oauth/token")
+        .send(postData)
+        .set(headers)
+        .type("application/x-www-form-urlencoded");
+
+    if (!callback) {
+      return new Promise(function (resolve, reject) {
+        request.end(function (err, res) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(OAuthToken.constructFromObject(res.body))
+          }
+        });
+      });
+    } else {
+      request.end(function (err, res) {
+        var OAuthToken;
+        if (err) {
+          return callback(err, res);
+        } else {
+          OAuthToken = require('./OAuth').OAuthToken;
+          return callback(err, OAuthToken.constructFromObject(res.body))
+        }
+      });
+    }
+  };
+
+  /**
+   * @param accessToken the bearer token to use to authenticate for this call.
+   * @return OAuth UserInfo model
+   */
+  exports.prototype.getUserInfo = function(accessToken, callback) {
+    if(!accessToken) throw new Error('Error accessToken is required',null);
+
+    var headers = {
+      "Authorization": "Bearer " + accessToken,
+      "Cache-Control": "no-store",
+      "Pragma": "no-cache"
+    }
+
+    var request = superagent.get("https://" + this.getOAuthBasePath() + "/oauth/userinfo").set(headers);
+    var UserInfo = require('./OAuth').UserInfo;
+
+    if(!callback) {
+      try {
+        return new Promise(function (resolve, reject) {
+          request.end(function (err, res) {
+            if (err) {
+              reject(err);
+            } else {
+              try {
+                resolve(UserInfo.constructFromObject(res.body));
+              } catch (error) {
+                reject(error);
+              }
+            }
+          });
+        });
+      } catch (err) {
+        console.log(err)
+        throw(err)
+      }
+    } else {
+      request.end(function (err, res) {
+        if (err) {
+          return callback(err, res);
+        } else {
+          return callback(err, UserInfo.constructFromObject(res.body));
+        }
+      });
+    }
+  };
+
+  /**
+   * Helper method to build the OAuth JWT grant uri (used once to get a user consent for impersonation)
+   * @param clientId OAuth2 client ID
+   * @param redirectURI OAuth2 redirect uri
+   * @param oAuthBasePath DocuSign OAuth base path (account-d.docusign.com for the developer sandbox
+   * 			  and account.docusign.com for the production platform)
+   * @returns {string} the OAuth JWT grant uri as a String
+   */
+  exports.prototype.getJWTUri = function(clientId, redirectURI, oAuthBasePath) {
+    return "https://" + oAuthBasePath + "/oauth/auth" + "?" +
+      "response_type=code&amp;" +
+      "client_id=" + encodeURIComponent(clientId) + "&amp;" +
+      "scope=" + encodeURIComponent("signature impersonation dtr.company.write dtr.company.read dtr.rooms.write dtr.rooms.read") + "&amp;" +
+      "redirect_uri=" + encodeURIComponent(redirectURI);
+  };
+
+  /**
+   * @deprecated since version 4.1.0
+   * Configures the current instance of ApiClient with a fresh OAuth JWT access token from DocuSign
+   * @param privateKeyFilename the filename of the RSA private key
+   * @param oAuthBasePath DocuSign OAuth base path (account-d.docusign.com for the developer sandbox
+   *   			and account.docusign.com for the production platform)
+   * @param clientId DocuSign OAuth Client Id (AKA Integrator Key)
+   * @param userId DocuSign user Id to be impersonated (This is a UUID)
+   * @param expiresIn in seconds for the token time-to-live
+   * @param callback the callback function.
+   */
+  exports.prototype.configureJWTAuthorizationFlow = function(privateKeyFilename, oAuthBasePath, clientId, userId, expiresIn, callback) {
+    console.warn('configureJWTAuthorizationFlow is a deprecated function! Please use requestJWTUserToken()')
+    var _this = this;
+    var jwt = require('jsonwebtoken')
+      , fs  = require('fs')
+      , private_key = fs.readFileSync(privateKeyFilename)
+      , now         = Math.floor(Date.now() / 1000)
+      , later       = now + expiresIn;
+
+    var jwt_payload = {
+      iss: clientId,
+      sub: userId,
+      aud: oAuthBasePath,
+      iat: now,
+      exp: later,
+      scope: "signature"
+    };
+
+    var assertion = jwt.sign(jwt_payload, private_key, {algorithm: 'RS256'});
+
+    superagent('post', 'https://' + this.getOAuthBasePath() + '/oauth/token')
+      .timeout(this.timeout)
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Cache-Control', 'no-store')
+      .set('Pragma', 'no-cache')
+      .send({
+        'assertion': assertion,
+        'grant_type': 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+      })
+      .end(function(err, res) {
+        if (callback) {
+          if (!err &amp;&amp; res.body &amp;&amp; res.body.access_token) {
+            _this.addDefaultHeader('Authorization', 'Bearer ' + res.body.access_token);
+          }
+          callback(err, res);
+        }
+      });
+  };
+
+  exports.prototype.hasNoInvalidScopes = function(scopes) {
+    var validScopes = require('./oauth/Scope');
+
+    return (
+      Array.isArray(scopes)
+      &amp;&amp; scopes.length > 0
+      &amp;&amp; scopes.every(function(scope){
+        return Object.keys(validScopes).some(function(key){
+          return validScopes[key] === scope;
+        })
+      })
+    );
+  };
+
+  exports.prototype.requestJWTUserToken = function(clientId, userId, scopes, rsaPrivateKey, expiresIn, callback) {
+    var privateKey = rsaPrivateKey,
+      assertion = generateAndSignJWTAssertion(clientId, scopes, privateKey, this.getOAuthBasePath(), expiresIn, userId);
+
+    return sendJWTTokenRequest(assertion, this.oAuthBasePath, callback);
+  };
+
+  exports.prototype.requestJWTApplicationToken = function(clientId, scopes, rsaPrivateKey, expiresIn, callback) {
+    var privateKey = rsaPrivateKey,
+      assertion = generateAndSignJWTAssertion(clientId, scopes, privateKey, this.getOAuthBasePath(), expiresIn);
+
+    return sendJWTTokenRequest(assertion, this.oAuthBasePath, callback);
+  };
+
+  exports.prototype.OAuth = require('./OAuth');
+  exports.prototype.RestApi = require('./RestApi');
+  /**
+   * The default API client implementation.
+   * @type {module:ApiClient}
+   */
+  exports.instance = new exports(optsOrCallback);
+
+  return exports;
+}));
+
+module.exports.OAuth = require('./OAuth');
+module.exports.RestApi = require('./RestApi');
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Fri Feb 10 2023 08:39:29 GMT-0800 (Pacific Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
