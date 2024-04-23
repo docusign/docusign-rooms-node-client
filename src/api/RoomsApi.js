@@ -733,7 +733,7 @@
      * @param {Number} optsOrCallback.count Number of room users to return. Defaults to the maximum which is 100. (default to 100)
      * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
      * @param {String} optsOrCallback.filter Returns room users filtered by Name and Email.
-     * @param {Object} optsOrCallback.sort Sorts results. Options are FirstNameAsc, FirstNameDesc, LastNameAsc, LastNameDesc, EmailAsc, EmailDesc. Defaults to LastNameDesc
+     * @param {module:model/String} optsOrCallback.sort Sorts results. Options are FirstNameAsc, FirstNameDesc, LastNameAsc, LastNameDesc, EmailAsc, EmailDesc. Defaults to LastNameDesc
      * @param {module:api/RoomsApi~getRoomUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoomUsersResult}
      */
@@ -806,7 +806,7 @@
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Number} optsOrCallback.count Number of rooms to return. Defaults to the maximum which is 100. (default to 100)
      * @param {Number} optsOrCallback.startPosition Position of the first item in the total results. Defaults to 0. (default to 0)
-     * @param {Object} optsOrCallback.roomStatus Status of the rooms to return. Defaults to \"Active\".
+     * @param {module:model/String} optsOrCallback.roomStatus Status of the rooms to return. Defaults to \"Active\".
      * @param {Number} optsOrCallback.officeId Only return rooms in this office.
      * @param {String} optsOrCallback.fieldDataChangedStartDate Fields data changed start datetime in UTC. Valid formats: yyyy-mm-dd hh:mm:ss or yyyy/mm/dd hh:mm:ss -Time is optional and will default to 00:00:00.
      * @param {String} optsOrCallback.fieldDataChangedEndDate Fields-data changed end DateTime in UTC. Valid formats: yyyy-mm-dd hh:mm:ss or yyyy/mm/dd hh:mm:ss -Time is optional and will default to 00:00:00.

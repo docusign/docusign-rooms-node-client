@@ -258,9 +258,9 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {String} optsOrCallback.filter Filters by name and email
-     * @param {Object} optsOrCallback.sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
+     * @param {module:model/String} optsOrCallback.sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
      * @param {Number} optsOrCallback.defaultOfficeId Default office ID
-     * @param {Object} optsOrCallback.accessLevel Valid values are 'Company', 'Region', 'Office', 'Contributor'
+     * @param {module:model/String} optsOrCallback.accessLevel Valid values are 'Company', 'Region', 'Office', 'Contributor'
      * @param {Number} optsOrCallback.titleId Only valid for classic companies
      * @param {Number} optsOrCallback.roleId Only valid for next gen companies
      * @param {Object} optsOrCallback.status Valid values are 'Active', 'Pending'
