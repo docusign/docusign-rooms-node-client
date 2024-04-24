@@ -43,7 +43,7 @@ describe('SDK Unit Tests With Callbacks:', function (done) {
     // END OF NOTE
     var fs = require('fs');
     var privateKeyFile = fs.readFileSync(path.resolve(__dirname, privateKeyFilename));
-    apiClient.requestJWTUserToken(integratorKey, userId, scopes, privateKeyFile, expiresIn, function (err, res) {
+    apiClient.requestJWTUserToken(integratorKey, userId, scopes, privateKeyFile, expiresIn, function (err, data, res) {
       if (err) {
         return done(err);
       }
@@ -87,7 +87,7 @@ describe('SDK Unit Tests With Callbacks:', function (done) {
     var fs = require('fs');
     var privateKeyFile = fs.readFileSync(path.resolve(__dirname, privateKeyFilename));
     try {
-      apiClient.requestJWTUserToken(integratorKey, userId, scopes, privateKeyFile, expiresIn, function (err, response) {
+      apiClient.requestJWTUserToken(integratorKey, userId, scopes, privateKeyFile, expiresIn, function (err, data, response) {
         if (err) {
           return done(err);
         }
@@ -103,7 +103,7 @@ describe('SDK Unit Tests With Callbacks:', function (done) {
     var fs = require('fs');
     var privateKeyFile = fs.readFileSync(path.resolve(__dirname, privateKeyFilename));
 
-    apiClient.requestJWTApplicationToken(integratorKey, scopes, privateKeyFile, expiresIn, function (err, response) {
+    apiClient.requestJWTApplicationToken(integratorKey, scopes, privateKeyFile, expiresIn, function (err, data, response) {
       if (err) {
         return done(err);
       }

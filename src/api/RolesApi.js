@@ -253,7 +253,7 @@
      * @param {String} accountId (Required) The globally unique identifier (GUID) for the account.
      * @param {Object} optsOrCallback Optional parameters, if you are passing no optional parameters, you can either pass a null or omit this parameter entirely.
      * @param {Boolean} optsOrCallback.onlyAssignable Returns assignable roles based on calling user's company permissions.               DEPRECATED: Please use filterContext parameter to get the assignable roles. AssignableRolesBasedOnCompanyPermissions returns same results as onlyAssignable=true (default to false)
-     * @param {Object} optsOrCallback.filterContext Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
+     * @param {module:model/String} optsOrCallback.filterContext Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
      * @param {String} optsOrCallback.filter A search filter that returns roles by the beginning of the role name. You can enter the beginning of the role name only to return all of the roles that begin with the text that you entered.
      * @param {Number} optsOrCallback.startPosition The starting zero-based index position of the result set. The default value is 0. (default to 0)
      * @param {Number} optsOrCallback.count The number of results to return. This value must be a number between `1` and `100` (default). (default to 100)
