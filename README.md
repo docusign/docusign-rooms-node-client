@@ -16,13 +16,13 @@ commented out
 
 
 ## Requirements
-- Node 4
+- Node 12
 - Free [Developer Account](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16531)
 - DocuSign Rooms account connected to your Developer account. [Here is how to create a Rooms developer account](https://developers.docusign.com/docs/rooms-api/rooms101/create-account)
 
 ## Compatibility
 
-- Node 4+
+- Node 12+
 
 ## Note:
 
@@ -43,12 +43,12 @@ This client has the following external dependencies:
 
 ### Minimum:
 
-- Superagent 3.8.2
+- axios 1.6.8
 
 ### Optional:
 
 - Async v2.6.2
-- Jsonwebtoken v9.0.0
+- Jsonwebtoken v8.2.0
 - Passport-oauth2
 - Path
 
