@@ -277,6 +277,16 @@
   };
 
   /**
+   * Sets default JWT authorization token for APIs.
+   */
+  exports.prototype.setJWTToken = function setJWTToken(token) {
+    if(!token){
+      throw new Error("Missing the required parameter 'token' when calling setJWTToken.");
+    }
+    defaultHeaders["Authorization"] = `Bearer ${token}`;
+  };
+
+  /**
    * Returns a string representation for an actual parameter.
    * @param param The actual parameter.
    * @returns {String} The string representation of <code>param</code>.

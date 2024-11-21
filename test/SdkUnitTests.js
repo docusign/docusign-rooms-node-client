@@ -68,7 +68,7 @@ describe('SDK Unit Tests:', function (done) {
     var privateKeyFile = fs.readFileSync(path.resolve(__dirname, privateKeyFilename));
     apiClient.requestJWTUserToken(integratorKey, userId, scopes, privateKeyFile, expiresIn)
       .then(function (res) {
-        apiClient.addDefaultHeader('Authorization', 'Bearer ' + res.body.access_token);
+        apiClient.setJWTToken(res.body.access_token);
 
         // console.log(apiClient.getUserInfo(res.body.access_token));
         apiClient.getUserInfo(res.body.access_token)
